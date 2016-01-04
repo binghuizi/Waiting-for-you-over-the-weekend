@@ -127,6 +127,8 @@
 		7A995F6E1C3A5A3600B5809C /* 98-palette.png in Resources */ = {isa = PBXBuildFile; fileRef = 7A995F001C3A5A3600B5809C /* 98-palette.png */; };
 		7A995F6F1C3A5A3600B5809C /* 99-umbrella.png in Resources */ = {isa = PBXBuildFile; fileRef = 7A995F011C3A5A3600B5809C /* 99-umbrella.png */; };
 		7A995F701C3A5A3600B5809C /* 机票.png in Resources */ = {isa = PBXBuildFile; fileRef = 7A995F021C3A5A3600B5809C /* 机票.png */; };
+		7A995F741C3A766C00B5809C /* MainTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A995F721C3A766C00B5809C /* MainTableViewCell.m */; };
+		7A995F751C3A766C00B5809C /* MainTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7A995F731C3A766C00B5809C /* MainTableViewCell.xib */; };
 		D99A7D18000DDC8F732E343E /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 1AD7D1BC365A27242FDBD7C4 /* libPods.a */; };
 /* End PBXBuildFile section */
 
@@ -258,6 +260,9 @@
 		7A995F001C3A5A3600B5809C /* 98-palette.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "98-palette.png"; sourceTree = "<group>"; };
 		7A995F011C3A5A3600B5809C /* 99-umbrella.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "99-umbrella.png"; sourceTree = "<group>"; };
 		7A995F021C3A5A3600B5809C /* 机票.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "机票.png"; sourceTree = "<group>"; };
+		7A995F711C3A766C00B5809C /* MainTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainTableViewCell.h; sourceTree = "<group>"; };
+		7A995F721C3A766C00B5809C /* MainTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainTableViewCell.m; sourceTree = "<group>"; };
+		7A995F731C3A766C00B5809C /* MainTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MainTableViewCell.xib; sourceTree = "<group>"; };
 		99521556CC7C81CA776E6289 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 		C2F6D665C4B406B8CB1CD818 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -399,6 +404,9 @@
 			isa = PBXGroup;
 			children = (
 				7A995E8E1C3A506A00B5809C /* Main.storyboard */,
+				7A995F711C3A766C00B5809C /* MainTableViewCell.h */,
+				7A995F721C3A766C00B5809C /* MainTableViewCell.m */,
+				7A995F731C3A766C00B5809C /* MainTableViewCell.xib */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -683,6 +691,7 @@
 				7A995F3D1C3A5A3600B5809C /* 49-battery.png in Resources */,
 				7A995F1A1C3A5A3600B5809C /* 13-target.png in Resources */,
 				7A995F0B1C3A5A3600B5809C /* 09-chat2.png in Resources */,
+				7A995F751C3A766C00B5809C /* MainTableViewCell.xib in Resources */,
 				7A995F0D1C3A5A3600B5809C /* 100-coffee.png in Resources */,
 				7A995F2D1C3A5A3600B5809C /* 32-iphone.png in Resources */,
 				7A995F251C3A5A3600B5809C /* 24-gift.png in Resources */,
@@ -810,6 +819,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7A995F741C3A766C00B5809C /* MainTableViewCell.m in Sources */,
 				7A450AE41C3A238E00DDDA0F /* AppDelegate.m in Sources */,
 				7A995E891C3A4E4700B5809C /* DiscoverViewController.m in Sources */,
 				7A995E8A1C3A4E4700B5809C /* MainViewController.m in Sources */,

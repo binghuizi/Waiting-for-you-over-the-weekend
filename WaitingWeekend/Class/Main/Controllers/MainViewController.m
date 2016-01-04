@@ -7,8 +7,9 @@
 //
 
 #import "MainViewController.h"
-
-@interface MainViewController ()
+#import "MainTableViewCell.h"
+@interface MainViewController ()<UITableViewDataSource,UITableViewDelegate>
+@property (weak, nonatomic) IBOutlet UITableView *tableView;
 
 @end
 
@@ -26,9 +27,30 @@
     UIBarButtonItem *rightBarButton = [[UIBarButtonItem alloc]initWithBarButtonSystemItem:UIBarButtonSystemItemSearch target:self action:@selector(rightBarAction)];
     //1.设置导航栏上的左右按钮  把leftBarButton设置为navigationItem左按钮
     self.navigationItem.rightBarButtonItem = rightBarButton;
+    self.automaticallyAdjustsScrollViewInsets = NO;
+    //注册cell
+    [self.tableView registerNib:[UINib nibWithNibName:@"MainTableViewCell" bundle:nil] forCellReuseIdentifier:@"cell"];
+    
     
     
 }
+#pragma marks 代理方法
+-(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
+    return 20;
+}
+
+-(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
+   
+    
+    MainTableViewCell *mainCell = [tableView dequeueReusableCellWithIdentifier:@"cell" forIndexPath:indexPath];
+    return mainCell;
+    
+}
+//高度
+-(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
+    return 203;
+}
+
 - (void)rightBarAction{
     
 }
