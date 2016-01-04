@@ -17,8 +17,21 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    //导航栏上按钮和文字颜色
+    self.navigationController.navigationBar.tintColor = [UIColor whiteColor];
+    //导航栏颜色
+    self.navigationController.navigationBar.barTintColor = [UIColor colorWithRed:27/255.0f green:185/255.0f blue:189/255.0f alpha:1.0];
+    
+    //导航栏上navigationItem
+    UIBarButtonItem *rightBarButton = [[UIBarButtonItem alloc]initWithBarButtonSystemItem:UIBarButtonSystemItemSearch target:self action:@selector(rightBarAction)];
+    //1.设置导航栏上的左右按钮  把leftBarButton设置为navigationItem左按钮
+    self.navigationItem.rightBarButtonItem = rightBarButton;
+    
+    
 }
-
+- (void)rightBarAction{
+    
+}
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.

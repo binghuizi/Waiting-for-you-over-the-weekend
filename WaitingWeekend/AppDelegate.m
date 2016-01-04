@@ -7,6 +7,7 @@
 //
 
 #import "AppDelegate.h"
+#import "MainViewController.h"
 
 @interface AppDelegate ()
 
@@ -18,6 +19,72 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     // Override point for customization after application launch.
+   
+    //标签控制器
+    UITabBarController *tabBarVc = [[UITabBarController alloc]init];
+    
+    //创建被tablebar管理的控制器
+   
+    //主页
+        UIStoryboard *mainStoryBoard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+    
+    UINavigationController *mainNav = mainStoryBoard.instantiateInitialViewController;
+//    mainNav.tabBarItem.image = [UIImage imageNamed:@"53-house.png"];
+    // mainNav.tabBarItem.title = @"主页";
+    mainNav.tabBarItem.image = [UIImage imageNamed:@"ft_home_normal_ic.png"];
+//按照图片原始状态显示
+    UIImage *mainSelectedImage = [UIImage imageNamed:@"ft_home_selected_ic.png"];
+
+    mainNav.tabBarItem.selectedImage = [mainSelectedImage imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
+    
+    mainNav.tabBarItem.imageInsets = UIEdgeInsetsMake(6, 0, -6, 0);
+    
+    
+    
+ //发现
+    
+    
+ UIStoryboard *discoverStoryBoard = [UIStoryboard storyboardWithName:@"Discover" bundle:nil];
+    
+    UINavigationController *discoverNav = discoverStoryBoard.instantiateInitialViewController;
+//    discoverNav.tabBarItem.image = [UIImage imageNamed:@"71-compass.png"];
+//    discoverNav.tabBarItem.title = @"发现";
+    
+    discoverNav.tabBarItem.image = [UIImage imageNamed:@"ft_found_normal_ic.png"];
+    
+//按照图片原始状态显示
+    UIImage *discoverSelectedImage = [UIImage imageNamed:@"ft_found_selected_ic.png"];
+    
+    mainNav.tabBarItem.selectedImage = [discoverSelectedImage imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
+
+    
+    
+    discoverNav.tabBarItem.imageInsets = UIEdgeInsetsMake(6, 0, -6, 0);
+ //我
+    
+    
+    UIStoryboard *mineStoryBoard = [UIStoryboard storyboardWithName:@"Mine" bundle:nil];
+    
+    UINavigationController *mineNav = mineStoryBoard.instantiateInitialViewController;
+//    mineNav.tabBarItem.image = [UIImage imageNamed:@"29-heart.png"];
+//    mineNav.tabBarItem.title = @"我的";
+   mineNav.tabBarItem.image = [UIImage imageNamed:@"ft_person_normal_ic.png"];
+    
+    mineNav.tabBarItem.imageInsets = UIEdgeInsetsMake(6, 0, -6, 0);
+  //添加标签图片
+    //点击选中时候的 显示颜色
+//    tabBarVc.tabBar.tintColor = [UIColor colorWithRed:27/255.0f green:185/255.0f blue:189/255.0f alpha:1.0];
+    
+    
+    
+    //添加被管理的控制器
+    
+    tabBarVc.viewControllers = @[mainNav ,discoverNav,mineNav];
+    
+    self.window.rootViewController = tabBarVc;
+    
+    
+    
     self.window.backgroundColor = [UIColor whiteColor];
     [self.window makeKeyAndVisible];
     return YES;
