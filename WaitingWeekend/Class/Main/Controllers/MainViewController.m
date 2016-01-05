@@ -10,6 +10,7 @@
 #import "MainTableViewCell.h"
 #import <AFNetworking/AFHTTPSessionManager.h>
 #import "MainModel.h"
+#import <SDWebImage/UIImageView+WebCache.h>
 @interface MainViewController ()<UITableViewDataSource,UITableViewDelegate>
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 @property(nonatomic,strong) NSMutableArray *listArray;//全部列表数据
@@ -17,6 +18,8 @@
 @property(nonatomic,strong) NSMutableArray *activityArray;//全部列表数据
 //推荐专题数组
 @property(nonatomic,strong) NSMutableArray *specialArray;//全部列表数据
+//广告
+@property(nonatomic,strong) NSMutableArray *idArray;
 @end
 
 @implementation MainViewController
@@ -53,8 +56,46 @@
 - (void)configTableView{
     UIView *view = [[UIView alloc]init];
         view.frame = CGRectMake(0, 0, kWideth, 343);
-    view.backgroundColor = [UIColor redColor];
-        self.tableView.tableHeaderView = view;//tableView区头
+    
+    
+    
+    
+    UIScrollView *carous = [[UIScrollView alloc]initWithFrame:CGRectMake(0, 0, kWideth, 186)];
+    //控制滑动属性
+    carous.contentSize = CGSizeMake(self.idArray.count*kWideth, 186);
+    
+    for (int i = 0; i < self.idArray.count; i++) {
+        UIImageView *imageView = [[UIImageView alloc]initWithFrame:CGRectMake(kWideth * i, 0, kWideth, 186)];
+        
+        [imageView sd_setImageWithURL:[NSURL URLWithString:self.idArray[i]] placeholderImage:nil];
+        [carous addSubview:imageView];
+        
+    }
+    
+    [self.tableView addSubview:carous];
+     self.tableView.tableHeaderView = view;//tableView区头
+    //按钮
+    for (int i = 0; i < 4; i++) {
+        UIButton *button = [UIButton buttonWithType:UIButtonTypeCustom];
+        button.frame = CGRectMake(i * kWideth / 4, 186, kWideth / 4, kWideth / 4);
+        NSString *imageStr = [NSString stringWithFormat:@"home_icon_%d",i + 1];
+        [button setImage:[UIImage imageNamed:imageStr] forState:UIControlStateNormal];
+        button.tag = i;
+        [button addTarget:self action:@selector(actionButton:) forControlEvents:UIControlEventTouchUpInside];
+        [view addSubview:button];
+    }
+    //精选
+    
+    for (int i = 0; i < 1; i++) {
+        UIButton *button = [UIButton buttonWithType:UIButtonTypeCustom];
+        button.frame = CGRectMake(i * kWideth / 4 + 10, 250 , kWideth / 4, kWideth / 4);
+        NSString *imageStr = [NSString stringWithFormat:@"home_%d",i + 1];
+        [button setImage:[UIImage imageNamed:imageStr] forState:UIControlStateNormal];
+        button.tag = 100 + i;
+        [button addTarget:self action:@selector(actionButton:) forControlEvents:UIControlEventTouchUpInside];
+        [view addSubview:button];
+    }
+    
 }
 
 
@@ -71,10 +112,11 @@
     }
     return  self.specialArray.count;
 }
-//
+//分区
 -(NSInteger)numberOfSectionsInTableView:(UITableView *)tableView{
     return self.listArray.count;
 }
+//cell
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
    
     
@@ -140,6 +182,13 @@
             
 //广告
             NSArray *adDataArray = dic[@"adData"];
+            for (NSDictionary *dic in adDataArray) {
+                [self.idArray addObject:dic[@"url"]];
+            }
+            
+            [self configTableView];
+            
+            
             
             NSString *cityname = dic[@"cityname"];
 //请求城市
@@ -173,21 +222,31 @@
     
 }
 //
-//-(CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section{
-//    if (section == 0) {
-//          return 343;
-//    }
-//    return 0;
-//}
+-(CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section{
+    
+    return 26;
+}
 //自定义分区头部
-//-(UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section{
-//    UIView *view = [[UIView alloc]init];
-//    view.frame = CGRectMake(0, 0, kWideth, 343);
-//    
-//    self.tableView.tableHeaderView = view;//tableView区头
-//    
-//    return view;
-//}
+-(UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section{
+    UIView *view = [[UIView alloc]init];
+    
+    UIImageView *sectionView = [[UIImageView alloc]init];
+    sectionView.frame = CGRectMake(kWideth/2 - 160, 5,320, 16);
+    
+    if (section == 0) {
+        
+       sectionView.image = [UIImage imageNamed:@"home_recommed_ac"];
+      
+    }else{
+        
+          sectionView.image = [UIImage imageNamed:@"home_recommd_rc"];
+    
+        }
+    [view addSubview:sectionView];
+ 
+    return view;
+    
+}
 
 
 
@@ -213,7 +272,12 @@
     return _specialArray;
 }
 
-
+-(NSMutableArray *)idArray{
+    if (_idArray == nil) {
+        self.idArray = [NSMutableArray new];
+    }
+    return _idArray;
+}
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
