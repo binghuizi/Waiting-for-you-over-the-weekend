@@ -45,35 +45,38 @@
    // self.automaticallyAdjustsScrollViewInsets = NO;
 //注册cell
     [self.tableView registerNib:[UINib nibWithNibName:@"MainTableViewCell" bundle:nil] forCellReuseIdentifier:@"cell"];
- 
+
+//自定义头部cell
     [self configTableView];
-    
-    //请求网络数据
+
+//请求网络数据
     [self requestModel];
    
 }
+#pragma mark -----自定义TableView头部
 //自定义头部
 - (void)configTableView{
-    UIView *view = [[UIView alloc]init];
-        view.frame = CGRectMake(0, 0, kWideth, 343);
+    UIView *tableHeaderView = [[UIView alloc]init];
+        tableHeaderView.frame = CGRectMake(0, 0, kWideth, 343);
     
     
     
-    
-    UIScrollView *carous = [[UIScrollView alloc]initWithFrame:CGRectMake(0, 0, kWideth, 186)];
-    //控制滑动属性
-    carous.contentSize = CGSizeMake(self.idArray.count*kWideth, 186);
+#pragma mark --------给ScrollView添加图片
+    UIScrollView *scrollView = [[UIScrollView alloc]initWithFrame:CGRectMake(0, 0, kWideth, 186)];
+//控制滑动属性
+    scrollView.contentSize = CGSizeMake(self.idArray.count*kWideth, 186);
     
     for (int i = 0; i < self.idArray.count; i++) {
         UIImageView *imageView = [[UIImageView alloc]initWithFrame:CGRectMake(kWideth * i, 0, kWideth, 186)];
         
         [imageView sd_setImageWithURL:[NSURL URLWithString:self.idArray[i]] placeholderImage:nil];
-        [carous addSubview:imageView];
+        [scrollView addSubview:imageView];
         
     }
     
-    [self.tableView addSubview:carous];
-     self.tableView.tableHeaderView = view;//tableView区头
+    [self.tableView addSubview:scrollView];
+     self.tableView.tableHeaderView = tableHeaderView;//tableView区头
+#pragma mark -----添加六个按钮
     //按钮
     for (int i = 0; i < 4; i++) {
         UIButton *button = [UIButton buttonWithType:UIButtonTypeCustom];
@@ -82,18 +85,18 @@
         [button setImage:[UIImage imageNamed:imageStr] forState:UIControlStateNormal];
         button.tag = i;
         [button addTarget:self action:@selector(actionButton:) forControlEvents:UIControlEventTouchUpInside];
-        [view addSubview:button];
+        [tableHeaderView addSubview:button];
     }
     //精选
     
-    for (int i = 0; i < 1; i++) {
+    for (int i = 0; i < 2; i++) {
         UIButton *button = [UIButton buttonWithType:UIButtonTypeCustom];
-        button.frame = CGRectMake(i * kWideth / 4 + 10, 250 , kWideth / 4, kWideth / 4);
+        button.frame = CGRectMake(i * kWideth / 2 , 260 , kWideth / 2, kWideth / 4);
         NSString *imageStr = [NSString stringWithFormat:@"home_%d",i + 1];
         [button setImage:[UIImage imageNamed:imageStr] forState:UIControlStateNormal];
         button.tag = 100 + i;
         [button addTarget:self action:@selector(actionButton:) forControlEvents:UIControlEventTouchUpInside];
-        [view addSubview:button];
+        [tableHeaderView addSubview:button];
     }
     
 }
@@ -104,7 +107,7 @@
 
 
 
-#pragma marks 代理方法
+#pragma marks 实现代理方法
 //行
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
     if (section == 0) {
@@ -127,7 +130,7 @@
     
     return mainCell;
 }
-//高度
+#pragma mark -----每行高度
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
     return 203;
 }
@@ -139,6 +142,7 @@
 - (void)rightBarAction{
     
 }
+#pragma mark ------网络请求解析 获得数据
 -(void)requestModel{
    NSString *str = @"http://e.kumi.cn/app/v1.3/index.php?_s_=02a411494fa910f5177d82a6b0a63788&_t_=1451307342&channelid=appstore&cityid=1&lat=34.62172291944134&limit=30&lng=112.4149512442411&page=1";
     
@@ -151,11 +155,12 @@
         NSLog(@"%@",downloadProgress);
     } success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
         NSLog(@"%@",responseObject);//json数据
-       
-        NSDictionary *resultDic = responseObject;
         
+#pragma mark -----获取数据传值到model里面
+        NSDictionary *resultDic = responseObject;
         NSString *status = resultDic[@"status"];
         NSInteger code = [resultDic[@"code"]integerValue];
+      
         if ([status isEqualToString:@"success"] && code == 0) {
             
             NSDictionary *dic = resultDic[@"success"];
@@ -167,16 +172,15 @@
             }
             [self.listArray addObject:self.activityArray];
             
- //推荐专题
+//推荐专题
             NSArray *rcDataArray = dic[@"rcData"];
-            
             for (NSDictionary *rc in rcDataArray) {
                 MainModel *model = [[MainModel alloc]initWithDictionary:rc];
                 [self.specialArray addObject:model];
                 
             }
             [self.listArray addObject:self.specialArray];
-    //刷新数据
+//刷新数据
             [self.tableView reloadData];
             
             
@@ -185,14 +189,13 @@
             for (NSDictionary *dic in adDataArray) {
                 [self.idArray addObject:dic[@"url"]];
             }
-            
+//刷新数据 重新加载该方法configTableView
             [self configTableView];
             
             
-            
-            NSString *cityname = dic[@"cityname"];
 //请求城市
-            self.navigationItem.backBarButtonItem.title = cityname;
+            NSString *cityname = dic[@"cityname"];
+            self.navigationItem.leftBarButtonItem.title = cityname;
             
         }else{
             
