@@ -7,6 +7,7 @@
 //
 
 #import "MainTableViewCell.h"
+#import <SDWebImage/UIImageView+WebCache.h>
 @interface MainTableViewCell ()
 @property (weak, nonatomic) IBOutlet UIImageView *ActivityImageView;
 @property (weak, nonatomic) IBOutlet UILabel *activityNameLabel;
@@ -25,5 +26,11 @@
 
     // Configure the view for the selected state
 }
-
+//赋值
+-(void)setMainModel:(MainModel *)mainModel{
+    [self.ActivityImageView sd_setImageWithURL:[NSURL URLWithString:mainModel.image_big ] placeholderImage:nil];
+    
+    self.activityNameLabel.text = mainModel.title;
+    self.activityPriceLabel.text = mainModel.price;
+}
 @end

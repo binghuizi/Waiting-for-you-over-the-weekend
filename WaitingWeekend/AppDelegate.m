@@ -71,6 +71,13 @@
    mineNav.tabBarItem.image = [UIImage imageNamed:@"ft_person_normal_ic.png"];
     
     mineNav.tabBarItem.imageInsets = UIEdgeInsetsMake(6, 0, -6, 0);
+    
+//按照图片原始状态显示
+    UIImage *mineSelectedImage = [UIImage imageNamed:@"ft_person_selected_ic.png"];
+    
+    mineNav.tabBarItem.selectedImage = [mineSelectedImage imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
+    
+    mineNav.tabBarItem.imageInsets = UIEdgeInsetsMake(6, 0, -6, 0);
   //添加标签图片
     //点击选中时候的 显示颜色
 //    tabBarVc.tabBar.tintColor = [UIColor colorWithRed:27/255.0f green:185/255.0f blue:189/255.0f alpha:1.0];
