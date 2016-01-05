@@ -19,7 +19,7 @@
 //推荐专题数组
 @property(nonatomic,strong) NSMutableArray *specialArray;//全部列表数据
 //广告
-@property(nonatomic,strong) NSMutableArray *idArray;
+@property(nonatomic,strong) NSMutableArray *adArray;
 @end
 
 @implementation MainViewController
@@ -64,12 +64,12 @@
 #pragma mark --------给ScrollView添加图片
     UIScrollView *scrollView = [[UIScrollView alloc]initWithFrame:CGRectMake(0, 0, kWideth, 186)];
 //控制滑动属性
-    scrollView.contentSize = CGSizeMake(self.idArray.count*kWideth, 186);
+    scrollView.contentSize = CGSizeMake(self.adArray.count*kWideth, 186);
     
-    for (int i = 0; i < self.idArray.count; i++) {
+    for (int i = 0; i < self.adArray.count; i++) {
         UIImageView *imageView = [[UIImageView alloc]initWithFrame:CGRectMake(kWideth * i, 0, kWideth, 186)];
         
-        [imageView sd_setImageWithURL:[NSURL URLWithString:self.idArray[i]] placeholderImage:nil];
+        [imageView sd_setImageWithURL:[NSURL URLWithString:self.adArray[i]] placeholderImage:nil];
         [scrollView addSubview:imageView];
         
     }
@@ -83,7 +83,7 @@
         button.frame = CGRectMake(i * kWideth / 4, 186, kWideth / 4, kWideth / 4);
         NSString *imageStr = [NSString stringWithFormat:@"home_icon_%d",i + 1];
         [button setImage:[UIImage imageNamed:imageStr] forState:UIControlStateNormal];
-        button.tag = i;
+        button.tag = i + 1;
         [button addTarget:self action:@selector(actionButton:) forControlEvents:UIControlEventTouchUpInside];
         [tableHeaderView addSubview:button];
     }
@@ -94,7 +94,7 @@
         button.frame = CGRectMake(i * kWideth / 2 , 260 , kWideth / 2, kWideth / 4);
         NSString *imageStr = [NSString stringWithFormat:@"home_%d",i + 1];
         [button setImage:[UIImage imageNamed:imageStr] forState:UIControlStateNormal];
-        button.tag = 100 + i;
+        button.tag = 101 + i;
         [button addTarget:self action:@selector(actionButton:) forControlEvents:UIControlEventTouchUpInside];
         [tableHeaderView addSubview:button];
     }
@@ -183,16 +183,14 @@
 //刷新数据
             [self.tableView reloadData];
             
-            
 //广告
             NSArray *adDataArray = dic[@"adData"];
             for (NSDictionary *dic in adDataArray) {
-                [self.idArray addObject:dic[@"url"]];
+                [self.adArray addObject:dic[@"url"]];
             }
 //刷新数据 重新加载该方法configTableView
             [self configTableView];
-            
-            
+
 //请求城市
             NSString *cityname = dic[@"cityname"];
             self.navigationItem.leftBarButtonItem.title = cityname;
@@ -209,27 +207,13 @@
     }];
     
     
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
 }
-//
+#pragma mark -----分区标题高度
 -(CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section{
     
     return 26;
 }
-//自定义分区头部
+#pragma mark ------自定义分区头部view
 -(UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section{
     UIView *view = [[UIView alloc]init];
     
@@ -250,11 +234,24 @@
     return view;
     
 }
+#pragma mark ---- 点击图片按钮   
+-(void)actionButton:(UIButton *)btn{
+    if (btn.tag == 1) {
+        
+    }else if (btn.tag == 2){
+        
+    }else if (btn.tag == 3){
+        
+    }else if (btn.tag == 4){
+        
+    }else if (btn.tag == 101){
+        
+    }else if (btn.tag == 102){
+        
+    }
+}
 
-
-
-
-//懒加载
+#pragma mark -----懒加载listArray   activityArray  specialArray
 -(NSMutableArray *)listArray{
     if (_listArray == nil) {
         self.listArray = [NSMutableArray new];
@@ -275,11 +272,11 @@
     return _specialArray;
 }
 
--(NSMutableArray *)idArray{
-    if (_idArray == nil) {
-        self.idArray = [NSMutableArray new];
+-(NSMutableArray *)adArray{
+    if (_adArray == nil) {
+        self.adArray = [NSMutableArray new];
     }
-    return _idArray;
+    return _adArray;
 }
 
 - (void)didReceiveMemoryWarning {
