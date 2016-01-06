@@ -18,6 +18,8 @@
 		7A450AE41C3A238E00DDDA0F /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A450AE31C3A238E00DDDA0F /* AppDelegate.m */; };
 		7A450AE61C3A238E00DDDA0F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7A450AE51C3A238E00DDDA0F /* Assets.xcassets */; };
 		7A450AE91C3A238E00DDDA0F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7A450AE71C3A238E00DDDA0F /* LaunchScreen.storyboard */; };
+		7A7CB2F01C3D1B3D00E47166 /* activityDetaill.plist in Resources */ = {isa = PBXBuildFile; fileRef = 7A7CB2EF1C3D1B3C00E47166 /* activityDetaill.plist */; };
+		7A7CB2F61C3D208300E47166 /* UIViewController+Common.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A7CB2F51C3D208300E47166 /* UIViewController+Common.m */; };
 		7A98C70E1C3BA0740079DEB9 /* MainModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A98C70D1C3BA0740079DEB9 /* MainModel.m */; };
 		7A98C7101C3BB7CC0079DEB9 /* wenkend1.plist in Resources */ = {isa = PBXBuildFile; fileRef = 7A98C70F1C3BB7CC0079DEB9 /* wenkend1.plist */; };
 		7A995E891C3A4E4700B5809C /* DiscoverViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A995E7A1C3A4E4700B5809C /* DiscoverViewController.m */; };
@@ -166,6 +168,9 @@
 		7A450AE51C3A238E00DDDA0F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		7A450AE81C3A238E00DDDA0F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		7A450AEA1C3A238E00DDDA0F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		7A7CB2EF1C3D1B3C00E47166 /* activityDetaill.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = activityDetaill.plist; sourceTree = "<group>"; };
+		7A7CB2F41C3D208300E47166 /* UIViewController+Common.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+Common.h"; sourceTree = "<group>"; };
+		7A7CB2F51C3D208300E47166 /* UIViewController+Common.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+Common.m"; sourceTree = "<group>"; };
 		7A98C70C1C3BA0740079DEB9 /* MainModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainModel.h; sourceTree = "<group>"; };
 		7A98C70D1C3BA0740079DEB9 /* MainModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainModel.m; sourceTree = "<group>"; };
 		7A98C70F1C3BB7CC0079DEB9 /* wenkend1.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist; name = wenkend1.plist; path = ../../../../wenkend1.plist; sourceTree = "<group>"; };
@@ -329,6 +334,8 @@
 			children = (
 				7A3835A61C3CAE56000CA4C9 /* wenkd.pch */,
 				7A3835A71C3CB318000CA4C9 /* HWDefine.h */,
+				7A7CB2F41C3D208300E47166 /* UIViewController+Common.h */,
+				7A7CB2F51C3D208300E47166 /* UIViewController+Common.m */,
 			);
 			path = toos;
 			sourceTree = "<group>";
@@ -458,6 +465,7 @@
 				7A98C70F1C3BB7CC0079DEB9 /* wenkend1.plist */,
 				7A98C70C1C3BA0740079DEB9 /* MainModel.h */,
 				7A98C70D1C3BA0740079DEB9 /* MainModel.m */,
+				7A7CB2EF1C3D1B3C00E47166 /* activityDetaill.plist */,
 			);
 			path = Modes;
 			sourceTree = "<group>";
@@ -717,6 +725,7 @@
 				7A995F4A1C3A5A3600B5809C /* 62-contrast.png in Resources */,
 				7A995F4B1C3A5A3600B5809C /* 63-runner.png in Resources */,
 				7A995F461C3A5A3600B5809C /* 58-bookmark.png in Resources */,
+				7A7CB2F01C3D1B3D00E47166 /* activityDetaill.plist in Resources */,
 				7A995F161C3A5A3600B5809C /* 109-chicken.png in Resources */,
 				7A995F5A1C3A5A3600B5809C /* 78-stopwatch.png in Resources */,
 				7A995F691C3A5A3600B5809C /* 93-thermometer.png in Resources */,
@@ -888,6 +897,7 @@
 				7A3835B01C3CBE29000CA4C9 /* SelectViewController.m in Sources */,
 				7A3835B91C3CBFE4000CA4C9 /* ClassityViewController.m in Sources */,
 				7A3835B31C3CBE72000CA4C9 /* ActivityDetailViewController.m in Sources */,
+				7A7CB2F61C3D208300E47166 /* UIViewController+Common.m in Sources */,
 				7A98C70E1C3BA0740079DEB9 /* MainModel.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

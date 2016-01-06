@@ -22,6 +22,7 @@
 #endif
 
 #import "HWDefine.h"
+
 #define kWideth  [UIScreen mainScreen].bounds.size.width
 
 
