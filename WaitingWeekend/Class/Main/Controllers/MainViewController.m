@@ -5,19 +5,26 @@
 //  Created by scjy on 16/1/4.
 //  Copyright © 2016年 scjy. All rights reserved.
 //
-#define kWideth  [UIScreen mainScreen].bounds.size.width
+
 #import "MainViewController.h"
 #import "MainTableViewCell.h"
 #import <AFNetworking/AFHTTPSessionManager.h>
 #import "MainModel.h"
 #import <SDWebImage/UIImageView+WebCache.h>
+#import "SelectViewController.h"
+#import "SearchViewController.h"
+#import "ActivityDetailViewController.h"
+#import "ThemViewController.h"
+#import "ClassityViewController.h"
+#import "GoodViewController.h"
+#import "HotActivityViewController.h"
 @interface MainViewController ()<UITableViewDataSource,UITableViewDelegate>
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 @property(nonatomic,strong) NSMutableArray *listArray;//全部列表数据
 //推荐活动数组
-@property(nonatomic,strong) NSMutableArray *activityArray;//全部列表数据
+@property(nonatomic,strong) NSMutableArray *activityArray;
 //推荐专题数组
-@property(nonatomic,strong) NSMutableArray *specialArray;//全部列表数据
+@property(nonatomic,strong) NSMutableArray *specialArray;
 //广告
 @property(nonatomic,strong) NSMutableArray *adArray;
 @end
@@ -128,7 +135,20 @@
     NSMutableArray *array = self.listArray[indexPath.section];
     mainCell.mainModel = array[indexPath.row];
     
+    
     return mainCell;
+}
+-(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+    if (indexPath.section == 0) {
+        ActivityDetailViewController *active = [[ActivityDetailViewController alloc]init];
+        [self.navigationController pushViewController:active animated:YES];
+        
+    }else{
+        ThemViewController *themVc = [[ThemViewController alloc]init];
+        [self.navigationController pushViewController:themVc animated:YES];
+    }
+    
+    
 }
 #pragma mark -----每行高度
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
@@ -136,15 +156,20 @@
 }
 //左按钮选择城市
 -(void)selectCityAction:(UIBarButtonItem *)bar{
+    SelectViewController *selectCity = [[SelectViewController alloc]init];
+    
+    
+    [self.navigationController presentViewController:selectCity animated:YES completion:nil];
     
 }
 //右按钮查找
 - (void)rightBarAction{
-    
+    SearchViewController *search = [[SearchViewController alloc]init];
+    [self.navigationController pushViewController:search animated:YES];
 }
 #pragma mark ------网络请求解析 获得数据
 -(void)requestModel{
-   NSString *str = @"http://e.kumi.cn/app/v1.3/index.php?_s_=02a411494fa910f5177d82a6b0a63788&_t_=1451307342&channelid=appstore&cityid=1&lat=34.62172291944134&limit=30&lng=112.4149512442411&page=1";
+   NSString *str = kMainDataInterList;
     
     AFHTTPSessionManager *sessionManager = [AFHTTPSessionManager manager];
    
@@ -152,10 +177,10 @@
     
     
     [sessionManager GET:str parameters:nil progress:^(NSProgress * _Nonnull downloadProgress) {
-        NSLog(@"%@",downloadProgress);
+        ZJHLog(@"%@",downloadProgress);
     } success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
-        NSLog(@"%@",responseObject);//json数据
-        
+      //  ZJHLog(@"%@",responseObject);//json数据
+     
 #pragma mark -----获取数据传值到model里面
         NSDictionary *resultDic = responseObject;
         NSString *status = resultDic[@"status"];
@@ -203,7 +228,7 @@
         
         
     } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
-        NSLog(@"%@",error);
+        ZJHLog(@"%@",error);
     }];
     
     
@@ -236,18 +261,26 @@
 }
 #pragma mark ---- 点击图片按钮   
 -(void)actionButton:(UIButton *)btn{
+//分类列表
     if (btn.tag == 1) {
+    
+        
+        
+        
         
     }else if (btn.tag == 2){
         
     }else if (btn.tag == 3){
         
     }else if (btn.tag == 4){
-        
+//精选活动
     }else if (btn.tag == 101){
-        
+        GoodViewController *gooVc = [[GoodViewController alloc]init];
+        [self.navigationController pushViewController:gooVc animated:YES];
+//热门专题
     }else if (btn.tag == 102){
-        
+        HotActivityViewController *hotVc =[[HotActivityViewController alloc]init];
+        [self.navigationController pushViewController:hotVc animated:YES];
     }
 }
 

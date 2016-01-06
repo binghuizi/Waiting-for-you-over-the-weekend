@@ -30,9 +30,12 @@
                         <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kSR-kI-fKj">
-                        <rect key="frame" x="307" y="172" width="53" height="30"/>
-                        <state key="normal" title="Button"/>
+                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="right" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kSR-kI-fKj">
+                        <rect key="frame" x="294" y="177" width="81" height="22"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                        <state key="normal" title="  6888km" image="pos">
+                            <color key="titleColor" red="0.71714920343137245" green="0.71714920343137245" blue="0.71714920343137245" alpha="1" colorSpace="calibratedRGB"/>
+                        </state>
                     </button>
                 </subviews>
             </tableViewCellContentView>
@@ -45,4 +48,7 @@
             <point key="canvasLocation" x="441.5" y="269.5"/>
         </tableViewCell>
     </objects>
+    <resources>
+        <image name="pos" width="12" height="15"/>
+    </resources>
 </document>

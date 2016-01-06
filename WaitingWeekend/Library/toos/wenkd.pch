@@ -1,0 +1,33 @@
+//
+//  wenkd.pch
+//  WaitingWeekend
+//
+//  Created by scjy on 16/1/6.
+//  Copyright © 2016年 scjy. All rights reserved.
+//Users/scjy/Desktop/UI---阶段/A段项目/WaitingWeekend/WaitingWeekend/Library/toos/wenkd.pch
+
+#ifndef wenkd_pch
+#define wenkd_pch
+
+// Include any system framework and library headers here that should be included in all compilation units.
+// You will also need to set the Prefix Header build setting of one or more of your targets to reference this file.
+
+#endif /* wenkd_pch */
+
+
+#ifdef DEBUG
+#	define ZJHLog(fmt, ...) NSLog((@"%s [Line %d] " fmt), __PRETTY_FUNCTION__, __LINE__, ##__VA_ARGS__);
+#else
+#	define ZJHLog(...)
+#endif
+
+#import "HWDefine.h"
+#define kWideth  [UIScreen mainScreen].bounds.size.width
+
+
+
+
+
+
+
+

@@ -8,6 +8,11 @@
 
 #import "MainTableViewCell.h"
 #import <SDWebImage/UIImageView+WebCache.h>
+typedef enum {
+    RecommendTypeActivity = 1,//推荐活动
+    RecommendTypethem//推荐专题
+    
+}RecommendType;
 @interface MainTableViewCell ()
 @property (weak, nonatomic) IBOutlet UIImageView *ActivityImageView;
 @property (weak, nonatomic) IBOutlet UILabel *activityNameLabel;
@@ -32,5 +37,15 @@
     
     self.activityNameLabel.text = mainModel.title;
     self.activityPriceLabel.text = mainModel.price;
+    
+    if ([mainModel.type integerValue] != RecommendTypeActivity) {
+        self.activityDistanceBtn.hidden = YES;
+    }else{
+            self.activityDistanceBtn.hidden = NO;
+    }
+    
+    
+    
+    
 }
 @end
