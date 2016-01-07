@@ -364,7 +364,15 @@
     //数组字典取出type类型
     NSString *type = self.adArray[btn.tag - 200][@"type"];
     if ([type integerValue] == 1) {
-        ActivityDetailViewController *actiVc = [[ActivityDetailViewController alloc]init];
+        UIStoryboard *stoyBoard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+        
+        
+        ActivityDetailViewController *actiVc = [stoyBoard instantiateViewControllerWithIdentifier:@"activity" ];
+        
+        
+        
+        
+        
         actiVc.activityId = self.adArray[btn.tag - 200][@"id"];
        
         [self.navigationController pushViewController:actiVc animated:YES];

@@ -9,7 +9,15 @@
 #import "ActivityDetailViewController.h"
 #import <AFNetworking/AFHTTPSessionManager.h>
 #import <MBProgressHUD.h>
+#import "ActivityDetailView.h"
 @interface ActivityDetailViewController ()
+
+@property (strong, nonatomic) IBOutlet ActivityDetailView *activityDataView;
+@property (weak, nonatomic) IBOutlet UIButton *addressButton;
+
+@property (weak, nonatomic) IBOutlet UIButton *phoneButton;
+@property(nonatomic,retain) NSString *phoneNumber;
+
 
 @end
 
@@ -19,9 +27,12 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     self.navigationItem.title = @"活动详情";
+    //去地图界面
+    [self .addressButton addTarget:self action:@selector(addressTouchAction:) forControlEvents:UIControlEventTouchUpInside];
+    [self .phoneButton addTarget:self action:@selector(phoneTouchAction:) forControlEvents:UIControlEventTouchUpInside];
     
     [self showBackButton];
-   // [self getModel];
+    [self getModel];
 }
 #pragma mark ---数据
 - (void)getModel{
@@ -29,17 +40,25 @@
     AFHTTPSessionManager *sessionManager = [[AFHTTPSessionManager alloc]init];
      sessionManager.responseSerializer.acceptableContentTypes = [NSSet setWithObject:@"text/html"];
    
-    [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+   // [MBProgressHUD showHUDAddedTo:self.view animated:YES];
     
-    
-    
-    [sessionManager GET:[NSString stringWithFormat:@"%@&id=%@",kActivityDetail,self.activityId] parameters:nil progress:^(NSProgress * _Nonnull downloadProgress) {
-        [MBProgressHUD hideAllHUDsForView:self.view animated:YES];
+        [sessionManager GET:[NSString stringWithFormat:@"%@&id=%@",kActivityDetail,self.activityId] parameters:nil progress:^(NSProgress * _Nonnull downloadProgress) {
+      //  [MBProgressHUD hideAllHUDsForView:self.view animated:YES];
         ZJHLog(@"%@",downloadProgress);
     } success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
-       // NSLog(@"%@",responseObject);
+      // NSLog(@"%@",responseObject);
+       // [MBProgressHUD hideAllHUDsForView:self.view animated:YES];
         
-        [MBProgressHUD hideAllHUDsForView:self.view animated:YES];
+        NSDictionary *dic = responseObject;
+        NSString *status = dic[@"status"] ;
+        NSInteger code = [dic[@"code"] intValue];
+        if ([status isEqualToString:@"success"] && code == 0) {
+            NSDictionary *successDic = dic[@"success"];
+            self.activityDataView.dataDic = successDic;
+            
+        }else{
+            
+        }
         
     } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
         [MBProgressHUD hideAllHUDsForView:self.view animated:YES];
@@ -49,6 +68,26 @@
     
 }
 
+//电话
+- (void)phoneTouchAction:(UIButton *)btn{
+    //程序外打电话。打完电话之后不返回当前应用
+    
+    [[UIApplication sharedApplication] openURL:[NSURL URLWithString:[NSString stringWithFormat:@"tel://%@",self.phoneNumber]]];
+    
+    //程序内打电话。打完电话之后还返回当前应用
+    
+    UIWebView *call=[[UIWebView alloc]init];
+    
+    NSURLRequest *request=[NSURLRequest requestWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"tel://%@",self.phoneNumber]]];
+    
+    
+    [call loadRequest:request];
+}
+//地址
+- (void)addressTouchAction:(UIButton *)btn{
+    
+    
+}
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.

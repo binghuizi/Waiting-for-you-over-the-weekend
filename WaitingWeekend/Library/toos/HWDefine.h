@@ -16,6 +16,7 @@
 //引入类目
 #import "UIViewController+Common.h"
 
+#import "HWTools.h"
 
 #endif /* HWDefine_h */
 

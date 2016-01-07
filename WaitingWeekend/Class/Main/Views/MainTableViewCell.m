@@ -44,8 +44,14 @@ typedef enum {
             self.activityDistanceBtn.hidden = NO;
     }
     
-    
-    
-    
 }
+
+
+
+
+
+
+
+
+
 @end
