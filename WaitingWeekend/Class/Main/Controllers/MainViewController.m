@@ -239,8 +239,16 @@
 }
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     if (indexPath.section == 0) {
-        ActivityDetailViewController *active = [[ActivityDetailViewController alloc]init];
-        [self.navigationController pushViewController:active animated:YES];
+        UIStoryboard *mainStoryBoard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+        
+        ActivityDetailViewController *activeVc = [mainStoryBoard instantiateViewControllerWithIdentifier:@"activity"];
+        //活动id
+        MainModel *mainModel = self.listArray[indexPath.section][indexPath.row];
+        activeVc.activityId = mainModel.activityId;
+        NSLog(@"%@",mainModel.activityId);
+        [self.navigationController pushViewController:activeVc animated:YES];
+        
+        
         
     }else{
         ThemViewController *themVc = [[ThemViewController alloc]init];
@@ -369,10 +377,7 @@
         
         ActivityDetailViewController *actiVc = [stoyBoard instantiateViewControllerWithIdentifier:@"activity" ];
         
-        
-        
-        
-        
+                
         actiVc.activityId = self.adArray[btn.tag - 200][@"id"];
        
         [self.navigationController pushViewController:actiVc animated:YES];

@@ -33,7 +33,7 @@ typedef enum {
         
         }
         self.image_big  = dict[@"image_big"];
-        self.activityId = dict[@"activityId"];
+        self.activityId = dict[@"id"];
        self.title       = dict[@"title"];
        
         

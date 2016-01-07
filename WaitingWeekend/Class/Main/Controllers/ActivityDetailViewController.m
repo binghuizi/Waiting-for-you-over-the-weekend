@@ -10,7 +10,9 @@
 #import <AFNetworking/AFHTTPSessionManager.h>
 #import <MBProgressHUD.h>
 #import "ActivityDetailView.h"
-@interface ActivityDetailViewController ()
+@interface ActivityDetailViewController (){
+    NSString *reminder;
+}
 
 @property (strong, nonatomic) IBOutlet ActivityDetailView *activityDataView;
 @property (weak, nonatomic) IBOutlet UIButton *addressButton;
@@ -55,6 +57,7 @@
         if ([status isEqualToString:@"success"] && code == 0) {
             NSDictionary *successDic = dic[@"success"];
             self.activityDataView.dataDic = successDic;
+            _phoneNumber = dic[@"tel"];
             
         }else{
             

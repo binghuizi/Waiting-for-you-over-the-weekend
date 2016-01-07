@@ -15,6 +15,9 @@
 #define kActivityDetail @"http://e.kumi.cn/app/articleinfo.php?_s_=6055add057b829033bb586a3e00c5e9a&_t_=1452071715&channelid=appstore&cityid=1&lat=34.61356779156581&lng=112.4141403843618"
 //引入类目
 #import "UIViewController+Common.h"
+#import "UIView+Extension.h"
+#import <UIKit/UIKit.h>
+
 
 #import "HWTools.h"
 

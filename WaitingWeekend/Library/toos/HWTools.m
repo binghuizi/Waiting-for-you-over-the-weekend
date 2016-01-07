@@ -27,4 +27,9 @@
     
                       
 }
++(CGFloat )getTextHeightWithText:(NSString *)text   Bigsize:(CGSize)bigSize textFont:(CGFloat)font{
+    
+    CGRect textRect = [text boundingRectWithSize:bigSize options:NSStringDrawingUsesLineFragmentOrigin attributes:@{NSFontAttributeName:[UIFont systemFontOfSize:font]} context:nil];
+    return textRect.size.height;
+}
 @end

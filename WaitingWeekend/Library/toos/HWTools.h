@@ -13,6 +13,7 @@
 
 +(NSString *)getDateFromString:(NSString *)timestamp;
 
-
+#pragma mark --- 根据文字  最大显示 返回高度
++(CGFloat )getTextHeightWithText:(NSString *)text    Bigsize:(CGSize)bigSize textFont:(CGFloat)font;
 
 @end
