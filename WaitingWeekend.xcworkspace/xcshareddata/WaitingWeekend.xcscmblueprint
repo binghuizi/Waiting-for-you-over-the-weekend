@@ -5,17 +5,24 @@
   },
   "DVTSourceControlWorkspaceBlueprintWorkingCopyStatesKey" : {
     "7D9791156A6E93EDA5456CC7EB64496B8E19070A" : 0,
+    "6CB463215409B8F9B92D57A811B5EFBFFE8BE632" : 0,
     "90DD45DB9C7EEC4BFE121B33E03AC8C069C9B069" : 0
   },
   "DVTSourceControlWorkspaceBlueprintIdentifierKey" : "E49B59D6-02CE-40F2-96EE-31225D30EDA0",
   "DVTSourceControlWorkspaceBlueprintWorkingCopyPathsKey" : {
     "7D9791156A6E93EDA5456CC7EB64496B8E19070A" : "Weekend\/",
+    "6CB463215409B8F9B92D57A811B5EFBFFE8BE632" : "WaitingWeekend\/WaitingWeekend\/Library\/PullingRefreshTableView\/",
     "90DD45DB9C7EEC4BFE121B33E03AC8C069C9B069" : "WaitingWeekend\/"
   },
   "DVTSourceControlWorkspaceBlueprintNameKey" : "WaitingWeekend",
   "DVTSourceControlWorkspaceBlueprintVersion" : 204,
   "DVTSourceControlWorkspaceBlueprintRelativePathToProjectKey" : "WaitingWeekend.xcworkspace",
   "DVTSourceControlWorkspaceBlueprintRemoteRepositoriesKey" : [
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "github.com:Zhangmangyuan\/PullingRefreshTableView.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "6CB463215409B8F9B92D57A811B5EFBFFE8BE632"
+    },
     {
       "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "github.com:binghuizi\/-.git",
       "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",

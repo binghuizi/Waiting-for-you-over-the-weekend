@@ -8,6 +8,7 @@
 
 #import "ActivityDetailView.h"
 #import <SDWebImage/UIImageView+WebCache.h>
+#import "AppDelegate.h"
 @interface ActivityDetailView (){
     CGFloat _previousImageBottom;//保存上一次图片底部的的高度
     //上张图片的高度
@@ -57,7 +58,7 @@
  //收藏
     self.favouriteLabel.text = [NSString stringWithFormat:@"%@人喜欢",dataDic[@"fav"]];
     NSString *pariceString = [NSString stringWithFormat:@"价格参考：%@",dataDic[@"pricedesc"]];
-//
+//价格
     self.activityPriceLabel.text =pariceString;
 //地址
     self.addressLabel.text = dataDic[@"address"];
@@ -69,11 +70,11 @@
 //温馨提示
     CGFloat height = [HWTools getTextHeightWithText:dataDic[@"reminder"] Bigsize:CGSizeMake(kWideth, 1000) textFont:15.0];
     
-    self.mainScrollView.contentSize = CGSizeMake(kWideth, _lastLabelBottom + height + 20);
+    
 
     UILabel *tishiLabel = [[UILabel alloc]initWithFrame:CGRectMake(0, _lastLabelBottom -110 , kWideth, height)];
 
-   tishiLabel.text = @"温馨提示";
+   tishiLabel.text = @"温馨提示：";
     tishiLabel.textColor = [UIColor redColor];
     tishiLabel.font = [UIFont systemFontOfSize:15.0];
     [self.mainScrollView addSubview:tishiLabel];
@@ -86,7 +87,7 @@
     
     [self.mainScrollView addSubview:reminderLabel];
 
-
+self.mainScrollView.contentSize = CGSizeMake(kWideth, _lastLabelBottom + height + 20);
 
 }
 //活动详情
@@ -114,7 +115,7 @@
         label.numberOfLines = 0;
         [self.mainScrollView addSubview:label];
         
-            _lastLabelBottom = label.bottom + 10 + 64;
+            _lastLabelBottom = label.bottom + 20;
             
             
         NSArray *urlArray = dic[@"urls"];

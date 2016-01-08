@@ -21,7 +21,7 @@
     // Override point for customization after application launch.
    
     //标签控制器
-    UITabBarController *tabBarVc = [[UITabBarController alloc]init];
+   self.tabBarVc = [[UITabBarController alloc]init];
     
     //创建被tablebar管理的控制器
    
@@ -86,9 +86,9 @@
     
     //添加被管理的控制器
     
-    tabBarVc.viewControllers = @[mainNav ,discoverNav,mineNav];
+    self.tabBarVc.viewControllers = @[mainNav ,discoverNav,mineNav];
     
-    self.window.rootViewController = tabBarVc;
+    self.window.rootViewController = self.tabBarVc;
     
     
     

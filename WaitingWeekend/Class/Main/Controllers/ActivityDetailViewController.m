@@ -1,7 +1,7 @@
 //
 //  ActivityDetailViewController.m
 //  WaitingWeekend
-//
+// 活动详情
 //  Created by scjy on 16/1/6.
 //  Copyright © 2016年 scjy. All rights reserved.
 //
@@ -29,9 +29,14 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     self.navigationItem.title = @"活动详情";
-    //去地图界面
+      self.tabBarController.tabBar.hidden = YES;//隐藏tabar；
+//去地图界面
     [self .addressButton addTarget:self action:@selector(addressTouchAction:) forControlEvents:UIControlEventTouchUpInside];
+//电话界面
     [self .phoneButton addTarget:self action:@selector(phoneTouchAction:) forControlEvents:UIControlEventTouchUpInside];
+    
+  
+    
     
     [self showBackButton];
     [self getModel];
@@ -45,7 +50,8 @@
    // [MBProgressHUD showHUDAddedTo:self.view animated:YES];
     
         [sessionManager GET:[NSString stringWithFormat:@"%@&id=%@",kActivityDetail,self.activityId] parameters:nil progress:^(NSProgress * _Nonnull downloadProgress) {
-      //  [MBProgressHUD hideAllHUDsForView:self.view animated:YES];
+    //三方菊花的使用
+    //  [MBProgressHUD hideAllHUDsForView:self.view animated:YES];
         ZJHLog(@"%@",downloadProgress);
     } success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
       // NSLog(@"%@",responseObject);

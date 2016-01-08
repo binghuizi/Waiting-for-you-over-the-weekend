@@ -18,6 +18,7 @@
 #import "ClassityViewController.h"
 #import "GoodViewController.h"
 #import "HotActivityViewController.h"
+
 @interface MainViewController ()<UITableViewDataSource,UITableViewDelegate,UIScrollViewDelegate>
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 @property(nonatomic,strong) NSMutableArray *listArray;//全部列表数据
@@ -31,6 +32,10 @@
 @property(nonatomic,strong) UIPageControl *pageControl;
 @property(nonatomic,strong) NSTimer *timer;//定时器用于图片滚动
 @property(nonatomic,strong)UIView *tableHeaderView;
+
+
+
+
 @end
 
 @implementation MainViewController
@@ -48,6 +53,9 @@
 //1.设置导航栏上的左右按钮  把leftBarButton设置为navigationItem左按钮
     self.navigationItem.rightBarButtonItem = rightBarButton;
 
+    
+    
+    
 //左按钮
     UIBarButtonItem *leftBarButton = [[UIBarButtonItem alloc]initWithTitle:@"杭州≡" style:UIBarButtonItemStylePlain target:self action:@selector(selectCityAction:)];
     
@@ -61,11 +69,14 @@
     [self configTableView];
 
 //请求网络数据
-    [self requestModel];
+   // [self requestModel];
     [self startTimer];
    
 }
-
+-(void)viewWillDisappear:(BOOL)animated{
+    [super viewWillAppear:animated];
+    self.tabBarController.tabBar.hidden = NO;
+}
 #pragma mark -----自定义TableView头部
 //自定义头部
 - (void)configTableView{
@@ -186,6 +197,10 @@
 }
 //每两秒执行该方法
 - (void)updateTimer{
+    //当self.adArray.count数据组元素个数为0当对0取于时候没有意义
+    if (self.adArray.count > 0) {
+       
+    
     //当前页数加1
     NSInteger page = self.pageControl.currentPage + 1;
    // CGFloat offSex = page *kWideth;
@@ -195,6 +210,9 @@
    // [self.scrollView setContentOffset:CGPointMake(offSex, 0) animated:YES];
     [self touchActionPage:self.pageControl];
 }
+}
+
+
 //挡手动滑动scrollView的时候定时器依然在计算事件可能我们刚刚滑动到那  定时器有高好书法导致当前也停留的事件补不够两秒
 //解决方案 scroll开始移动时 结束定时器在scroll在移动完毕时候  在启动定时器
 //将要开始拖拽  定时器取消
@@ -238,20 +256,24 @@
     return mainCell;
 }
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+    
+    MainModel *mainModel = self.listArray[indexPath.section][indexPath.row];
+   
     if (indexPath.section == 0) {
         UIStoryboard *mainStoryBoard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
-        
+    //活动id
         ActivityDetailViewController *activeVc = [mainStoryBoard instantiateViewControllerWithIdentifier:@"activity"];
-        //活动id
-        MainModel *mainModel = self.listArray[indexPath.section][indexPath.row];
-        activeVc.activityId = mainModel.activityId;
+      activeVc.activityId = mainModel.activityId;
         NSLog(@"%@",mainModel.activityId);
         [self.navigationController pushViewController:activeVc animated:YES];
         
         
         
     }else{
+        //专题id
         ThemViewController *themVc = [[ThemViewController alloc]init];
+        themVc.themId = mainModel.activityId;
+        
         [self.navigationController pushViewController:themVc animated:YES];
     }
     
@@ -377,13 +399,15 @@
         
         ActivityDetailViewController *actiVc = [stoyBoard instantiateViewControllerWithIdentifier:@"activity" ];
         
-                
+        
         actiVc.activityId = self.adArray[btn.tag - 200][@"id"];
-       
+        actiVc.hidesBottomBarWhenPushed = YES;//隐藏
         [self.navigationController pushViewController:actiVc animated:YES];
     }else{
-        HotActivityViewController *hotVc = [[HotActivityViewController alloc]init];
-        [self.navigationController pushViewController:hotVc animated:YES];
+        ThemViewController *themVc = [[ThemViewController alloc]init];
+        themVc.themId = self.adArray[btn.tag - 200][@"id"];
+        themVc.hidesBottomBarWhenPushed = YES;//隐藏tabar
+        [self.navigationController pushViewController:themVc animated:YES];
     }
     
     
@@ -407,6 +431,7 @@
 //精选活动
     }else if (btn.tag == 101){
         GoodViewController *gooVc = [[GoodViewController alloc]init];
+        gooVc.hidesBottomBarWhenPushed = YES;//隐藏tabar
         [self.navigationController pushViewController:gooVc animated:YES];
 //热门专题
     }else if (btn.tag == 102){

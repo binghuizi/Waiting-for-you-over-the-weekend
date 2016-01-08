@@ -9,5 +9,5 @@
 #import <UIKit/UIKit.h>
 
 @interface ThemViewController : UIViewController
-
+@property(nonatomic,retain)NSString  *themId;
 @end
