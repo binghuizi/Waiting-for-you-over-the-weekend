@@ -22,8 +22,6 @@
 		7A5D01AC1C43997C00900A39 /* VOIndicatorAnimation.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A5D01A61C43997C00900A39 /* VOIndicatorAnimation.m */; };
 		7A5D01AD1C43997C00900A39 /* VOSegment.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A5D01A81C43997C00900A39 /* VOSegment.m */; };
 		7A5D01AE1C43997C00900A39 /* VOSegmentedControl.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A5D01AA1C43997C00900A39 /* VOSegmentedControl.m */; };
-		7A5D01B21C439AE600900A39 /* HotableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A5D01B01C439AE600900A39 /* HotableViewCell.m */; };
-		7A5D01B31C439AE600900A39 /* HotableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7A5D01B11C439AE600900A39 /* HotableViewCell.xib */; };
 		7A5D01B61C439C3800900A39 /* HotThemModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A5D01B51C439C3800900A39 /* HotThemModel.m */; };
 		7A5D01B81C43A7EF00900A39 /* typeid6.plist in Resources */ = {isa = PBXBuildFile; fileRef = 7A5D01B71C43A7EF00900A39 /* typeid6.plist */; };
 		7A5D01BA1C43A80100900A39 /* typeid22.plist in Resources */ = {isa = PBXBuildFile; fileRef = 7A5D01B91C43A80100900A39 /* typeid22.plist */; };
@@ -162,6 +160,9 @@
 		7AA7BE3E1C3FD27000C3DCAD /* good.plist in Resources */ = {isa = PBXBuildFile; fileRef = 7AA7BE3D1C3FD27000C3DCAD /* good.plist */; };
 		7AAE40A41C3F57DF00022CB0 /* Them.plist in Resources */ = {isa = PBXBuildFile; fileRef = 7AAE40A31C3F57DF00022CB0 /* Them.plist */; };
 		7AAE40A71C3F5EE100022CB0 /* ActivityThemView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7AAE40A61C3F5EE100022CB0 /* ActivityThemView.m */; };
+		7ACB5D201C43C72E0050058E /* HotTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 7ACB5D1E1C43C72E0050058E /* HotTableViewCell.m */; };
+		7ACB5D211C43C72E0050058E /* HotTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7ACB5D1F1C43C72E0050058E /* HotTableViewCell.xib */; };
+		7ACB5D231C43CB6C0050058E /* hotModel(1).plist in Resources */ = {isa = PBXBuildFile; fileRef = 7ACB5D221C43CB6C0050058E /* hotModel(1).plist */; };
 		7AFDAA8C1C3DFE4F00821630 /* ActivityDetail.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7AFDAA8B1C3DFE4F00821630 /* ActivityDetail.storyboard */; };
 		7AFDAA8F1C3E10E100821630 /* ActivityDetailView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7AFDAA8E1C3E10E100821630 /* ActivityDetailView.m */; };
 		7AFDAA911C3E14E900821630 /* XiangQing.plist in Resources */ = {isa = PBXBuildFile; fileRef = 7AFDAA901C3E14E900821630 /* XiangQing.plist */; };
@@ -199,9 +200,6 @@
 		7A5D01A81C43997C00900A39 /* VOSegment.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VOSegment.m; sourceTree = "<group>"; };
 		7A5D01A91C43997C00900A39 /* VOSegmentedControl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VOSegmentedControl.h; sourceTree = "<group>"; };
 		7A5D01AA1C43997C00900A39 /* VOSegmentedControl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VOSegmentedControl.m; sourceTree = "<group>"; };
-		7A5D01AF1C439AE600900A39 /* HotableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HotableViewCell.h; sourceTree = "<group>"; };
-		7A5D01B01C439AE600900A39 /* HotableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HotableViewCell.m; sourceTree = "<group>"; };
-		7A5D01B11C439AE600900A39 /* HotableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HotableViewCell.xib; sourceTree = "<group>"; };
 		7A5D01B41C439C3800900A39 /* HotThemModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HotThemModel.h; sourceTree = "<group>"; };
 		7A5D01B51C439C3800900A39 /* HotThemModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HotThemModel.m; sourceTree = "<group>"; };
 		7A5D01B71C43A7EF00900A39 /* typeid6.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = typeid6.plist; sourceTree = "<group>"; };
@@ -355,6 +353,10 @@
 		7AAE40A31C3F57DF00022CB0 /* Them.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist; path = Them.plist; sourceTree = "<group>"; };
 		7AAE40A51C3F5EE100022CB0 /* ActivityThemView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ActivityThemView.h; sourceTree = "<group>"; };
 		7AAE40A61C3F5EE100022CB0 /* ActivityThemView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ActivityThemView.m; sourceTree = "<group>"; };
+		7ACB5D1D1C43C72E0050058E /* HotTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HotTableViewCell.h; sourceTree = "<group>"; };
+		7ACB5D1E1C43C72E0050058E /* HotTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HotTableViewCell.m; sourceTree = "<group>"; };
+		7ACB5D1F1C43C72E0050058E /* HotTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HotTableViewCell.xib; sourceTree = "<group>"; };
+		7ACB5D221C43CB6C0050058E /* hotModel(1).plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = "hotModel(1).plist"; sourceTree = "<group>"; };
 		7AFDAA8B1C3DFE4F00821630 /* ActivityDetail.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = ActivityDetail.storyboard; sourceTree = "<group>"; };
 		7AFDAA8D1C3E10E100821630 /* ActivityDetailView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ActivityDetailView.h; sourceTree = "<group>"; };
 		7AFDAA8E1C3E10E100821630 /* ActivityDetailView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ActivityDetailView.m; sourceTree = "<group>"; };
@@ -566,9 +568,10 @@
 				7AAE40A31C3F57DF00022CB0 /* Them.plist */,
 				7A984D951C3FBE3A000F830E /* GoodActivityModel.h */,
 				7A984D961C3FBE3A000F830E /* GoodActivityModel.m */,
+				7AA7BE3D1C3FD27000C3DCAD /* good.plist */,
 				7A5D01B41C439C3800900A39 /* HotThemModel.h */,
 				7A5D01B51C439C3800900A39 /* HotThemModel.m */,
-				7AA7BE3D1C3FD27000C3DCAD /* good.plist */,
+				7ACB5D221C43CB6C0050058E /* hotModel(1).plist */,
 				7A5D01B71C43A7EF00900A39 /* typeid6.plist */,
 				7A5D01BB1C43A80D00900A39 /* typeud21.plist */,
 				7A5D01B91C43A80100900A39 /* typeid22.plist */,
@@ -592,9 +595,9 @@
 				7A984D8C1C3FA3BC000F830E /* GoodTableViewCell.h */,
 				7A984D8D1C3FA3BC000F830E /* GoodTableViewCell.m */,
 				7A984D8E1C3FA3BC000F830E /* GoodTableViewCell.xib */,
-				7A5D01AF1C439AE600900A39 /* HotableViewCell.h */,
-				7A5D01B01C439AE600900A39 /* HotableViewCell.m */,
-				7A5D01B11C439AE600900A39 /* HotableViewCell.xib */,
+				7ACB5D1D1C43C72E0050058E /* HotTableViewCell.h */,
+				7ACB5D1E1C43C72E0050058E /* HotTableViewCell.m */,
+				7ACB5D1F1C43C72E0050058E /* HotTableViewCell.xib */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -838,6 +841,7 @@
 				7A995F4F1C3A5A3600B5809C /* 67-tshirt.png in Resources */,
 				7A995F431C3A5A3600B5809C /* 55-network.png in Resources */,
 				7A995F171C3A5A3600B5809C /* 11-clock.png in Resources */,
+				7ACB5D231C43CB6C0050058E /* hotModel(1).plist in Resources */,
 				7AAE40A41C3F57DF00022CB0 /* Them.plist in Resources */,
 				7A995F031C3A5A3600B5809C /* 01-refresh.png in Resources */,
 				7A995F231C3A5A3600B5809C /* 22-skull-n-crossbones.png in Resources */,
@@ -874,6 +878,7 @@
 				7A995F681C3A5A3600B5809C /* 92-testtube.png in Resources */,
 				7A995E8F1C3A506A00B5809C /* Main.storyboard in Resources */,
 				7A995F611C3A5A3600B5809C /* 85-trophy.png in Resources */,
+				7ACB5D211C43C72E0050058E /* HotTableViewCell.xib in Resources */,
 				7A995F3D1C3A5A3600B5809C /* 49-battery.png in Resources */,
 				7A995F1A1C3A5A3600B5809C /* 13-target.png in Resources */,
 				7A995F0B1C3A5A3600B5809C /* 09-chat2.png in Resources */,
@@ -943,7 +948,6 @@
 				7A5D01B81C43A7EF00900A39 /* typeid6.plist in Resources */,
 				7A995F381C3A5A3600B5809C /* 44-shoebox.png in Resources */,
 				7A995F3B1C3A5A3600B5809C /* 47-fuel.png in Resources */,
-				7A5D01B31C439AE600900A39 /* HotableViewCell.xib in Resources */,
 				7A995F221C3A5A3600B5809C /* 21-skull.png in Resources */,
 				7A995F641C3A5A3600B5809C /* 88-beermug.png in Resources */,
 				7AFDAA8C1C3DFE4F00821630 /* ActivityDetail.storyboard in Resources */,
@@ -1018,6 +1022,7 @@
 				7AAE40A71C3F5EE100022CB0 /* ActivityThemView.m in Sources */,
 				7A984D7C1C3F9F43000F830E /* UIView+Extension.m in Sources */,
 				7A984D7B1C3F9F43000F830E /* HWTools.m in Sources */,
+				7ACB5D201C43C72E0050058E /* HotTableViewCell.m in Sources */,
 				7A5D01AE1C43997C00900A39 /* VOSegmentedControl.m in Sources */,
 				7A984D8F1C3FA3BC000F830E /* GoodTableViewCell.m in Sources */,
 				7A995F741C3A766C00B5809C /* MainTableViewCell.m in Sources */,
@@ -1035,7 +1040,6 @@
 				7A5D01AD1C43997C00900A39 /* VOSegment.m in Sources */,
 				7A450AE11C3A238E00DDDA0F /* main.m in Sources */,
 				7A995E8B1C3A4E4700B5809C /* MineViewController.m in Sources */,
-				7A5D01B21C439AE600900A39 /* HotableViewCell.m in Sources */,
 				7A984D881C3FA0E7000F830E /* PullingRefreshTableView.m in Sources */,
 				7AFDAA8F1C3E10E100821630 /* ActivityDetailView.m in Sources */,
 				7A3835B01C3CBE29000CA4C9 /* SelectViewController.m in Sources */,

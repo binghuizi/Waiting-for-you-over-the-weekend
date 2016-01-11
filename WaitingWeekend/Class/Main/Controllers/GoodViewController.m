@@ -10,6 +10,7 @@
 #import "PullingRefreshTableView.h"
 #import <AFHTTPSessionManager.h>
 #import "GoodTableViewCell.h"
+#import "ActivityDetailViewController.h"
 @interface GoodViewController ()<UITableViewDataSource,UITableViewDelegate,PullingRefreshTableViewDelegate>{
     NSInteger _pageCount;//定义请求页码
 }
@@ -75,6 +76,7 @@
 //上拉  Implement this method if headerOnly is false
 - (void)pullingTableViewDidStartLoading:(PullingRefreshTableView *)tableView{
     _pageCount +=1;
+    self.refreshing = NO;
     [self performSelector:@selector(loadData) withObject:nil afterDelay:1.f];
 }
 
@@ -118,6 +120,12 @@
         if ([status isEqualToString:@"success"] && code == 0) {
             NSDictionary *dic = resultDic[@"success"];
             
+            if (self.refreshing) {
+                if (self.activityArray.count > 0) {
+                    [self.activityArray removeAllObjects];
+                }
+            }
+            
             self.acDataArray = dic[@"acData"];
            
             for (NSDictionary *dic in self.acDataArray) {
@@ -151,6 +159,16 @@
 
 #pragma mark ----delagate
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+    
+    UIStoryboard *activityStorybord = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+    ActivityDetailViewController *activityVc = [activityStorybord instantiateViewControllerWithIdentifier:@"activity"];
+    
+    GoodActivityModel *goodModel = self.activityArray[indexPath.row];
+    activityVc.activityId = goodModel.activityId ;
+    
+    [self.navigationController pushViewController:activityVc animated:YES];
+    
+    
     
 }
 //懒加载
