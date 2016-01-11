@@ -25,6 +25,10 @@
 		7A5D01B21C439AE600900A39 /* HotableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A5D01B01C439AE600900A39 /* HotableViewCell.m */; };
 		7A5D01B31C439AE600900A39 /* HotableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7A5D01B11C439AE600900A39 /* HotableViewCell.xib */; };
 		7A5D01B61C439C3800900A39 /* HotThemModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A5D01B51C439C3800900A39 /* HotThemModel.m */; };
+		7A5D01B81C43A7EF00900A39 /* typeid6.plist in Resources */ = {isa = PBXBuildFile; fileRef = 7A5D01B71C43A7EF00900A39 /* typeid6.plist */; };
+		7A5D01BA1C43A80100900A39 /* typeid22.plist in Resources */ = {isa = PBXBuildFile; fileRef = 7A5D01B91C43A80100900A39 /* typeid22.plist */; };
+		7A5D01BC1C43A80D00900A39 /* typeud21.plist in Resources */ = {isa = PBXBuildFile; fileRef = 7A5D01BB1C43A80D00900A39 /* typeud21.plist */; };
+		7A5D01BE1C43A81900900A39 /* typeid23.plist in Resources */ = {isa = PBXBuildFile; fileRef = 7A5D01BD1C43A81900900A39 /* typeid23.plist */; };
 		7A7CB2F01C3D1B3D00E47166 /* activityDetaill.plist in Resources */ = {isa = PBXBuildFile; fileRef = 7A7CB2EF1C3D1B3C00E47166 /* activityDetaill.plist */; };
 		7A984D7B1C3F9F43000F830E /* HWTools.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A984D681C3F9F43000F830E /* HWTools.m */; };
 		7A984D7C1C3F9F43000F830E /* UIView+Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A984D6A1C3F9F43000F830E /* UIView+Extension.m */; };
@@ -200,6 +204,10 @@
 		7A5D01B11C439AE600900A39 /* HotableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HotableViewCell.xib; sourceTree = "<group>"; };
 		7A5D01B41C439C3800900A39 /* HotThemModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HotThemModel.h; sourceTree = "<group>"; };
 		7A5D01B51C439C3800900A39 /* HotThemModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HotThemModel.m; sourceTree = "<group>"; };
+		7A5D01B71C43A7EF00900A39 /* typeid6.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = typeid6.plist; sourceTree = "<group>"; };
+		7A5D01B91C43A80100900A39 /* typeid22.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = typeid22.plist; sourceTree = "<group>"; };
+		7A5D01BB1C43A80D00900A39 /* typeud21.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = typeud21.plist; sourceTree = "<group>"; };
+		7A5D01BD1C43A81900900A39 /* typeid23.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = typeid23.plist; sourceTree = "<group>"; };
 		7A7CB2EF1C3D1B3C00E47166 /* activityDetaill.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = activityDetaill.plist; sourceTree = "<group>"; };
 		7A984D661C3F9F43000F830E /* HWDefine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HWDefine.h; sourceTree = "<group>"; };
 		7A984D671C3F9F43000F830E /* HWTools.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HWTools.h; sourceTree = "<group>"; };
@@ -561,6 +569,10 @@
 				7A5D01B41C439C3800900A39 /* HotThemModel.h */,
 				7A5D01B51C439C3800900A39 /* HotThemModel.m */,
 				7AA7BE3D1C3FD27000C3DCAD /* good.plist */,
+				7A5D01B71C43A7EF00900A39 /* typeid6.plist */,
+				7A5D01BB1C43A80D00900A39 /* typeud21.plist */,
+				7A5D01B91C43A80100900A39 /* typeid22.plist */,
+				7A5D01BD1C43A81900900A39 /* typeid23.plist */,
 			);
 			path = Modes;
 			sourceTree = "<group>";
@@ -899,6 +911,7 @@
 				7A995F4C1C3A5A3600B5809C /* 64-zap.png in Resources */,
 				7A995F5D1C3A5A3600B5809C /* 81-dashboard.png in Resources */,
 				7A995F441C3A5A3600B5809C /* 56-cloud.png in Resources */,
+				7A5D01BE1C43A81900900A39 /* typeid23.plist in Resources */,
 				7A995F2A1C3A5A3600B5809C /* 29-heart.png in Resources */,
 				7A995F331C3A5A3600B5809C /* 39-spraycan.png in Resources */,
 				7A995F0F1C3A5A3600B5809C /* 102-walk.png in Resources */,
@@ -906,10 +919,12 @@
 				7A995F551C3A5A3600B5809C /* 73-radar.png in Resources */,
 				7A995F2C1C3A5A3600B5809C /* 31-ipod.png in Resources */,
 				7A995F191C3A5A3600B5809C /* 12-eye.png in Resources */,
+				7A5D01BA1C43A80100900A39 /* typeid22.plist in Resources */,
 				7A995F5F1C3A5A3600B5809C /* 83-calendar.png in Resources */,
 				7A995F341C3A5A3600B5809C /* 40-inbox.png in Resources */,
 				7A995F5E1C3A5A3600B5809C /* 82-dogpaw.png in Resources */,
 				7A984D901C3FA3BC000F830E /* GoodTableViewCell.xib in Resources */,
+				7A5D01BC1C43A80D00900A39 /* typeud21.plist in Resources */,
 				7A995F6E1C3A5A3600B5809C /* 98-palette.png in Resources */,
 				7A995E931C3A50BD00B5809C /* Mine.storyboard in Resources */,
 				7A995F471C3A5A3600B5809C /* 59-flag.png in Resources */,
@@ -925,6 +940,7 @@
 				7A995F671C3A5A3600B5809C /* 91-beaker2.png in Resources */,
 				7A995F0E1C3A5A3600B5809C /* 101-gameplan.png in Resources */,
 				7A450AE91C3A238E00DDDA0F /* LaunchScreen.storyboard in Resources */,
+				7A5D01B81C43A7EF00900A39 /* typeid6.plist in Resources */,
 				7A995F381C3A5A3600B5809C /* 44-shoebox.png in Resources */,
 				7A995F3B1C3A5A3600B5809C /* 47-fuel.png in Resources */,
 				7A5D01B31C439AE600900A39 /* HotableViewCell.xib in Resources */,

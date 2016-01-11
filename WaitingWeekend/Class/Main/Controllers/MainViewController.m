@@ -420,17 +420,23 @@
     ClassityViewController *classityVc = [[ClassityViewController alloc]init];
     if (btn.tag == 1) {
     
-        classityVc.classityListType = 
+        classityVc.classityListType = ClassifyListTypeShowRepertoire;
         
-        
-        
-        
+        [self.navigationController pushViewController:classityVc animated:YES];
         
     }else if (btn.tag == 2){
+        classityVc.classityListType = ClassifyListTypeTouristPlace;
+        [self.navigationController pushViewController:classityVc animated:YES];
         
     }else if (btn.tag == 3){
+        classityVc.classityListType = ClassifyListTypeStudyPUZ;
+        [self.navigationController pushViewController:classityVc animated:YES];
         
     }else if (btn.tag == 4){
+        classityVc.classityListType = ClassifyListTypeFamilyTrave;
+        [self.navigationController pushViewController:classityVc animated:YES];
+
+        
 //精选活动
     }else if (btn.tag == 101){
         GoodViewController *gooVc = [[GoodViewController alloc]init];
