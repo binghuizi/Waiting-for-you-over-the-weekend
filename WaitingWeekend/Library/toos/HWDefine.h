@@ -32,15 +32,16 @@
 
 //热门专题
 #define  kHotThem   @"http://e.kumi.cn/app/positionlist.php?_s_=e2b71c66789428d5385b06c178a88db2&_t_=1452237051&channelid=appstore&cityid=1&lat=34.61351314785497&limit=30&lng=112.4140755658942&page=1"
+//四个接口
+#define classify @"http://e.kumi.cn/app/v1.3/catelist.php?_s_=78284130ab87a8396ec03073eac9c50a&_t_=1452495156&channelid=appstore&cityid=1&lat=34.61356398594803&limit=30&lng=112.4140434532402"
 
 
-
-
-//热门专题
- //  @"http://e.kumi.cn/app/positionlist.php?limit=10&lng=112.426761&page=1&lat=34.618815&channelid=huawei_ad&cityid=1"
-//演出剧目
-//  @"http://e.kumi.cn/app/v1.3/catelist.php?limit=10&page=1&typeid=22&is_hot=0&lng=112.426761&lat=34.618815&channelid=huawei_ad&cityid=1"
-
+typedef NS_ENUM(NSInteger,ClassifyListType){
+    ClassifyListTypeShowRepertoire = 1,   //演出剧目
+    ClassifyListTypeTouristPlace ,        //旅游景点
+    ClassifyListTypeStudyPUZ,             //益智
+    ClassifyListTypeFamilyTrave           //亲子旅游
+};
 
 
 

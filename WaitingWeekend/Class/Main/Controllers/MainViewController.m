@@ -417,8 +417,11 @@
 #pragma mark ---- 点击图片按钮   
 -(void)actionButton:(UIButton *)btn{
 //分类列表
+    ClassityViewController *classityVc = [[ClassityViewController alloc]init];
     if (btn.tag == 1) {
     
+        classityVc.classityListType = 
+        
         
         
         

@@ -9,5 +9,5 @@
 #import <UIKit/UIKit.h>
 
 @interface ClassityViewController : UIViewController
-
+@property(nonatomic,assign) ClassifyListType classityListType;
 @end
