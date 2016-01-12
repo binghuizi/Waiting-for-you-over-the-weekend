@@ -315,6 +315,7 @@
         self.segctrl1.indicatorThickness = 4;
         self.segctrl1.tag = self.classityListType;
         
+        self.segctrl1.selectedSegmentIndex = self.classityListType - 1;
         __block NSInteger selectIndex;
         
         [self.segctrl1 setIndexChangeBlock:^(NSInteger index) {

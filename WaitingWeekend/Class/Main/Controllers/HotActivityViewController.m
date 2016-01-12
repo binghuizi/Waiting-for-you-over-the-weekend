@@ -110,8 +110,13 @@
         NSString *status = resultDic[@"status"];
         NSInteger code = [resultDic[@"code"] integerValue];
         if ([status isEqualToString:@"success"] && code == 0) {
-            NSDictionary *dic = resultDic[@"success"];
             
+            if (self.refreshing) {
+                if (self.activityArray.count > 0) {
+                    [self.activityArray removeAllObjects];
+                }
+            }
+            NSDictionary *dic = resultDic[@"success"];
             NSArray *rcData = dic[@"rcData"];
             for (NSDictionary *dic in rcData) {
                 HotThemModel *hotModel = [[HotThemModel alloc]initWithDictionary:dic];

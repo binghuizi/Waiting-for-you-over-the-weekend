@@ -9,6 +9,8 @@
 #import "DiscoverViewController.h"
 
 @interface DiscoverViewController ()
+@property (weak, nonatomic) IBOutlet UITableView *headTableView;
+@property (weak, nonatomic) IBOutlet UITableView *tableView;
 
 @end
 
@@ -20,6 +22,9 @@
     
     //导航栏颜色
     self.navigationController.navigationBar.barTintColor = [UIColor colorWithRed:27/255.0f green:185/255.0f blue:189/255.0f alpha:1.0];
+    
+    
+    
 }
 
 - (void)didReceiveMemoryWarning {

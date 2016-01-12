@@ -69,7 +69,7 @@
     [self configTableView];
 
 //请求网络数据
-   // [self requestModel];
+   [self requestModel];
     [self startTimer];
    
 }
@@ -418,6 +418,7 @@
 -(void)actionButton:(UIButton *)btn{
 //分类列表
     ClassityViewController *classityVc = [[ClassityViewController alloc]init];
+    classityVc.hidesBottomBarWhenPushed = YES;//隐藏tabar
     if (btn.tag == 1) {
     
         classityVc.classityListType = ClassifyListTypeShowRepertoire;
@@ -445,6 +446,7 @@
 //热门专题
     }else if (btn.tag == 102){
         HotActivityViewController *hotVc =[[HotActivityViewController alloc]init];
+        hotVc.hidesBottomBarWhenPushed = YES;//隐藏
         [self.navigationController pushViewController:hotVc animated:YES];
     }
 }
