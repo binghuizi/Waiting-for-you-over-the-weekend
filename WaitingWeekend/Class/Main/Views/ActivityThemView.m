@@ -68,7 +68,7 @@
         label.numberOfLines = 0;
         [self.mainScrollView addSubview:label];
         
-        _lastLabelBottom = label.bottom + 20;
+        
         
         
         NSArray *urlArray = dic[@"urls"];
@@ -112,10 +112,14 @@
                 if (urlArray.count > 1) {
                     lastImgbottom = imageView.bottom;
                 }
+              //  _lastLabelBottom = label.bottom + 20;
+                
             }
         }
-        
+           _lastLabelBottom = label.bottom > _previousImageBottom ? label.bottom + 70:_previousImageBottom + 70;
     }
+    
+ 
 
 }
 //懒加载

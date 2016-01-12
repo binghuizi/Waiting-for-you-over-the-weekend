@@ -12,6 +12,7 @@
 #import <AFHTTPSessionManager.h>
 #import "VOSegmentedControl.h"
 #import "ProgressHUD.h"
+#import "ActivityDetailViewController.h"
 @interface ClassityViewController ()<UITableViewDataSource,UITableViewDelegate,PullingRefreshTableViewDelegate>{
     NSInteger _pageCount;//定义请求页码
 }
@@ -79,6 +80,18 @@
 //触发事件
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     
+    UIStoryboard *activityStorybord = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+    ActivityDetailViewController *activityVc = [activityStorybord instantiateViewControllerWithIdentifier:@"activity"];
+    
+    GoodActivityModel *goodModel = self.showDataArray[indexPath.row];
+    activityVc.activityId = goodModel.activityId ;
+    
+    [self.navigationController pushViewController:activityVc animated:YES];
+    
+    
+    
+    
+    
 }
 #pragma mark ---Delegate
 
@@ -88,7 +101,7 @@
     _pageCount = 1;
     self.refreshing = YES;
     // [self loadData];//加载数据
-    [self performSelector:@selector(loadData) withObject:nil afterDelay:1.0];
+    [self performSelector:@selector(chooseRequest) withObject:nil afterDelay:1.0];
     
 }
 
@@ -96,7 +109,7 @@
 - (void)pullingTableViewDidStartLoading:(PullingRefreshTableView *)tableView{
     _pageCount +=1;
     self.refreshing = NO;
-    [self performSelector:@selector(loadData) withObject:nil afterDelay:1.f];
+    [self performSelector:@selector(chooseRequest) withObject:nil afterDelay:1.f];
 }
 
 //刷新完成时间
@@ -117,9 +130,8 @@
     [self.tableView tableViewDidEndDragging:scrollView];
 }
 
-- (void)loadData{
-    
-}
+
+
 #pragma mark -------   网络请求4个接口的数据
 -(void)getShowRequest{
     AFHTTPSessionManager *sessionManager = [[AFHTTPSessionManager alloc]init];
@@ -127,7 +139,7 @@
     [ ProgressHUD show:@"演出剧目加载中....."];
     
 //6演出剧目
-    [sessionManager GET:[NSString stringWithFormat:@"%@&page=%@&typeid=%@",classify,@(1),@(6)] parameters:nil progress:^(NSProgress * _Nonnull downloadProgress) {
+    [sessionManager GET:[NSString stringWithFormat:@"%@&page=%ld&typeid=%@",classify,(long)_pageCount,@(6)] parameters:nil progress:^(NSProgress * _Nonnull downloadProgress) {
         ZJHLog(@"%@",downloadProgress);
     } success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
         ZJHLog(@"%@",responseObject);
@@ -143,7 +155,12 @@
         
         if ([status isEqualToString:@"success"] && code == 0) {
             
-            
+            if (self.refreshing) {//下拉刷新三处原来数据
+                if (self.showArray.count > 0) {
+                    [self.showArray removeAllObjects];
+                }
+                
+            }
             NSDictionary *dic = resultDic[@"success"];
             NSArray *acDataArray = dic[@"acData"];
             for (NSDictionary *dict in acDataArray ) {
@@ -172,7 +189,7 @@
     
      [ ProgressHUD show:@"景点场馆加载中....."];
     //typeid = 23景点场馆
-    [sessionManager GET:[NSString stringWithFormat:@"%@&page=%@&typeid=%@",classify,@(1),@(23)] parameters:nil progress:^(NSProgress * _Nonnull downloadProgress) {
+    [sessionManager GET:[NSString stringWithFormat:@"%@&page=%ld&typeid=%@",classify,(long)_pageCount,@(23)] parameters:nil progress:^(NSProgress * _Nonnull downloadProgress) {
         ZJHLog(@"%@",downloadProgress);
     } success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
         ZJHLog(@"%@",responseObject);
@@ -185,6 +202,15 @@
         
         
         if ([status isEqualToString:@"success"] && code == 0) {
+            
+            if (self.refreshing) {//下拉刷新三处原来数据
+                if (self.touristArray.count > 0) {
+                    [self.touristArray removeAllObjects];
+                }
+                
+            }
+            
+            
             
             NSDictionary *dic = resultDic[@"success"];
             NSArray *acDataArray = dic[@"acData"];
@@ -210,7 +236,7 @@
      [ ProgressHUD show:@"学习益智加载中....."];
     
     // 22学习益智
-    [sessionManager GET:[NSString stringWithFormat:@"%@&page=%@&typeid=%@",classify,@(1),@(22)] parameters:nil progress:^(NSProgress * _Nonnull downloadProgress) {
+    [sessionManager GET:[NSString stringWithFormat:@"%@&page=%ld&typeid=%@",classify,(long)_pageCount,@(22)] parameters:nil progress:^(NSProgress * _Nonnull downloadProgress) {
         ZJHLog(@"%@",downloadProgress);
     } success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
         ZJHLog(@"%@",responseObject);
@@ -223,6 +249,16 @@
         
         
         if ([status isEqualToString:@"success"] && code == 0) {
+            
+            
+            if (self.refreshing) {//下拉刷新三处原来数据
+                if (self.studyArray.count > 0) {
+                    [self.studyArray removeAllObjects];
+                }
+                
+            }
+            
+            
             
             NSDictionary *dic = resultDic[@"success"];
             NSArray *acDataArray = dic[@"acData"];
@@ -250,7 +286,7 @@
      [ ProgressHUD show:@"亲子旅游加载中....."];
     
     //21亲子旅游
-    [sessionManager GET:[NSString stringWithFormat:@"%@&page=%@&typeid=%@",classify,@(1),@(21)] parameters:nil progress:^(NSProgress * _Nonnull downloadProgress) {
+    [sessionManager GET:[NSString stringWithFormat:@"%@&page=%ld&typeid=%@",classify,(long)_pageCount,@(21)] parameters:nil progress:^(NSProgress * _Nonnull downloadProgress) {
         ZJHLog(@"%@",downloadProgress);
     } success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
         ZJHLog(@"%@",responseObject);
@@ -263,8 +299,14 @@
         
         if ([status isEqualToString:@"success"] && code == 0) {
             
-            NSDictionary *dic = resultDic[@"success"];
+            if (self.refreshing) {//下拉刷新三处原来数据
+                if (self.familyArray.count > 0) {
+                    [self.familyArray removeAllObjects];
+                }
+                
+            }
             
+            NSDictionary *dic = resultDic[@"success"];
             NSArray *acDataArray = dic[@"acData"];
             for (NSDictionary *dict in acDataArray ) {
                 GoodActivityModel *goodModel = [[GoodActivityModel alloc]initWithDictionary:dict];
@@ -306,9 +348,12 @@
 }
 #pragma mark -----请求数据接口    showPrevisousSelect
 - (void)showPrevisousSelect{
-    if (self.showDataArray.count > 0) {
-        [self.showDataArray removeAllObjects];
+    if (self.refreshing) {
+        if (self.showDataArray.count > 0) {
+            [self.showDataArray removeAllObjects];
+        }
     }
+    
     
     switch (self.classityListType) {
             
@@ -339,7 +384,12 @@
             break;
     }
     
+    [self.tableView tableViewDidFinishedLoading];//完成加载
+    self.tableView.reachedTheEnd = NO;
+    
+    //刷新数据
     [self.tableView reloadData];
+    
 }
 //懒加载
 -(PullingRefreshTableView *)tableView{

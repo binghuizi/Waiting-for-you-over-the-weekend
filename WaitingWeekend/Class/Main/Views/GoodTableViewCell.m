@@ -16,6 +16,8 @@
     
 }
 -(void)setGoodModel:(GoodActivityModel *)goodModel{
+    //圆角
+    self.headImageView.layer.cornerRadius = 20;
     [self.headImageView sd_setImageWithURL:[NSURL URLWithString:goodModel.image] placeholderImage:nil];
    
     self.titleLabel.text         = goodModel.title;

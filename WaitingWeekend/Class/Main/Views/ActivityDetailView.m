@@ -161,26 +161,10 @@ self.mainScrollView.contentSize = CGSizeMake(kWideth, _lastLabelBottom + height 
                 }
             }
         }
-        
+         _lastLabelBottom = label.bottom > _previousImageBottom ? label.bottom + 70:_previousImageBottom + 70;
     }
     
-//    NSDictionary *dic = contentArray[0];
-//    CGFloat height = [HWTools getTextHeightWithText:dic[@"description"] Bigsize:CGSizeMake(kWideth, 1000) textFont:13.0];
-//    
-//    UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(10, 500, kWideth - 20, height)];
-//    label.text = dic[@"description"];
-//    label.numberOfLines = 0;
-//    label.font = [UIFont systemFontOfSize:15.0];
-//    [self.mainScrollView addSubview:label];
-//    
-//    NSArray *urlsArray = dic[@"urls"];
-//    CGFloat width = [urlsArray[0][@"width"] integerValue];
-//    CGFloat imageHeight = [urlsArray[0][@"height"] integerValue];
-//    UIImageView *imageView = [[UIImageView alloc] initWithFrame:CGRectMake(10, label.bottom, kWideth - 20, (kWideth - 20)/width * imageHeight)];
-//    imageView.backgroundColor = [UIColor redColor];
-//    [imageView sd_setImageWithURL:[NSURL URLWithString:urlsArray[0][@"url"]] placeholderImage:nil];
-//    [self.mainScrollView addSubview:imageView];
-    
+  
 }
 
 
