@@ -74,7 +74,7 @@
 
     UILabel *tishiLabel = [[UILabel alloc]initWithFrame:CGRectMake(0, _lastLabelBottom -110 , kWideth, height)];
 
-   tishiLabel.text = @"温馨提示：";
+    //tishiLabel.text = @"温馨提示：";
     tishiLabel.textColor = [UIColor redColor];
     tishiLabel.font = [UIFont systemFontOfSize:15.0];
     [self.mainScrollView addSubview:tishiLabel];

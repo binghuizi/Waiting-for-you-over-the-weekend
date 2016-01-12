@@ -28,6 +28,10 @@
 		7A5D01BC1C43A80D00900A39 /* typeud21.plist in Resources */ = {isa = PBXBuildFile; fileRef = 7A5D01BB1C43A80D00900A39 /* typeud21.plist */; };
 		7A5D01BE1C43A81900900A39 /* typeid23.plist in Resources */ = {isa = PBXBuildFile; fileRef = 7A5D01BD1C43A81900900A39 /* typeid23.plist */; };
 		7A7CB2F01C3D1B3D00E47166 /* activityDetaill.plist in Resources */ = {isa = PBXBuildFile; fileRef = 7A7CB2EF1C3D1B3C00E47166 /* activityDetaill.plist */; };
+		7A95C4631C44FA67002997E6 /* DiscoverTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A95C4611C44FA67002997E6 /* DiscoverTableViewCell.m */; };
+		7A95C4641C44FA67002997E6 /* DiscoverTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7A95C4621C44FA67002997E6 /* DiscoverTableViewCell.xib */; };
+		7A95C4801C4510EF002997E6 /* discover.plist in Resources */ = {isa = PBXBuildFile; fileRef = 7A95C47F1C4510EF002997E6 /* discover.plist */; };
+		7A95C4831C4511EE002997E6 /* DiscoverModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A95C4821C4511EE002997E6 /* DiscoverModel.m */; };
 		7A984D7B1C3F9F43000F830E /* HWTools.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A984D681C3F9F43000F830E /* HWTools.m */; };
 		7A984D7C1C3F9F43000F830E /* UIView+Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A984D6A1C3F9F43000F830E /* UIView+Extension.m */; };
 		7A984D7D1C3F9F43000F830E /* UIViewController+Common.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A984D6C1C3F9F43000F830E /* UIViewController+Common.m */; };
@@ -209,6 +213,12 @@
 		7A5D01BB1C43A80D00900A39 /* typeud21.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = typeud21.plist; sourceTree = "<group>"; };
 		7A5D01BD1C43A81900900A39 /* typeid23.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = typeid23.plist; sourceTree = "<group>"; };
 		7A7CB2EF1C3D1B3C00E47166 /* activityDetaill.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = activityDetaill.plist; sourceTree = "<group>"; };
+		7A95C4601C44FA67002997E6 /* DiscoverTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DiscoverTableViewCell.h; sourceTree = "<group>"; };
+		7A95C4611C44FA67002997E6 /* DiscoverTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DiscoverTableViewCell.m; sourceTree = "<group>"; };
+		7A95C4621C44FA67002997E6 /* DiscoverTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DiscoverTableViewCell.xib; sourceTree = "<group>"; };
+		7A95C47F1C4510EF002997E6 /* discover.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist; path = discover.plist; sourceTree = "<group>"; };
+		7A95C4811C4511EE002997E6 /* DiscoverModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DiscoverModel.h; sourceTree = "<group>"; };
+		7A95C4821C4511EE002997E6 /* DiscoverModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DiscoverModel.m; sourceTree = "<group>"; };
 		7A984D661C3F9F43000F830E /* HWDefine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HWDefine.h; sourceTree = "<group>"; };
 		7A984D671C3F9F43000F830E /* HWTools.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HWTools.h; sourceTree = "<group>"; };
 		7A984D681C3F9F43000F830E /* HWTools.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HWTools.m; sourceTree = "<group>"; };
@@ -518,6 +528,9 @@
 		7A995E7B1C3A4E4700B5809C /* Modes */ = {
 			isa = PBXGroup;
 			children = (
+				7A95C47F1C4510EF002997E6 /* discover.plist */,
+				7A95C4811C4511EE002997E6 /* DiscoverModel.h */,
+				7A95C4821C4511EE002997E6 /* DiscoverModel.m */,
 			);
 			path = Modes;
 			sourceTree = "<group>";
@@ -526,6 +539,9 @@
 			isa = PBXGroup;
 			children = (
 				7A995E901C3A508700B5809C /* Discover.storyboard */,
+				7A95C4601C44FA67002997E6 /* DiscoverTableViewCell.h */,
+				7A95C4611C44FA67002997E6 /* DiscoverTableViewCell.m */,
+				7A95C4621C44FA67002997E6 /* DiscoverTableViewCell.xib */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -867,6 +883,7 @@
 				7A995F461C3A5A3600B5809C /* 58-bookmark.png in Resources */,
 				7A7CB2F01C3D1B3D00E47166 /* activityDetaill.plist in Resources */,
 				7A995F161C3A5A3600B5809C /* 109-chicken.png in Resources */,
+				7A95C4801C4510EF002997E6 /* discover.plist in Resources */,
 				7A995F5A1C3A5A3600B5809C /* 78-stopwatch.png in Resources */,
 				7A995F691C3A5A3600B5809C /* 93-thermometer.png in Resources */,
 				7A995F141C3A5A3600B5809C /* 107-widescreen.png in Resources */,
@@ -946,6 +963,7 @@
 				7A995F341C3A5A3600B5809C /* 40-inbox.png in Resources */,
 				7A995F5E1C3A5A3600B5809C /* 82-dogpaw.png in Resources */,
 				7A984D901C3FA3BC000F830E /* GoodTableViewCell.xib in Resources */,
+				7A95C4641C44FA67002997E6 /* DiscoverTableViewCell.xib in Resources */,
 				7A5D01BC1C43A80D00900A39 /* typeud21.plist in Resources */,
 				7A995F6E1C3A5A3600B5809C /* 98-palette.png in Resources */,
 				7A995E931C3A50BD00B5809C /* Mine.storyboard in Resources */,
@@ -1042,6 +1060,7 @@
 				7ACB5D201C43C72E0050058E /* HotTableViewCell.m in Sources */,
 				7A5D01AE1C43997C00900A39 /* VOSegmentedControl.m in Sources */,
 				7A984D8F1C3FA3BC000F830E /* GoodTableViewCell.m in Sources */,
+				7A95C4631C44FA67002997E6 /* DiscoverTableViewCell.m in Sources */,
 				7A995F741C3A766C00B5809C /* MainTableViewCell.m in Sources */,
 				7A450AE41C3A238E00DDDA0F /* AppDelegate.m in Sources */,
 				7A5D01B61C439C3800900A39 /* HotThemModel.m in Sources */,
@@ -1049,6 +1068,7 @@
 				7A995E891C3A4E4700B5809C /* DiscoverViewController.m in Sources */,
 				7A3835BF1C3CC076000CA4C9 /* HotActivityViewController.m in Sources */,
 				7A995E8A1C3A4E4700B5809C /* MainViewController.m in Sources */,
+				7A95C4831C4511EE002997E6 /* DiscoverModel.m in Sources */,
 				7A984D971C3FBE3A000F830E /* GoodActivityModel.m in Sources */,
 				7A5D01AC1C43997C00900A39 /* VOIndicatorAnimation.m in Sources */,
 				7A3835B61C3CBF44000CA4C9 /* ThemViewController.m in Sources */,
