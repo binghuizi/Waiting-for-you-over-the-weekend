@@ -8,7 +8,7 @@
 
 #import "ActivityDetailViewController.h"
 #import <AFNetworking/AFHTTPSessionManager.h>
-#import <MBProgressHUD.h>
+///#import <MBProgressHUD.h>
 #import "ActivityDetailView.h"
 @interface ActivityDetailViewController (){
     NSString *reminder;
@@ -70,7 +70,7 @@
         }
         
     } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
-        [MBProgressHUD hideAllHUDsForView:self.view animated:YES];
+      //  [MBProgressHUD hideAllHUDsForView:self.view animated:YES];
         ZJHLog(@"%@",error);
     }];
     

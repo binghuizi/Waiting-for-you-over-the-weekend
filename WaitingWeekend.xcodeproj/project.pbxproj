@@ -160,6 +160,8 @@
 		7AA7BE3E1C3FD27000C3DCAD /* good.plist in Resources */ = {isa = PBXBuildFile; fileRef = 7AA7BE3D1C3FD27000C3DCAD /* good.plist */; };
 		7AAE40A41C3F57DF00022CB0 /* Them.plist in Resources */ = {isa = PBXBuildFile; fileRef = 7AAE40A31C3F57DF00022CB0 /* Them.plist */; };
 		7AAE40A71C3F5EE100022CB0 /* ActivityThemView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7AAE40A61C3F5EE100022CB0 /* ActivityThemView.m */; };
+		7AB819311C449F1A00EF1500 /* ProgressHUD.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 7AB8192E1C449F1A00EF1500 /* ProgressHUD.bundle */; };
+		7AB819321C449F1A00EF1500 /* ProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = 7AB819301C449F1A00EF1500 /* ProgressHUD.m */; };
 		7ACB5D201C43C72E0050058E /* HotTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 7ACB5D1E1C43C72E0050058E /* HotTableViewCell.m */; };
 		7ACB5D211C43C72E0050058E /* HotTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7ACB5D1F1C43C72E0050058E /* HotTableViewCell.xib */; };
 		7ACB5D231C43CB6C0050058E /* hotModel(1).plist in Resources */ = {isa = PBXBuildFile; fileRef = 7ACB5D221C43CB6C0050058E /* hotModel(1).plist */; };
@@ -353,6 +355,9 @@
 		7AAE40A31C3F57DF00022CB0 /* Them.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist; path = Them.plist; sourceTree = "<group>"; };
 		7AAE40A51C3F5EE100022CB0 /* ActivityThemView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ActivityThemView.h; sourceTree = "<group>"; };
 		7AAE40A61C3F5EE100022CB0 /* ActivityThemView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ActivityThemView.m; sourceTree = "<group>"; };
+		7AB8192E1C449F1A00EF1500 /* ProgressHUD.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = ProgressHUD.bundle; sourceTree = "<group>"; };
+		7AB8192F1C449F1A00EF1500 /* ProgressHUD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProgressHUD.h; sourceTree = "<group>"; };
+		7AB819301C449F1A00EF1500 /* ProgressHUD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProgressHUD.m; sourceTree = "<group>"; };
 		7ACB5D1D1C43C72E0050058E /* HotTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HotTableViewCell.h; sourceTree = "<group>"; };
 		7ACB5D1E1C43C72E0050058E /* HotTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HotTableViewCell.m; sourceTree = "<group>"; };
 		7ACB5D1F1C43C72E0050058E /* HotTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HotTableViewCell.xib; sourceTree = "<group>"; };
@@ -446,6 +451,7 @@
 		7A984D4A1C3F9F43000F830E /* Library */ = {
 			isa = PBXGroup;
 			children = (
+				7AB8192D1C449F1A00EF1500 /* ProgressHUD */,
 				7A5D01A21C43997C00900A39 /* VOSegmentedControl */,
 				7A984D811C3FA0E7000F830E /* PullingRefreshTableView */,
 				7A984D651C3F9F43000F830E /* toos */,
@@ -761,6 +767,16 @@
 			path = icons;
 			sourceTree = "<group>";
 		};
+		7AB8192D1C449F1A00EF1500 /* ProgressHUD */ = {
+			isa = PBXGroup;
+			children = (
+				7AB8192E1C449F1A00EF1500 /* ProgressHUD.bundle */,
+				7AB8192F1C449F1A00EF1500 /* ProgressHUD.h */,
+				7AB819301C449F1A00EF1500 /* ProgressHUD.m */,
+			);
+			path = ProgressHUD;
+			sourceTree = "<group>";
+		};
 		B4F9690085B0BECFC7D249CD /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -874,6 +890,7 @@
 				7A995F2B1C3A5A3600B5809C /* 30-key.png in Resources */,
 				7A995F361C3A5A3600B5809C /* 42-photos.png in Resources */,
 				7AFDAA911C3E14E900821630 /* XiangQing.plist in Resources */,
+				7AB819311C449F1A00EF1500 /* ProgressHUD.bundle in Resources */,
 				7A995F401C3A5A3600B5809C /* 52-pinetree.png in Resources */,
 				7A995F681C3A5A3600B5809C /* 92-testtube.png in Resources */,
 				7A995E8F1C3A506A00B5809C /* Main.storyboard in Resources */,
@@ -1040,6 +1057,7 @@
 				7A5D01AD1C43997C00900A39 /* VOSegment.m in Sources */,
 				7A450AE11C3A238E00DDDA0F /* main.m in Sources */,
 				7A995E8B1C3A4E4700B5809C /* MineViewController.m in Sources */,
+				7AB819321C449F1A00EF1500 /* ProgressHUD.m in Sources */,
 				7A984D881C3FA0E7000F830E /* PullingRefreshTableView.m in Sources */,
 				7AFDAA8F1C3E10E100821630 /* ActivityDetailView.m in Sources */,
 				7A3835B01C3CBE29000CA4C9 /* SelectViewController.m in Sources */,

@@ -11,6 +11,7 @@
 #import "GoodTableViewCell.h"
 #import <AFHTTPSessionManager.h>
 #import "VOSegmentedControl.h"
+#import "ProgressHUD.h"
 @interface ClassityViewController ()<UITableViewDataSource,UITableViewDelegate,PullingRefreshTableViewDelegate>{
     NSInteger _pageCount;//定义请求页码
 }
@@ -34,9 +35,14 @@
     //分裂列表
     
     [self showBackButton];
+    //四个请求
     
-    [self getFourRequest];
-   
+//    [self getShowRequest];
+//    [self getTouristRequest];
+//    [self getStudyRequest];
+//    [self getFamilyRequest];
+    
+    [self chooseRequest];
     
    
     [self.view addSubview:self.segctrl1];
@@ -50,7 +56,10 @@
     [self.tableView launchRefreshing];
     
 }
-
+-(void)viewWillDisappear:(BOOL)animated{
+    [super viewWillDisappear:animated];
+    [ProgressHUD dismiss];
+}
 #pragma mark ---dataSouce
 //行
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
@@ -108,20 +117,22 @@
     [self.tableView tableViewDidEndDragging:scrollView];
 }
 
-//加载数据
--(void)loadData{
-
-
+- (void)loadData{
+    
 }
 #pragma mark -------   网络请求4个接口的数据
-- (void)getFourRequest{
+-(void)getShowRequest{
     AFHTTPSessionManager *sessionManager = [[AFHTTPSessionManager alloc]init];
     sessionManager.responseSerializer.acceptableContentTypes = [NSSet setWithObject:@"text/html"];
+    [ ProgressHUD show:@"演出剧目加载中....."];
+    
 //6演出剧目
     [sessionManager GET:[NSString stringWithFormat:@"%@&page=%@&typeid=%@",classify,@(1),@(6)] parameters:nil progress:^(NSProgress * _Nonnull downloadProgress) {
         ZJHLog(@"%@",downloadProgress);
     } success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
         ZJHLog(@"%@",responseObject);
+        [ProgressHUD showSuccess:@"演出剧目加载成功。。。。"];
+       
         
         
         NSDictionary *resultDic = responseObject;
@@ -139,17 +150,33 @@
                 GoodActivityModel *goodModel = [[GoodActivityModel alloc]initWithDictionary:dict];
                 [self.showArray addObject:goodModel];
             }
-        
+            
+        }else{
+            
         }
+        
+        //根据上一页的按钮 确定显示第几页也的数据
+        
+        [self showPrevisousSelect];
         
     } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
         ZJHLog(@"%@",error);
+        [ProgressHUD showError:[NSString stringWithFormat:@"%@",error]];
+       
     }];
-//typeid = 23景点场馆
+
+}
+-(void)getTouristRequest{
+    AFHTTPSessionManager *sessionManager = [[AFHTTPSessionManager alloc]init];
+    sessionManager.responseSerializer.acceptableContentTypes = [NSSet setWithObject:@"text/html"];
+    
+     [ ProgressHUD show:@"景点场馆加载中....."];
+    //typeid = 23景点场馆
     [sessionManager GET:[NSString stringWithFormat:@"%@&page=%@&typeid=%@",classify,@(1),@(23)] parameters:nil progress:^(NSProgress * _Nonnull downloadProgress) {
         ZJHLog(@"%@",downloadProgress);
     } success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
         ZJHLog(@"%@",responseObject);
+        [ProgressHUD showSuccess:@"景点场馆加载成功。。。。"];
         
         NSDictionary *resultDic = responseObject;
         NSString *status = resultDic[@"status"];
@@ -166,16 +193,28 @@
                 [self.touristArray addObject:goodModel];
             }
             
+        }else{
+            
         }
+        //根据上一页的按钮 确定显示第几页也的数据
+        
+        [self showPrevisousSelect];
     } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
         ZJHLog(@"%@",error);
     }];
-// 22学习益智
+
+}
+-(void)getStudyRequest{
+    AFHTTPSessionManager *sessionManager = [[AFHTTPSessionManager alloc]init];
+    sessionManager.responseSerializer.acceptableContentTypes = [NSSet setWithObject:@"text/html"];
+     [ ProgressHUD show:@"学习益智加载中....."];
+    
+    // 22学习益智
     [sessionManager GET:[NSString stringWithFormat:@"%@&page=%@&typeid=%@",classify,@(1),@(22)] parameters:nil progress:^(NSProgress * _Nonnull downloadProgress) {
         ZJHLog(@"%@",downloadProgress);
     } success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
         ZJHLog(@"%@",responseObject);
-        
+        [ProgressHUD showSuccess:@"学习益智加载成功。。。。"];
         
         NSDictionary *resultDic = responseObject;
         NSString *status = resultDic[@"status"];
@@ -191,20 +230,31 @@
                 GoodActivityModel *goodModel = [[GoodActivityModel alloc]initWithDictionary:dict];
                 [self.studyArray addObject:goodModel];
             }
+            
+        }else{
+            
         }
         
+        //根据上一页的按钮 确定显示第几页也的数据
         
+        [self showPrevisousSelect];
         
     } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
         ZJHLog(@"%@",error);
     }];
+
+}
+- (void)getFamilyRequest{
+    AFHTTPSessionManager *sessionManager = [[AFHTTPSessionManager alloc]init];
+    sessionManager.responseSerializer.acceptableContentTypes = [NSSet setWithObject:@"text/html"];
+     [ ProgressHUD show:@"亲子旅游加载中....."];
     
-//21亲子
+    //21亲子旅游
     [sessionManager GET:[NSString stringWithFormat:@"%@&page=%@&typeid=%@",classify,@(1),@(21)] parameters:nil progress:^(NSProgress * _Nonnull downloadProgress) {
         ZJHLog(@"%@",downloadProgress);
     } success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
         ZJHLog(@"%@",responseObject);
-        
+        [ProgressHUD showSuccess:@"亲子旅游加载成功。。。。"];
         
         
         NSDictionary *resultDic = responseObject;
@@ -221,14 +271,40 @@
                 [self.familyArray addObject:goodModel];
             }
             
-            //根据上一页的按钮 确定显示第几页也的数据
             
-            [self showPrevisousSelect];
+        }else{
+            
         }
+        
+        //根据上一页的按钮 确定显示第几页也的数据
+        
+        [self showPrevisousSelect];
     } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
         ZJHLog(@"%@",error);
     }];
+
 }
+
+- (void)chooseRequest{
+    switch (self.classityListType) {
+        case ClassifyListTypeShowRepertoire:
+            [self getShowRequest];
+            break;
+        case ClassifyListTypeTouristPlace:
+            [self getTouristRequest];
+            break;
+            
+        case ClassifyListTypeStudyPUZ:
+            [self getStudyRequest];
+            break;
+        case ClassifyListTypeFamilyTrave:
+            [self getFamilyRequest];
+            break;
+        default:
+            break;
+    }
+}
+#pragma mark -----请求数据接口    showPrevisousSelect
 - (void)showPrevisousSelect{
     if (self.showDataArray.count > 0) {
         [self.showDataArray removeAllObjects];
@@ -238,7 +314,10 @@
             
         case ClassifyListTypeShowRepertoire:
         {
-            self.showDataArray = self.showArray;
+        self.showDataArray = self.showArray;
+            
+            [self.tableView reloadData];
+            
         }
             break;
         case ClassifyListTypeTouristPlace:
@@ -252,12 +331,14 @@
             break;
         case ClassifyListTypeFamilyTrave:
         {
+           
             self.showDataArray = self.familyArray;
         }
             break;
         default:
             break;
     }
+    
     [self.tableView reloadData];
 }
 //懒加载
@@ -316,13 +397,14 @@
         self.segctrl1.tag = self.classityListType;
         
         self.segctrl1.selectedSegmentIndex = self.classityListType - 1;
-        __block NSInteger selectIndex;
+        
         
         [self.segctrl1 setIndexChangeBlock:^(NSInteger index) {
-            selectIndex = index;
+            
             
             NSLog(@"1: block --> %@", @(index));
         }];
+        //点击方法
         [self.segctrl1 addTarget:self action:@selector(segmentCtrlValuechange:) forControlEvents:UIControlEventValueChanged];
         
         
@@ -331,9 +413,11 @@
     return _segctrl1;
 }
 
-- (void)segmentCtrlValuechange:(VOSegCtrlAnimationType *)btn{
+- (void)segmentCtrlValuechange:(VOSegmentedControl *)segment{
     
-    
+    self.classityListType =segment.selectedSegmentIndex + 1;
+    [self chooseRequest];
+    NSLog(@"%lu",(long)segment.selectedSegmentIndex);
     
 }
 
