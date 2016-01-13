@@ -19,9 +19,12 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     // Override point for customization after application launch.
+//微博
     [WeiboSDK enableDebugMode:YES];
     [WeiboSDK registerApp:kAppKey];
-
+//微信
+    [WXApi registerApp:kAppId];
+    
     
     
     
@@ -103,6 +106,7 @@
     [self.window makeKeyAndVisible];
     return YES;
 }
+#pragma mark --- 微博代理方法   微信代理方法
 //代理方法
 -(void)didReceiveWeiboRequest:(WBBaseRequest *)request{
     
@@ -110,15 +114,34 @@
 - (void)didReceiveWeiboResponse:(WBBaseResponse *)response
 {
 }
-#pragma mark--- shareSDK
+//你的程序要实现和微信终端交互的具体请求与回应，因此需要实现WXApiDelegate协议的两个方法：
+//onReq是微信终端向第三方程序发起请求，要求第三方程序响应。第三方程序响应完后必须调用sendRsp返回。在调用sendRsp返回时，会切回到微信终端程序界面
+-(void)onReq:(BaseReq *)req{
+    
+}
+//如果第三方程序向微信发送了sendReq的请求，那么onResp会被回调。sendReq请求调用后，会切到微信终端程序界面
+-(void)onResp:(BaseResp *)resp{
+    
+}
+#pragma mark--- shareSDK 判断微博 或微信  打开
 
-
+//
 -(BOOL)application:(UIApplication *)app openURL:(NSURL *)url sourceApplication:(nullable NSString *)sourceApplication annotation:(nonnull id)annotation{
-    return [WeiboSDK handleOpenURL:url delegate:self];
+    if ([self.buttonTag isEqualToString:@"1"]) {
+        return [WeiboSDK handleOpenURL:url delegate:self];
+    }else{
+        return [WXApi handleOpenURL:url delegate:self];
+    }
+    
 }
 
 -(BOOL)application:(UIApplication *)application handleOpenURL:(NSURL *)url{
-    return [WeiboSDK handleOpenURL:url delegate:self];
+    if ([self.buttonTag isEqualToString:@"1"]) {
+        return [WeiboSDK handleOpenURL:url delegate:self];
+    }else{
+        return [WXApi handleOpenURL:url delegate:self];
+    }
+    
 }
 
 - (void)applicationWillResignActive:(UIApplication *)application {

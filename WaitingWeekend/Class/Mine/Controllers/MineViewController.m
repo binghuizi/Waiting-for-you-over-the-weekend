@@ -225,7 +225,8 @@
     
     weiBoButton.frame = CGRectMake(20, 30, 35, 35);
     [weiBoButton setImage:[UIImage imageNamed:@"ic_com_sina_weibo_sdk_logo"] forState:UIControlStateNormal];
-    [weiBoButton addTarget:self action:@selector(weiboShareAction) forControlEvents:UIControlEventTouchUpInside];
+    [weiBoButton addTarget:self action:@selector(weiboShareAction:) forControlEvents:UIControlEventTouchUpInside];
+    weiBoButton.tag = 1;
     [shareView addSubview:weiBoButton];
     
     //微信
@@ -234,6 +235,8 @@
     
     weiXinButton.frame = CGRectMake(55, 30, 35, 35);
     [weiXinButton setImage:[UIImage imageNamed:@"icon_weixin"] forState:UIControlStateNormal];
+    [weiXinButton addTarget:self action:@selector(weixinShareAction:) forControlEvents:UIControlEventTouchUpInside];
+    weiXinButton.tag = 2;
     [shareView addSubview:weiXinButton];
     
     //盆友圈
@@ -264,8 +267,9 @@
 }
 #pragma mark ----微博分享
 //微博分享
--(void)weiboShareAction{
+-(void)weiboShareAction:(UIButton *)btn{
     AppDelegate *myDelegate =(AppDelegate*)[[UIApplication sharedApplication] delegate];
+    myDelegate.buttonTag = [NSString stringWithFormat:@"%lu",(long)btn.tag];
     
     WBAuthorizeRequest *authRequest = [WBAuthorizeRequest request];
     authRequest.redirectURI = kRedirectURI;
@@ -297,7 +301,18 @@
     
 }
 
-
+//微信分享
+#pragma mark ----微信分享-----
+-(void)weixinShareAction:(UIButton *)btn{
+    AppDelegate *myDelegate =(AppDelegate*)[[UIApplication sharedApplication] delegate];
+    myDelegate.buttonTag = [NSString stringWithFormat:@"%lu",(long)btn.tag];
+//    SendMessageToWXReq* req = [[[SendMessageToWXReq alloc] init]autorelease];
+//    req.text = @"人文的东西并不是体现在你看得到的方面，它更多的体现在你看不到的那些方面，它会影响每一个功能，这才是最本质的。但是，对这点可能很多人没有思考过，以为人文的东西就是我们搞一个很小清新的图片什么的。”综合来看，人文的东西其实是贯穿整个产品的脉络，或者说是它的灵魂所在。";
+//    req.bText = YES;
+//    req.scene = _scene;
+//    
+//    [WXApi sendReq:req];
+}
 //懒加载
 -(UITableView *)tableView{
     if (_tableView == nil) {

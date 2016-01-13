@@ -10,7 +10,8 @@
 #import "DiscoverViewController.h"
 #import "MineViewController.h"
 #import "WeiboSDK.h"
-@interface AppDelegate : UIResponder <UIApplicationDelegate>
+#import "WXApi.h"
+@interface AppDelegate : UIResponder <UIApplicationDelegate,WXApiDelegate>
 
 @property (strong, nonatomic) UIWindow *window;
 
@@ -20,5 +21,6 @@
 @property (strong, nonatomic) NSString *wbtoken;
 @property (strong, nonatomic) NSString *wbRefreshToken;
 @property (strong, nonatomic) NSString *wbCurrentUserID;
+@property(strong ,nonatomic) NSString *buttonTag;
 @end
 

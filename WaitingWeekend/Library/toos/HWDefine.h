@@ -66,3 +66,5 @@ typedef NS_ENUM(NSInteger,ClassifyListType){
 
 #define kAppSecret @"a252ecf80a0941b2040241ab3a00fb84"
 
+//微信
+#define kAppId @"wxb446fed304a2e8a8"
