@@ -17,20 +17,10 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-    self.title = @"登录";
-    UIButton *registerButton = [UIButton buttonWithType:UIButtonTypeCustom];
-    [registerButton setTitle:@"注册" forState:UIControlStateNormal];
-    [registerButton addTarget:self action:@selector(registerAction) forControlEvents:UIControlEventTouchUpInside];
-    registerButton.frame = CGRectMake(0, 0, 100, 50);
     
-    UIBarButtonItem *rightBar = [[UIBarButtonItem alloc]initWithCustomView:registerButton];
-    self.navigationItem.rightBarButtonItem = rightBar;
 }
 
-//注册
--(void)registerAction{
-    
-}
+
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.

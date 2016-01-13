@@ -8,8 +8,8 @@
 
 #import "AppDelegate.h"
 #import "MainViewController.h"
-
-@interface AppDelegate ()
+#import "WeiboSDK.h"
+@interface AppDelegate ()<WeiboSDKDelegate>
 
 @end
 
@@ -19,7 +19,14 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     // Override point for customization after application launch.
-   
+    [WeiboSDK enableDebugMode:YES];
+    [WeiboSDK registerApp:kAppKey];
+
+    
+    
+    
+    
+    
     //标签控制器
    self.tabBarVc = [[UITabBarController alloc]init];
     
@@ -95,6 +102,16 @@
     self.window.backgroundColor = [UIColor whiteColor];
     [self.window makeKeyAndVisible];
     return YES;
+}
+#pragma mark--- shareSDK
+
+
+-(BOOL)application:(UIApplication *)app openURL:(NSURL *)url sourceApplication:(nullable NSString *)sourceApplication annotation:(nonnull id)annotation{
+    return [WeiboSDK handleOpenURL:url delegate:self];
+}
+
+-(BOOL)application:(UIApplication *)application handleOpenURL:(NSURL *)url{
+    return [WeiboSDK handleOpenURL:url delegate:self];
 }
 
 - (void)applicationWillResignActive:(UIApplication *)application {
