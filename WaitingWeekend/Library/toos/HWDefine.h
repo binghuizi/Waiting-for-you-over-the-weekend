@@ -18,7 +18,7 @@
 
 #define RGB(x,y,z) [UIColor colorWithRed:x/255.0 green:y/255.0 blue:z/255.0 alpha:1.0]
 #define SeparatorColor RGB(228, 228, 228) //222 160 改成170
-
+#define mainColor  [UIColor colorWithRed:27/255.0f green:196/255.0f blue:200/255.0f alpha:1.0]
 //首页数据接口
 #define kMainDataInterList    @"http://e.kumi.cn/app/v1.3/index.php?_s_=02a411494fa910f5177d82a6b0a63788&_t_=1451307342&channelid=appstore&cityid=1&lat=34.62172291944134&limit=30&lng=112.4149512442411&page=1"
 //活动详情接口

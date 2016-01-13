@@ -5,7 +5,7 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9529"/>
     </dependencies>
     <scenes>
-        <!--欢乐周末-->
+        <!--周末亲子-->
         <scene sceneID="I9F-It-gfe">
             <objects>
                 <viewController id="H0f-ZT-Mjo" customClass="MainViewController" sceneMemberID="viewController">
@@ -28,7 +28,7 @@
                         </subviews>
                         <color key="backgroundColor" red="1" green="0.95737482337478819" blue="0.95415216766675659" alpha="1" colorSpace="calibratedRGB"/>
                     </view>
-                    <navigationItem key="navigationItem" title="欢乐周末" id="alz-oF-Qi4"/>
+                    <navigationItem key="navigationItem" title="周末亲子" id="alz-oF-Qi4"/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
                     <connections>

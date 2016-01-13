@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		7A2B02831C45FD7E006F3239 /* RegisterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A2B02821C45FD7E006F3239 /* RegisterViewController.m */; };
 		7A3835AD1C3CBD9D000CA4C9 /* SearchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A3835AC1C3CBD9D000CA4C9 /* SearchViewController.m */; };
 		7A3835B01C3CBE29000CA4C9 /* SelectViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A3835AF1C3CBE29000CA4C9 /* SelectViewController.m */; };
 		7A3835B31C3CBE72000CA4C9 /* ActivityDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A3835B21C3CBE72000CA4C9 /* ActivityDetailViewController.m */; };
@@ -177,6 +178,8 @@
 
 /* Begin PBXFileReference section */
 		1AD7D1BC365A27242FDBD7C4 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		7A2B02811C45FD7E006F3239 /* RegisterViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RegisterViewController.h; sourceTree = "<group>"; };
+		7A2B02821C45FD7E006F3239 /* RegisterViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RegisterViewController.m; sourceTree = "<group>"; };
 		7A3835AB1C3CBD9D000CA4C9 /* SearchViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SearchViewController.h; sourceTree = "<group>"; };
 		7A3835AC1C3CBD9D000CA4C9 /* SearchViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SearchViewController.m; sourceTree = "<group>"; };
 		7A3835AE1C3CBE29000CA4C9 /* SelectViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SelectViewController.h; sourceTree = "<group>"; };
@@ -639,6 +642,8 @@
 			children = (
 				7A995E851C3A4E4700B5809C /* MineViewController.h */,
 				7A995E861C3A4E4700B5809C /* MineViewController.m */,
+				7A2B02811C45FD7E006F3239 /* RegisterViewController.h */,
+				7A2B02821C45FD7E006F3239 /* RegisterViewController.m */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -1077,6 +1082,7 @@
 				7A5D01AD1C43997C00900A39 /* VOSegment.m in Sources */,
 				7A450AE11C3A238E00DDDA0F /* main.m in Sources */,
 				7A995E8B1C3A4E4700B5809C /* MineViewController.m in Sources */,
+				7A2B02831C45FD7E006F3239 /* RegisterViewController.m in Sources */,
 				7AB819321C449F1A00EF1500 /* ProgressHUD.m in Sources */,
 				7A984D881C3FA0E7000F830E /* PullingRefreshTableView.m in Sources */,
 				7AFDAA8F1C3E10E100821630 /* ActivityDetailView.m in Sources */,

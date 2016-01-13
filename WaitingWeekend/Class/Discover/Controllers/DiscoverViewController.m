@@ -15,10 +15,13 @@
 @interface DiscoverViewController () <UITableViewDataSource,UITableViewDelegate,PullingRefreshTableViewDelegate>{
     NSInteger _pageCount;//定义请求页码
 }
-
+@property(nonatomic,retain) UITableView *maxTableView;
 @property(nonatomic,strong) PullingRefreshTableView *tableView;
 @property(nonatomic,assign) BOOL refreshing;
 @property(nonatomic,retain) NSMutableArray *likeArray;
+
+@property(nonatomic,strong)UIView *tableHeaderView;
+
 //@property(nonatomic,retain) UITableView *tableView;
 @end
 
@@ -27,24 +30,34 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-    
-    //导航栏颜色
-   // self.navigationController.navigationBar.barTintColor = [UIColor colorWithRed:27/255.0f green:185/255.0f blue:189/255.0f alpha:1.0];
    
     //多余的tableView内容
     // self.edgesForExtendedLayout = UIRectEdgeNone;
-    
-    [self loadData];
     self.automaticallyAdjustsScrollViewInsets = NO;
     
-    [self.view addSubview:self.tableView];
+    [self loadData];
+    
+    [self.view addSubview:self.maxTableView];
+    //自定义头部cell
+    [self configTableView];
+    
     //注册cell
     [self.tableView registerNib:[UINib nibWithNibName:@"DiscoverTableViewCell" bundle:nil] forCellReuseIdentifier:@"cell"];
+}
+ //自定义头部cell
+- (void)configTableView{
+    self.tableHeaderView = [[UIView alloc]init];
+    self.tableHeaderView.frame = CGRectMake(0, 0, kWideth, 343);
+   // [self.maxTableView addSubview:self.tableHeaderView];
+    [self.tableHeaderView addSubview:self.tableView];
+    
+    self.maxTableView.tableHeaderView = self.tableView;
 }
 //行
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
     return self.likeArray.count;
 }
+
 //cell
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
 //    static NSString *inden = @"indentifer";
@@ -142,6 +155,7 @@
 
 
 }
+#pragma mark --- 懒加载
 -(PullingRefreshTableView *)tableView{
     if (_tableView == nil) {
         self.tableView = [[PullingRefreshTableView alloc]initWithFrame:CGRectMake(100, -80, kWideth - 200, kWideth) style:UITableViewStylePlain];
@@ -154,6 +168,13 @@
         self.tableView.rowHeight = 128;
     }
     return _tableView;
+}
+-(UITableView *)maxTableView{
+    if (_maxTableView == nil) {
+        self.maxTableView = [[UITableView alloc]initWithFrame:self.view.frame style:UITableViewStylePlain];
+        self.maxTableView.rowHeight = 100;
+    }
+    return _maxTableView;
 }
 
 -(NSMutableArray *)likeArray{

@@ -28,7 +28,7 @@
 @property(nonatomic,strong) NSMutableArray *specialArray;
 //广告
 @property(nonatomic,strong) NSMutableArray *adArray;
-@property(nonatomic,strong)UIScrollView *scrollView;
+@property(nonatomic,strong) UIScrollView *scrollView;
 @property(nonatomic,strong) UIPageControl *pageControl;
 @property(nonatomic,strong) NSTimer *timer;//定时器用于图片滚动
 @property(nonatomic,strong)UIView *tableHeaderView;
@@ -47,7 +47,7 @@
     self.navigationController.navigationBar.tintColor = [UIColor whiteColor];
 //导航栏颜色
   //  self.navigationController.navigationBar.barTintColor = [UIColor colorWithRed:27/255.0f green:185/255.0f blue:189/255.0f alpha:1.0];
-    
+  
 //导航栏上navigationItem
     UIBarButtonItem *rightBarButton = [[UIBarButtonItem alloc]initWithBarButtonSystemItem:UIBarButtonSystemItemSearch target:self action:@selector(rightBarAction)];
 //1.设置导航栏上的左右按钮  把leftBarButton设置为navigationItem左按钮
