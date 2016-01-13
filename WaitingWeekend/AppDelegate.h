@@ -9,10 +9,16 @@
 #import <UIKit/UIKit.h>
 #import "DiscoverViewController.h"
 #import "MineViewController.h"
+#import "WeiboSDK.h"
 @interface AppDelegate : UIResponder <UIApplicationDelegate>
 
 @property (strong, nonatomic) UIWindow *window;
 
 @property (strong, nonatomic)UITabBarController *tabBarVc;
+
+
+@property (strong, nonatomic) NSString *wbtoken;
+@property (strong, nonatomic) NSString *wbRefreshToken;
+@property (strong, nonatomic) NSString *wbCurrentUserID;
 @end
 

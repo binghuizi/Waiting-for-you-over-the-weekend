@@ -13,6 +13,8 @@
 #import "ProgressHUD.h"
 #import "RegisterViewController.h"
 #import "LoginViewController.h"
+#import "AppDelegate.h"
+#import "WeiboSDK.h"
 @interface MineViewController ()<UITableViewDataSource,UITableViewDelegate,MFMailComposeViewControllerDelegate>
 @property(nonatomic,retain) UITableView *tableView;
 @property(nonatomic,retain) UIButton *headImageButton;
@@ -213,15 +215,17 @@
 #pragma mark ---- 微博分享
 -(void)share{
     UIWindow *windw = [[UIApplication sharedApplication].delegate window];
-    UIView *shareView = [[UIView alloc]initWithFrame:CGRectMake(0, kWideth - 350, kWideth, 350)];
-   
-    //微博
-    shareView.backgroundColor = [UIColor lightGrayColor];
+    UIView *shareView = [[UIView alloc]initWithFrame:CGRectMake(0, kWideth , kWideth, 350)];
+    shareView.backgroundColor = [UIColor colorWithRed:233/255.0f green:243/255.0f blue:245/255.0f alpha:1.0];
     [windw addSubview:shareView];
+    //微博
+    
+    
     UIButton *weiBoButton = [UIButton buttonWithType:UIButtonTypeCustom];
     
     weiBoButton.frame = CGRectMake(20, 30, 35, 35);
     [weiBoButton setImage:[UIImage imageNamed:@"ic_com_sina_weibo_sdk_logo"] forState:UIControlStateNormal];
+    [weiBoButton addTarget:self action:@selector(weiboShareAction) forControlEvents:UIControlEventTouchUpInside];
     [shareView addSubview:weiBoButton];
     
     //微信
@@ -237,8 +241,8 @@
     
     UIButton *friendButton = [UIButton buttonWithType:UIButtonTypeCustom];
     
-    friendButton .frame = CGRectMake(55, 30, 35, 35);
-    [friendButton  setImage:[UIImage imageNamed:@"ic_com_sina_weibo_sdk_logo"] forState:UIControlStateNormal];
+    friendButton .frame = CGRectMake(105, 30, 35, 35);
+    [friendButton  setImage:[UIImage imageNamed:@"umeng_socialize_wxcircle"] forState:UIControlStateNormal];
     [shareView addSubview:friendButton];
     //清除
     
@@ -256,12 +260,41 @@
         
         
     }];
-    
-    
-    
-        
-        
    
+}
+#pragma mark ----微博分享
+//微博分享
+-(void)weiboShareAction{
+    AppDelegate *myDelegate =(AppDelegate*)[[UIApplication sharedApplication] delegate];
+    
+    WBAuthorizeRequest *authRequest = [WBAuthorizeRequest request];
+    authRequest.redirectURI = kRedirectURI;
+    authRequest.scope = @"all";
+    
+    WBSendMessageToWeiboRequest *request = [WBSendMessageToWeiboRequest requestWithMessage:[self messageToShare] authInfo:authRequest access_token:myDelegate.wbtoken];
+    request.userInfo = @{@"ShareMessageFrom": @"SendMessageToWeiboViewController",
+                         @"Other_Info_1": [NSNumber numberWithInt:123],
+                         @"Other_Info_2": @[@"obj1", @"obj2"],
+                         @"Other_Info_3": @{@"key1": @"obj1", @"key2": @"obj2"}};
+    //    request.shouldOpenWeiboAppInstallPageIfNotInstalled = NO;
+    [WeiboSDK sendRequest:request];
+}
+
+- (WBMessageObject *)messageToShare
+{
+  
+    
+    WBMessageObject *message = [WBMessageObject message];
+    
+    
+    WBImageObject *image = [WBImageObject object];
+    image.imageData = [NSData dataWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"meimei2" ofType:@".png"]];
+    message.imageObject = image;
+   
+    
+    
+    return message;
+    
 }
 
 
@@ -292,6 +325,42 @@
     }
     return _ueserName;
 }
+
+- (void)request:(WBHttpRequest *)request didFinishLoadingWithResult:(NSString *)result
+{
+    // NSString *title = nil;
+    //    UIAlertView *alert = nil;
+    //
+    //    title = @"收到网络回调";
+    //    alert = [[UIAlertView alloc] initWithTitle:title
+    //                                       message:[NSString stringWithFormat:@"%@",result]
+    //                                      delegate:nil
+    //                             cancelButtonTitle:NSLocalizedString(@"确定", nil)
+    //                             otherButtonTitles:nil];
+    //    [alert show];
+    NSLog(@"收到网络回调");
+    
+    
+    
+    
+}
+
+- (void)request:(WBHttpRequest *)request didFailWithError:(NSError *)error;
+{
+    //    NSString *title = nil;
+    //    UIAlertView *alert = nil;
+    //
+    //    title = NSLocalizedString(@"请求异常", nil);
+    //    alert = [[UIAlertView alloc] initWithTitle:title
+    //                                       message:[NSString stringWithFormat:@"%@",error]
+    //                                      delegate:nil
+    //                             cancelButtonTitle:NSLocalizedString(@"确定", nil)
+    //                             otherButtonTitles:nil];
+    //    [alert show];
+    
+    NSLog(@"请求异常");
+}
+
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.

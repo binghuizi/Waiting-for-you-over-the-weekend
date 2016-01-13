@@ -14,7 +14,7 @@
 @end
 
 @implementation AppDelegate
-
+@synthesize wbtoken;
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
@@ -102,6 +102,13 @@
     self.window.backgroundColor = [UIColor whiteColor];
     [self.window makeKeyAndVisible];
     return YES;
+}
+//代理方法
+-(void)didReceiveWeiboRequest:(WBBaseRequest *)request{
+    
+}
+- (void)didReceiveWeiboResponse:(WBBaseResponse *)response
+{
 }
 #pragma mark--- shareSDK
 
