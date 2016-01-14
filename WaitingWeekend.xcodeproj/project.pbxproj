@@ -190,6 +190,8 @@
 		7AF21E311C467A5F00F4ED1E /* libWeChatSDK.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 7AF21E2E1C467A5F00F4ED1E /* libWeChatSDK.a */; };
 		7AF21E331C467AE900F4ED1E /* libsqlite3.0.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 7AF21E321C467AE900F4ED1E /* libsqlite3.0.tbd */; };
 		7AF21E351C467AFE00F4ED1E /* libc++.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 7AF21E341C467AFE00F4ED1E /* libc++.tbd */; };
+		7AFCC71C1C47388E00D496BC /* ShareView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7AFCC71B1C47388E00D496BC /* ShareView.m */; };
+		7AFCC71F1C474DF700D496BC /* ShareViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7AFCC71E1C474DF700D496BC /* ShareViewController.m */; };
 		7AFDAA8C1C3DFE4F00821630 /* ActivityDetail.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7AFDAA8B1C3DFE4F00821630 /* ActivityDetail.storyboard */; };
 		7AFDAA8F1C3E10E100821630 /* ActivityDetailView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7AFDAA8E1C3E10E100821630 /* ActivityDetailView.m */; };
 		7AFDAA911C3E14E900821630 /* XiangQing.plist in Resources */ = {isa = PBXBuildFile; fileRef = 7AFDAA901C3E14E900821630 /* XiangQing.plist */; };
@@ -428,6 +430,10 @@
 		7AF21E301C467A5F00F4ED1E /* WXApiObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WXApiObject.h; sourceTree = "<group>"; };
 		7AF21E321C467AE900F4ED1E /* libsqlite3.0.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.0.tbd; path = usr/lib/libsqlite3.0.tbd; sourceTree = SDKROOT; };
 		7AF21E341C467AFE00F4ED1E /* libc++.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = "libc++.tbd"; path = "usr/lib/libc++.tbd"; sourceTree = SDKROOT; };
+		7AFCC71A1C47388E00D496BC /* ShareView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ShareView.h; sourceTree = "<group>"; };
+		7AFCC71B1C47388E00D496BC /* ShareView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ShareView.m; sourceTree = "<group>"; };
+		7AFCC71D1C474DF700D496BC /* ShareViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ShareViewController.h; sourceTree = "<group>"; };
+		7AFCC71E1C474DF700D496BC /* ShareViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ShareViewController.m; sourceTree = "<group>"; };
 		7AFDAA8B1C3DFE4F00821630 /* ActivityDetail.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = ActivityDetail.storyboard; sourceTree = "<group>"; };
 		7AFDAA8D1C3E10E100821630 /* ActivityDetailView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ActivityDetailView.h; sourceTree = "<group>"; };
 		7AFDAA8E1C3E10E100821630 /* ActivityDetailView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ActivityDetailView.m; sourceTree = "<group>"; };
@@ -714,6 +720,8 @@
 			children = (
 				7A995E851C3A4E4700B5809C /* MineViewController.h */,
 				7A995E861C3A4E4700B5809C /* MineViewController.m */,
+				7AFCC71D1C474DF700D496BC /* ShareViewController.h */,
+				7AFCC71E1C474DF700D496BC /* ShareViewController.m */,
 				7AF21DEE1C463D8B00F4ED1E /* LoginViewController.h */,
 				7AF21DEF1C463D8B00F4ED1E /* LoginViewController.m */,
 				7A2B02811C45FD7E006F3239 /* RegisterViewController.h */,
@@ -734,6 +742,8 @@
 			children = (
 				7A995E921C3A50BD00B5809C /* Mine.storyboard */,
 				7AF21DF11C464D0E00F4ED1E /* Login.storyboard */,
+				7AFCC71A1C47388E00D496BC /* ShareView.h */,
+				7AFCC71B1C47388E00D496BC /* ShareView.m */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -1190,6 +1200,7 @@
 				7A995F741C3A766C00B5809C /* MainTableViewCell.m in Sources */,
 				7A450AE41C3A238E00DDDA0F /* AppDelegate.m in Sources */,
 				7A5D01B61C439C3800900A39 /* HotThemModel.m in Sources */,
+				7AFCC71C1C47388E00D496BC /* ShareView.m in Sources */,
 				7A5D01AB1C43997C00900A39 /* VOContentLayer.m in Sources */,
 				7A995E891C3A4E4700B5809C /* DiscoverViewController.m in Sources */,
 				7A3835BF1C3CC076000CA4C9 /* HotActivityViewController.m in Sources */,
@@ -1197,6 +1208,7 @@
 				7A95C4831C4511EE002997E6 /* DiscoverModel.m in Sources */,
 				7A984D971C3FBE3A000F830E /* GoodActivityModel.m in Sources */,
 				7A5D01AC1C43997C00900A39 /* VOIndicatorAnimation.m in Sources */,
+				7AFCC71F1C474DF700D496BC /* ShareViewController.m in Sources */,
 				7A3835B61C3CBF44000CA4C9 /* ThemViewController.m in Sources */,
 				7A3835BC1C3CC062000CA4C9 /* GoodViewController.m in Sources */,
 				7A3835AD1C3CBD9D000CA4C9 /* SearchViewController.m in Sources */,

@@ -23,7 +23,36 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="2On-QL-Z1p" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1307.5" y="438.5"/>
+            <point key="canvasLocation" x="947.5" y="438.5"/>
+        </scene>
+        <!--Share View Controller-->
+        <scene sceneID="vDc-ED-VEA">
+            <objects>
+                <viewController storyboardIdentifier="shareAc" id="GvO-Qn-rDW" customClass="ShareViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="TU3-X6-b5B"/>
+                        <viewControllerLayoutGuide type="bottom" id="4rx-RH-7ea"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="Hc3-Ap-1FY">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="SMD-sf-IsS">
+                                <rect key="frame" x="15" y="28" width="343" height="204"/>
+                                <color key="backgroundColor" red="1" green="0.58536367131987022" blue="0.51163095318413832" alpha="1" colorSpace="calibratedRGB"/>
+                                <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
+                                <color key="textColor" red="0.012392660908452435" green="0.007089011407925643" blue="0.014401830808080773" alpha="1" colorSpace="calibratedRGB"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="cVM-6m-h0x" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1355.5" y="438.5"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="eFc-Ud-zfs">

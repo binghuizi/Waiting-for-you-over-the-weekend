@@ -15,12 +15,16 @@
 #import "LoginViewController.h"
 #import "AppDelegate.h"
 #import "WeiboSDK.h"
+
 @interface MineViewController ()<UITableViewDataSource,UITableViewDelegate,MFMailComposeViewControllerDelegate>
 @property(nonatomic,retain) UITableView *tableView;
 @property(nonatomic,retain) UIButton *headImageButton;
 @property(nonatomic,strong) NSArray *imageArray;
 @property(nonatomic,strong) NSMutableArray *titleArray;
 @property(nonatomic,strong) UILabel *ueserName;
+
+@property(nonatomic,strong) UIView *shareView;
+@property(nonatomic,strong) UIView *grayView;
 @end
 
 @implementation MineViewController
@@ -87,8 +91,7 @@
     }
    //去电cell选中的颜色
     cell.selectionStyle = UITableViewCellSelectionStyleNone;
-    NSLog(@"%lu",(unsigned long)self.imageArray.count);
-    NSLog(@"%lu",(unsigned long)self.titleArray.count);
+   
     
     cell.imageView.image = [UIImage imageNamed:self.imageArray[indexPath.row]];
     cell.textLabel.text = self.titleArray[indexPath.row];
@@ -214,72 +217,114 @@
 }
 #pragma mark ---- 微博分享
 -(void)share{
+    self.hidesBottomBarWhenPushed = YES;
+    
+    
     UIWindow *windw = [[UIApplication sharedApplication].delegate window];
-    UIView *shareView = [[UIView alloc]initWithFrame:CGRectMake(0, kWideth , kWideth, 350)];
-    shareView.backgroundColor = [UIColor colorWithRed:233/255.0f green:243/255.0f blue:245/255.0f alpha:1.0];
-    [windw addSubview:shareView];
+    
+    self.grayView = [[UIView alloc]initWithFrame:CGRectMake(0, 0, kWideth, kHeight)];
+    self.grayView.backgroundColor = [UIColor darkGrayColor];
+    self.grayView.alpha = 0.8;
+    [windw addSubview:self.grayView];
+    
+    self.shareView = [[UIView alloc]initWithFrame:CGRectMake(0, kWideth + 20 , kWideth, 300)];
+   
+    self.shareView.backgroundColor = [UIColor colorWithRed:233/255.0f green:243/255.0f blue:245/255.0f alpha:1.0];
+    
+    [windw addSubview:self.shareView];
     //微博
     
     
     UIButton *weiBoButton = [UIButton buttonWithType:UIButtonTypeCustom];
     
-    weiBoButton.frame = CGRectMake(20, 30, 35, 35);
-    [weiBoButton setImage:[UIImage imageNamed:@"ic_com_sina_weibo_sdk_logo"] forState:UIControlStateNormal];
+    weiBoButton.frame = CGRectMake(50, 60, 35, 35);
+    [weiBoButton setImage:[UIImage imageNamed:@"sina_normal"] forState:UIControlStateNormal];
     [weiBoButton addTarget:self action:@selector(weiboShareAction:) forControlEvents:UIControlEventTouchUpInside];
     weiBoButton.tag = 1;
-    [shareView addSubview:weiBoButton];
+    [self.shareView addSubview:weiBoButton];
+    
+    UILabel *weiBoLabel = [[UILabel alloc]initWithFrame:CGRectMake(40, 100, 80, 40)];
+    weiBoLabel.font = [UIFont systemFontOfSize:13];
+    weiBoLabel.text = @"新浪微博";
+    [self.shareView addSubview:weiBoLabel];
     
     //微信
     
     UIButton *weiXinButton = [UIButton buttonWithType:UIButtonTypeCustom];
     
-    weiXinButton.frame = CGRectMake(55, 30, 35, 35);
-    [weiXinButton setImage:[UIImage imageNamed:@"icon_weixin"] forState:UIControlStateNormal];
+    weiXinButton.frame = CGRectMake(150, 60, 35, 35);
+    [weiXinButton setImage:[UIImage imageNamed:@"wx_normal"] forState:UIControlStateNormal];
     [weiXinButton addTarget:self action:@selector(weixinShareAction:) forControlEvents:UIControlEventTouchUpInside];
     weiXinButton.tag = 2;
-    [shareView addSubview:weiXinButton];
+    
+    UILabel *weixinLabel = [[UILabel alloc]initWithFrame:CGRectMake(155, 100, 80, 40)];
+    weixinLabel.font = [UIFont systemFontOfSize:13];
+    weixinLabel.text = @"微信";
+    [self.shareView addSubview:weixinLabel];
+    [self.shareView addSubview:weiXinButton];
     
     //盆友圈
     
     
     UIButton *friendButton = [UIButton buttonWithType:UIButtonTypeCustom];
     
-    friendButton .frame = CGRectMake(105, 30, 35, 35);
-    [friendButton  setImage:[UIImage imageNamed:@"umeng_socialize_wxcircle"] forState:UIControlStateNormal];
-    [shareView addSubview:friendButton];
+    friendButton .frame = CGRectMake(250, 60, 35, 35);
+    [friendButton  setImage:[UIImage imageNamed:@"share"] forState:UIControlStateNormal];
+    
+    UILabel *friendLabel = [[UILabel alloc]initWithFrame:CGRectMake(252, 100, 80, 40)];
+    friendLabel.font = [UIFont systemFontOfSize:13];
+    friendLabel.text = @"朋友圈";
+    [self.shareView addSubview:friendLabel];
+
+    
+    [self.shareView addSubview:friendButton];
     //清除
     
     UIButton *removeButton = [UIButton buttonWithType:UIButtonTypeCustom];
     
-    removeButton .frame = CGRectMake(20, 100,kWideth - 40, 44);
+    removeButton .frame = CGRectMake(20, 160,kWideth - 40, 44);
     
     [removeButton setTitle:@"取消" forState:UIControlStateNormal];
+    [removeButton setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
+    [removeButton addTarget:self action:@selector(cancelAction) forControlEvents:UIControlEventTouchUpInside];
+    removeButton.backgroundColor = mainColor;
+    [self.shareView addSubview:removeButton];
     
-    [shareView addSubview:removeButton];
-  
     
     
     [UIView animateWithDuration:1.0 animations:^{
         
         
     }];
-   
+}
+//取消按钮
+- (void)cancelAction{
+    //隐藏
+    self.shareView.hidden = YES;
+    self.grayView.hidden = YES;
 }
 #pragma mark ----微博分享
 //微博分享
 -(void)weiboShareAction:(UIButton *)btn{
+    self.shareView.hidden = YES;//隐藏
     AppDelegate *myDelegate =(AppDelegate*)[[UIApplication sharedApplication] delegate];
-    myDelegate.buttonTag = [NSString stringWithFormat:@"%lu",(long)btn.tag];
-    
+    myDelegate.buttonTag = [NSString stringWithFormat:@"%ld",(long)btn.tag];
+
+//授权
     WBAuthorizeRequest *authRequest = [WBAuthorizeRequest request];
     authRequest.redirectURI = kRedirectURI;
     authRequest.scope = @"all";
-    
+
+//第三方向微博发送请求
     WBSendMessageToWeiboRequest *request = [WBSendMessageToWeiboRequest requestWithMessage:[self messageToShare] authInfo:authRequest access_token:myDelegate.wbtoken];
-    request.userInfo = @{@"ShareMessageFrom": @"SendMessageToWeiboViewController",
-                         @"Other_Info_1": [NSNumber numberWithInt:123],
-                         @"Other_Info_2": @[@"obj1", @"obj2"],
-                         @"Other_Info_3": @{@"key1": @"obj1", @"key2": @"obj2"}};
+    
+    //request.userInfo = @{@"ShareMessageFrom": @"SendMessageToWeiboViewController",
+//                         @"Other_Info_1": [NSNumber numberWithInt:123],
+//                         @"Other_Info_2": @[@"obj1", @"obj2"],
+//                         @"Other_Info_3": @{@"key1": @"obj1", @"key2": @"obj2"}};
+   //可以为空
+    
+    request.userInfo = nil;
     //    request.shouldOpenWeiboAppInstallPageIfNotInstalled = NO;
     [WeiboSDK sendRequest:request];
 }
@@ -306,12 +351,14 @@
 -(void)weixinShareAction:(UIButton *)btn{
     AppDelegate *myDelegate =(AppDelegate*)[[UIApplication sharedApplication] delegate];
     myDelegate.buttonTag = [NSString stringWithFormat:@"%lu",(long)btn.tag];
-//    SendMessageToWXReq* req = [[[SendMessageToWXReq alloc] init]autorelease];
-//    req.text = @"人文的东西并不是体现在你看得到的方面，它更多的体现在你看不到的那些方面，它会影响每一个功能，这才是最本质的。但是，对这点可能很多人没有思考过，以为人文的东西就是我们搞一个很小清新的图片什么的。”综合来看，人文的东西其实是贯穿整个产品的脉络，或者说是它的灵魂所在。";
-//    req.bText = YES;
-//    req.scene = _scene;
-//    
-//    [WXApi sendReq:req];
+   //取消授权
+    [WeiboSDK logOutWithToken:myDelegate.wbtoken delegate:self withTag:@"1"];
+    SendMessageToWXReq* req = [[SendMessageToWXReq alloc] init];
+    req.text = @"人文的东西并不是体现在你看得到的方面，它更多的体现在你看不到的那些方面，它会影响每一个功能，这才是最本质的。但是，对这点可能很多人没有思考过，以为人文的东西就是我们搞一个很小清新的图片什么的。”综合来看，人文的东西其实是贯穿整个产品的脉络，或者说是它的灵魂所在。";
+    req.bText = YES;
+    req.scene = _scene;
+    
+    [WXApi sendReq:req];
 }
 //懒加载
 -(UITableView *)tableView{
