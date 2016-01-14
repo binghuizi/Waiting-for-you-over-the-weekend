@@ -33,6 +33,8 @@
 		7A95C4641C44FA67002997E6 /* DiscoverTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7A95C4621C44FA67002997E6 /* DiscoverTableViewCell.xib */; };
 		7A95C4801C4510EF002997E6 /* discover.plist in Resources */ = {isa = PBXBuildFile; fileRef = 7A95C47F1C4510EF002997E6 /* discover.plist */; };
 		7A95C4831C4511EE002997E6 /* DiscoverModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A95C4821C4511EE002997E6 /* DiscoverModel.m */; };
+		7A971AF81C47ADAA00A66330 /* res6.gif in Resources */ = {isa = PBXBuildFile; fileRef = 7A971AF61C47ADAA00A66330 /* res6.gif */; };
+		7A971AF91C47ADAA00A66330 /* res6thumb.png in Resources */ = {isa = PBXBuildFile; fileRef = 7A971AF71C47ADAA00A66330 /* res6thumb.png */; };
 		7A984D7B1C3F9F43000F830E /* HWTools.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A984D681C3F9F43000F830E /* HWTools.m */; };
 		7A984D7C1C3F9F43000F830E /* UIView+Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A984D6A1C3F9F43000F830E /* UIView+Extension.m */; };
 		7A984D7D1C3F9F43000F830E /* UIViewController+Common.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A984D6C1C3F9F43000F830E /* UIViewController+Common.m */; };
@@ -186,7 +188,6 @@
 		7AF21E221C4650D500F4ED1E /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7AF21E211C4650D500F4ED1E /* Foundation.framework */; };
 		7AF21E241C4650E500F4ED1E /* libz.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 7AF21E231C4650E500F4ED1E /* libz.tbd */; };
 		7AF21E261C4650F400F4ED1E /* libsqlite3.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 7AF21E251C4650F400F4ED1E /* libsqlite3.tbd */; };
-		7AF21E281C46748600F4ED1E /* meimei2.png in Resources */ = {isa = PBXBuildFile; fileRef = 7AF21E271C46748600F4ED1E /* meimei2.png */; };
 		7AF21E311C467A5F00F4ED1E /* libWeChatSDK.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 7AF21E2E1C467A5F00F4ED1E /* libWeChatSDK.a */; };
 		7AF21E331C467AE900F4ED1E /* libsqlite3.0.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 7AF21E321C467AE900F4ED1E /* libsqlite3.0.tbd */; };
 		7AF21E351C467AFE00F4ED1E /* libc++.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 7AF21E341C467AFE00F4ED1E /* libc++.tbd */; };
@@ -244,6 +245,8 @@
 		7A95C47F1C4510EF002997E6 /* discover.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist; path = discover.plist; sourceTree = "<group>"; };
 		7A95C4811C4511EE002997E6 /* DiscoverModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DiscoverModel.h; sourceTree = "<group>"; };
 		7A95C4821C4511EE002997E6 /* DiscoverModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DiscoverModel.m; sourceTree = "<group>"; };
+		7A971AF61C47ADAA00A66330 /* res6.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = res6.gif; sourceTree = "<group>"; };
+		7A971AF71C47ADAA00A66330 /* res6thumb.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = res6thumb.png; sourceTree = "<group>"; };
 		7A984D661C3F9F43000F830E /* HWDefine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HWDefine.h; sourceTree = "<group>"; };
 		7A984D671C3F9F43000F830E /* HWTools.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HWTools.h; sourceTree = "<group>"; };
 		7A984D681C3F9F43000F830E /* HWTools.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HWTools.m; sourceTree = "<group>"; };
@@ -424,7 +427,6 @@
 		7AF21E211C4650D500F4ED1E /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		7AF21E231C4650E500F4ED1E /* libz.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libz.tbd; path = usr/lib/libz.tbd; sourceTree = SDKROOT; };
 		7AF21E251C4650F400F4ED1E /* libsqlite3.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.tbd; path = usr/lib/libsqlite3.tbd; sourceTree = SDKROOT; };
-		7AF21E271C46748600F4ED1E /* meimei2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = meimei2.png; sourceTree = "<group>"; };
 		7AF21E2E1C467A5F00F4ED1E /* libWeChatSDK.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libWeChatSDK.a; sourceTree = "<group>"; };
 		7AF21E2F1C467A5F00F4ED1E /* WXApi.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WXApi.h; sourceTree = "<group>"; };
 		7AF21E301C467A5F00F4ED1E /* WXApiObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WXApiObject.h; sourceTree = "<group>"; };
@@ -482,7 +484,6 @@
 		7A450AD31C3A238E00DDDA0F = {
 			isa = PBXGroup;
 			children = (
-				7AF21E271C46748600F4ED1E /* meimei2.png */,
 				7A984D4A1C3F9F43000F830E /* Library */,
 				7A450ADE1C3A238E00DDDA0F /* WaitingWeekend */,
 				7A450ADD1C3A238E00DDDA0F /* Products */,
@@ -517,6 +518,8 @@
 		7A450ADF1C3A238E00DDDA0F /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				7A971AF61C47ADAA00A66330 /* res6.gif */,
+				7A971AF71C47ADAA00A66330 /* res6thumb.png */,
 				7A450AE01C3A238E00DDDA0F /* main.m */,
 			);
 			name = "Supporting Files";
@@ -1023,6 +1026,7 @@
 				7A984D861C3FA0E7000F830E /* blueArrow.png in Resources */,
 				7A995F541C3A5A3600B5809C /* 72-pin.png in Resources */,
 				7A995F5B1C3A5A3600B5809C /* 79-medical-bag.png in Resources */,
+				7A971AF91C47ADAA00A66330 /* res6thumb.png in Resources */,
 				7A995F321C3A5A3600B5809C /* 37-suitcase.png in Resources */,
 				7A995F531C3A5A3600B5809C /* 71-compass.png in Resources */,
 				7A995F2F1C3A5A3600B5809C /* 34-coffee.png in Resources */,
@@ -1099,10 +1103,10 @@
 				7A995F5E1C3A5A3600B5809C /* 82-dogpaw.png in Resources */,
 				7A984D901C3FA3BC000F830E /* GoodTableViewCell.xib in Resources */,
 				7A95C4641C44FA67002997E6 /* DiscoverTableViewCell.xib in Resources */,
-				7AF21E281C46748600F4ED1E /* meimei2.png in Resources */,
 				7A5D01BC1C43A80D00900A39 /* typeud21.plist in Resources */,
 				7A995F6E1C3A5A3600B5809C /* 98-palette.png in Resources */,
 				7A995E931C3A50BD00B5809C /* Mine.storyboard in Resources */,
+				7A971AF81C47ADAA00A66330 /* res6.gif in Resources */,
 				7A995F471C3A5A3600B5809C /* 59-flag.png in Resources */,
 				7A995F051C3A5A3600B5809C /* 03-loopback.png in Resources */,
 				7A995F511C3A5A3600B5809C /* 69-display.png in Resources */,
@@ -1329,10 +1333,11 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				ENABLE_BITCODE = YES;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "$(SRCROOT)/WaitingWeekend/Library/toos/wenkd.pch";
 				INFOPLIST_FILE = WaitingWeekend/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
@@ -1354,10 +1359,11 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				ENABLE_BITCODE = YES;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "$(SRCROOT)/WaitingWeekend/Library/toos/wenkd.pch";
 				INFOPLIST_FILE = WaitingWeekend/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",

@@ -24,7 +24,8 @@
     [WeiboSDK registerApp:kAppKey];
 //微信
     [WXApi registerApp:kAppId];
-    [self performSelector:@selector(testLog) withObject:nil afterDelay:3];
+    
+    
    
     
     
@@ -107,16 +108,6 @@
     [self.window makeKeyAndVisible];
     return YES;
 }
-//微信注册
-- (void) testLog
-{
-    NSLog(@"startstart");
-    for (int i = 0; i < 1; i++)
-    {
-        [[UIApplication sharedApplication] canOpenURL:[NSURL URLWithString:[NSString stringWithFormat:@"wxb446fed304a2e8a8%d://",i]]];
-    }
-    NSLog(@"endend");
-}
 
 #pragma mark --- 微博代理方法   微信代理方法
 //代理方法
@@ -139,20 +130,20 @@
 
 //
 -(BOOL)application:(UIApplication *)app openURL:(NSURL *)url sourceApplication:(nullable NSString *)sourceApplication annotation:(nonnull id)annotation{
-    if ([self.buttonTag isEqualToString:@"1"]) {
+   
         return [WeiboSDK handleOpenURL:url delegate:self];
-    }else{
+ 
         return [WXApi handleOpenURL:url delegate:self];
-    }
+   
     
 }
 
 -(BOOL)application:(UIApplication *)application handleOpenURL:(NSURL *)url{
-    if ([self.buttonTag isEqualToString:@"1"]) {
+ 
         return [WeiboSDK handleOpenURL:url delegate:self];
-    }else{
+ 
         return [WXApi handleOpenURL:url delegate:self];
-    }
+  
     
 }
 

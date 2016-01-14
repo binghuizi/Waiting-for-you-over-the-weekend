@@ -6,7 +6,7 @@
 //  Copyright © 2016年 scjy. All rights reserved.
 ////
 //http://e.kumi.cn/app/articleinfo.php?_s_=6055add057b829033bb586a3e00c5e9a&_t_=1452071715&channelid=appstore&cityid=1&id=15638&lat=34.61356779156581&lng=112.4141403843618
-/Users/scjy/Desktop/UI---阶段/A段项目/sssss/Waiting-for-you-over-the-weekend/WaitingWeekend/Library/微信/libWeChatSDK.a
+///Users/scjy/Desktop/UI---阶段/A段项目/sssss/Waiting-for-you-over-the-weekend/WaitingWeekend/Library/微信/libWeChatSDK.a
 #ifndef HWDefine_h
 #define HWDefine_h
 #endif /* HWDefine_h */
@@ -68,3 +68,6 @@ typedef NS_ENUM(NSInteger,ClassifyListType){
 
 //微信
 #define kAppId @"wxb446fed304a2e8a8"
+
+
+

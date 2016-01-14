@@ -73,7 +73,7 @@
     
     DiscoverTableViewCell *discoverCell = [tableView dequeueReusableCellWithIdentifier:@"cell" forIndexPath:indexPath];
     
-    discoverCell.transform = CGAffineTransformMakeRotation(-(M_PI+M_PI_2));//旋转
+  //  discoverCell.transform = CGAffineTransformMakeRotation(-(M_PI+M_PI_2));//旋转
     
     discoverCell.discoverModel = self.likeArray[indexPath.row];
     
@@ -155,14 +155,19 @@
 
 
 }
+//标题
+-(NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section{
+    return @"大家都喜欢";
+}
 #pragma mark --- 懒加载
 -(PullingRefreshTableView *)tableView{
+    //CGRectMake(100, -80, kWideth - 200, kWideth)
     if (_tableView == nil) {
-        self.tableView = [[PullingRefreshTableView alloc]initWithFrame:CGRectMake(100, -80, kWideth - 200, kWideth) style:UITableViewStylePlain];
+        self.tableView = [[PullingRefreshTableView alloc]initWithFrame:self.view.frame style:UITableViewStylePlain];
         self.tableView.dataSource = self;
         self.tableView.delegate = self;
         
-        self.tableView.transform=CGAffineTransformMakeRotation(-M_PI_2);
+       // self.tableView.transform=CGAffineTransformMakeRotation(-M_PI_2);
         
         [self.tableView setHeaderOnly:YES];//下面不加载了
         self.tableView.rowHeight = 128;

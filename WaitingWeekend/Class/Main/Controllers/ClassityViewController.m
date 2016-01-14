@@ -54,7 +54,7 @@
     
     [self.tableView registerNib:[UINib nibWithNibName:@"GoodTableViewCell" bundle:nil] forCellReuseIdentifier:@"cell"];
     
-    [self.tableView launchRefreshing];
+   // [self.tableView launchRefreshing];
     
 }
 -(void)viewWillDisappear:(BOOL)animated{

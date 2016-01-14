@@ -84,7 +84,7 @@
 -(void)weiboShareAction:(UIButton *)btn{
     self.shareView.hidden = YES;//隐藏
     AppDelegate *myDelegate =(AppDelegate*)[[UIApplication sharedApplication] delegate];
-    myDelegate.buttonTag = [NSString stringWithFormat:@"%ld",(long)btn.tag];
+   
     
     WBAuthorizeRequest *authRequest = [WBAuthorizeRequest request];
     authRequest.redirectURI = kRedirectURI;
@@ -124,13 +124,15 @@
 #pragma mark ----微信分享-----
 -(void)weixinShareAction:(UIButton *)btn{
     AppDelegate *myDelegate =(AppDelegate*)[[UIApplication sharedApplication] delegate];
-    myDelegate.buttonTag = [NSString stringWithFormat:@"%lu",(long)btn.tag];
+   
     //取消授权
     [WeiboSDK logOutWithToken:myDelegate.wbtoken delegate:self withTag:@"1"];
+    
+    
     SendMessageToWXReq* req = [[SendMessageToWXReq alloc] init];
     req.text = @"人文的东西并不是体现在你看得到的方面，它更多的体现在你看不到的那些方面，它会影响每一个功能，这才是最本质的。但是，对这点可能很多人没有思考过，以为人文的东西就是我们搞一个很小清新的图片什么的。”综合来看，人文的东西其实是贯穿整个产品的脉络，或者说是它的灵魂所在。";
     req.bText = YES;
-    req.scene = _scene;
+    req.scene = WXSceneSession;
     
     [WXApi sendReq:req];
 }

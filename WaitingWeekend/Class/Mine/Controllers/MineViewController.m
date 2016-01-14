@@ -217,7 +217,7 @@
 }
 #pragma mark ---- 微博分享
 -(void)share{
-    self.hidesBottomBarWhenPushed = YES;
+   
     
     
     UIWindow *windw = [[UIApplication sharedApplication].delegate window];
@@ -274,9 +274,10 @@
     UILabel *friendLabel = [[UILabel alloc]initWithFrame:CGRectMake(252, 100, 80, 40)];
     friendLabel.font = [UIFont systemFontOfSize:13];
     friendLabel.text = @"朋友圈";
+    
+    [friendButton addTarget:self action:@selector(friendAction) forControlEvents:UIControlEventTouchUpInside];
     [self.shareView addSubview:friendLabel];
 
-    
     [self.shareView addSubview:friendButton];
     //清除
     
@@ -307,9 +308,9 @@
 //微博分享
 -(void)weiboShareAction:(UIButton *)btn{
     self.shareView.hidden = YES;//隐藏
+     self.grayView.hidden = YES;
     AppDelegate *myDelegate =(AppDelegate*)[[UIApplication sharedApplication] delegate];
-    myDelegate.buttonTag = [NSString stringWithFormat:@"%ld",(long)btn.tag];
-
+   
 //授权
     WBAuthorizeRequest *authRequest = [WBAuthorizeRequest request];
     authRequest.redirectURI = kRedirectURI;
@@ -336,11 +337,11 @@
     WBMessageObject *message = [WBMessageObject message];
     
     
-    WBImageObject *image = [WBImageObject object];
-    image.imageData = [NSData dataWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"meimei2" ofType:@".png"]];
-    message.imageObject = image;
+//    WBImageObject *image = [WBImageObject object];
+//    image.imageData = [NSData dataWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"meimei2" ofType:@".png"]];
+//    message.imageObject = image;
    
-    
+    message.text = @"想回家!";
     
     return message;
     
@@ -350,16 +351,51 @@
 #pragma mark ----微信分享-----
 -(void)weixinShareAction:(UIButton *)btn{
     AppDelegate *myDelegate =(AppDelegate*)[[UIApplication sharedApplication] delegate];
-    myDelegate.buttonTag = [NSString stringWithFormat:@"%lu",(long)btn.tag];
+  
    //取消授权
     [WeiboSDK logOutWithToken:myDelegate.wbtoken delegate:self withTag:@"1"];
+    
+    
     SendMessageToWXReq* req = [[SendMessageToWXReq alloc] init];
     req.text = @"人文的东西并不是体现在你看得到的方面，它更多的体现在你看不到的那些方面，它会影响每一个功能，这才是最本质的。但是，对这点可能很多人没有思考过，以为人文的东西就是我们搞一个很小清新的图片什么的。”综合来看，人文的东西其实是贯穿整个产品的脉络，或者说是它的灵魂所在。";
     req.bText = YES;
-    req.scene = _scene;
+    req.scene = WXSceneSession;
     
     [WXApi sendReq:req];
 }
+//朋友圈
+-(void)friendAction{
+    
+
+    
+    WXMediaMessage *message = [WXMediaMessage message];
+    [message setThumbImage:[UIImage imageNamed:@""]];
+    
+    WXImageObject *ext = [WXImageObject object];
+    NSString *filePath = [[NSBundle mainBundle] pathForResource:@"res6" ofType:@".gif"];
+    
+    ext.imageData = [NSData dataWithContentsOfFile:filePath];
+    
+    
+    UIImage* image = [UIImage imageWithData:ext.imageData];
+    ext.imageData = UIImagePNGRepresentation(image);
+    
+    
+    message.mediaObject = ext;
+    
+    SendMessageToWXReq* req = [[SendMessageToWXReq alloc] init];
+    req.bText = NO;
+    req.message = message;
+    
+    //朋友圈
+    req.scene =WXSceneTimeline;
+    
+    [WXApi sendReq:req];
+    
+}
+
+
+
 //懒加载
 -(UITableView *)tableView{
     if (_tableView == nil) {
