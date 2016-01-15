@@ -210,15 +210,13 @@
                 
             }
             
-            
-            
             NSDictionary *dic = resultDic[@"success"];
             NSArray *acDataArray = dic[@"acData"];
             for (NSDictionary *dict in acDataArray ) {
                 GoodActivityModel *goodModel = [[GoodActivityModel alloc]initWithDictionary:dict];
                 [self.touristArray addObject:goodModel];
             }
-            
+           // NSLog(@"%@",self.touristArray);
         }else{
             
         }
@@ -283,14 +281,14 @@
 - (void)getFamilyRequest{
     AFHTTPSessionManager *sessionManager = [[AFHTTPSessionManager alloc]init];
     sessionManager.responseSerializer.acceptableContentTypes = [NSSet setWithObject:@"text/html"];
-     [ ProgressHUD show:@"亲子旅游加载中....."];
+     [ ProgressHUD show:@"亲子旅行加载中....."];
     
     //21亲子旅游
     [sessionManager GET:[NSString stringWithFormat:@"%@&page=%ld&typeid=%@",classify,(long)_pageCount,@(21)] parameters:nil progress:^(NSProgress * _Nonnull downloadProgress) {
         ZJHLog(@"%@",downloadProgress);
     } success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
         ZJHLog(@"%@",responseObject);
-        [ProgressHUD showSuccess:@"亲子旅游加载成功。。。。"];
+        [ProgressHUD showSuccess:@"亲子旅行加载成功。。。。"];
         
         
         NSDictionary *resultDic = responseObject;
@@ -415,12 +413,26 @@
     }
     return _showArray;
 }
+-(NSMutableArray *)touristArray{
+    if (_touristArray == nil) {
+        self.touristArray = [NSMutableArray new];
+    }
+    return _touristArray;
+}
+-(NSMutableArray *)studyArray{
+    if (_studyArray == nil) {
+        self.studyArray = [NSMutableArray new];
+    }
+    return _studyArray;
+}
 -(NSMutableArray *)familyArray{
     if (_familyArray == nil) {
         self.familyArray = [NSMutableArray new];
     }
     return _familyArray;
 }
+
+
 
 -(VOSegmentedControl *)segctrl1{
     if (_segctrl1 == nil) {

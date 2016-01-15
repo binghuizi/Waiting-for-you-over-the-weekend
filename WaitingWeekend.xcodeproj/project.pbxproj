@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		7A13ABF61C48CE3300007192 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7A13ABF51C48CE3300007192 /* Images.xcassets */; };
 		7A2B02831C45FD7E006F3239 /* RegisterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A2B02821C45FD7E006F3239 /* RegisterViewController.m */; };
 		7A3835AD1C3CBD9D000CA4C9 /* SearchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A3835AC1C3CBD9D000CA4C9 /* SearchViewController.m */; };
 		7A3835B01C3CBE29000CA4C9 /* SelectViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A3835AF1C3CBE29000CA4C9 /* SelectViewController.m */; };
@@ -201,6 +202,7 @@
 
 /* Begin PBXFileReference section */
 		1AD7D1BC365A27242FDBD7C4 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		7A13ABF51C48CE3300007192 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		7A2B02811C45FD7E006F3239 /* RegisterViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RegisterViewController.h; sourceTree = "<group>"; };
 		7A2B02821C45FD7E006F3239 /* RegisterViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RegisterViewController.m; sourceTree = "<group>"; };
 		7A3835AB1C3CBD9D000CA4C9 /* SearchViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SearchViewController.h; sourceTree = "<group>"; };
@@ -510,6 +512,7 @@
 				7A450AE71C3A238E00DDDA0F /* LaunchScreen.storyboard */,
 				7A450AE51C3A238E00DDDA0F /* Assets.xcassets */,
 				7A450AEA1C3A238E00DDDA0F /* Info.plist */,
+				7A13ABF51C48CE3300007192 /* Images.xcassets */,
 				7A450ADF1C3A238E00DDDA0F /* Supporting Files */,
 			);
 			path = WaitingWeekend;
@@ -1049,6 +1052,7 @@
 				7AF21E101C464F9800F4ED1E /* WeiboSDK.bundle in Resources */,
 				7A995F681C3A5A3600B5809C /* 92-testtube.png in Resources */,
 				7A995E8F1C3A506A00B5809C /* Main.storyboard in Resources */,
+				7A13ABF61C48CE3300007192 /* Images.xcassets in Resources */,
 				7A995F611C3A5A3600B5809C /* 85-trophy.png in Resources */,
 				7ACB5D211C43C72E0050058E /* HotTableViewCell.xib in Resources */,
 				7A995F3D1C3A5A3600B5809C /* 49-battery.png in Resources */,
