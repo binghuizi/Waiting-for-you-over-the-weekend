@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9531" systemVersion="14F27" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="fT7-fo-gJD">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9529"/>
+    </dependencies>
+    <scenes>
+        <!--登录-->
+        <scene sceneID="Lgd-QX-gDE">
+            <objects>
+                <viewController storyboardIdentifier="loginStory" id="62X-Yk-Xy1" customClass="DengLuViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="D9C-Wb-8tW"/>
+                        <viewControllerLayoutGuide type="bottom" id="apV-UK-ACT"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="z51-a1-Ynj">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="IIE-6h-2iD">
+                                <rect key="frame" x="145" y="131" width="104" height="53"/>
+                                <color key="backgroundColor" red="1" green="0.43221136259999998" blue="0.39350633639999999" alpha="1" colorSpace="calibratedRGB"/>
+                                <state key="normal" title="曾"/>
+                                <connections>
+                                    <action selector="addButton:" destination="62X-Yk-Xy1" eventType="touchUpInside" id="4NO-Rg-sdK"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="znF-d4-zzP">
+                                <rect key="frame" x="145" y="308" width="104" height="53"/>
+                                <color key="backgroundColor" red="1" green="0.43221136259999998" blue="0.39350633639999999" alpha="1" colorSpace="calibratedRGB"/>
+                                <state key="normal" title="改"/>
+                                <connections>
+                                    <action selector="updataButton:" destination="62X-Yk-Xy1" eventType="touchUpInside" id="7YP-Bb-lki"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3Bq-WA-Tqd">
+                                <rect key="frame" x="145" y="231" width="104" height="53"/>
+                                <color key="backgroundColor" red="1" green="0.43221136259999998" blue="0.39350633639999999" alpha="1" colorSpace="calibratedRGB"/>
+                                <state key="normal" title="删"/>
+                                <connections>
+                                    <action selector="delegateButton:" destination="62X-Yk-Xy1" eventType="touchUpInside" id="GDj-KB-CsH"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oAU-Ea-Wss">
+                                <rect key="frame" x="145" y="387" width="104" height="53"/>
+                                <color key="backgroundColor" red="1" green="0.43221136259999998" blue="0.39350633639999999" alpha="1" colorSpace="calibratedRGB"/>
+                                <state key="normal" title="查"/>
+                                <connections>
+                                    <action selector="selectButton:" destination="62X-Yk-Xy1" eventType="touchUpInside" id="cjI-M0-Prj"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="登录" id="M42-Am-Vje"/>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Ju5-f4-RCk" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1043.5" y="326.5"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="MDG-NC-Gfr">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="fT7-fo-gJD" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="blp-vD-pK6">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="62X-Yk-Xy1" kind="relationship" relationship="rootViewController" id="SBC-Mf-8ju"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="DG3-G5-P24" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="470" y="327"/>
+        </scene>
+    </scenes>
+</document>

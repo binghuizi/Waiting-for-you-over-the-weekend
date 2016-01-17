@@ -9,6 +9,7 @@
 #import "AppDelegate.h"
 #import "MainViewController.h"
 #import "WeiboSDK.h"
+#import <BmobSDK/Bmob.h>
 @interface AppDelegate ()<WeiboSDKDelegate>
 
 @end
@@ -25,7 +26,7 @@
 //微信
     [WXApi registerApp:kAppId];
     
-    
+    [Bmob registerWithAppKey:kBmobAppk];
    
     
     

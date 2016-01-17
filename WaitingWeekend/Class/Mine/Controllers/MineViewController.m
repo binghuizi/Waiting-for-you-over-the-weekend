@@ -12,9 +12,10 @@
 #import <MessageUI/MessageUI.h>
 #import "ProgressHUD.h"
 #import "RegisterViewController.h"
-#import "LoginViewController.h"
+
 #import "AppDelegate.h"
 #import "WeiboSDK.h"
+
 
 @interface MineViewController ()<UITableViewDataSource,UITableViewDelegate,MFMailComposeViewControllerDelegate>
 @property(nonatomic,retain) UITableView *tableView;
@@ -103,8 +104,11 @@
 }
 //点击注册
 -(void)loginAction{
-    LoginViewController *registeVc = [[LoginViewController alloc]init];
-    [self.navigationController pushViewController:registeVc animated:YES];
+    UIStoryboard *loginStoryBoard = [UIStoryboard storyboardWithName:@"denglu" bundle:nil];
+    UINavigationController *loginVC = [loginStoryBoard instantiateInitialViewController];
+    
+      //  UINavigationController *loginVC = [loginStoryBoard instantiateViewControllerWithIdentifier:@"loginStory"];
+    [self.navigationController presentViewController:loginVC animated:YES completion:nil];
     
 }
 //点击每一行触发事件

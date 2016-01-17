@@ -70,4 +70,5 @@ typedef NS_ENUM(NSInteger,ClassifyListType){
 #define kAppId @"wxb446fed304a2e8a8"
 
 
+#define kBmobAppk @"b3f3a34c916ec956e3aa80f52d9ec5cf"
 

@@ -8,6 +8,17 @@
 
 /* Begin PBXBuildFile section */
 		7A13ABF61C48CE3300007192 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7A13ABF51C48CE3300007192 /* Images.xcassets */; };
+		7A13ABF81C48E93E00007192 /* BmobSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7A13ABF71C48E93E00007192 /* BmobSDK.framework */; };
+		7A13ABFA1C48E9B400007192 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7A13ABF91C48E9B400007192 /* CoreLocation.framework */; };
+		7A13ABFC1C48EA0200007192 /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7A13ABFB1C48EA0200007192 /* MobileCoreServices.framework */; };
+		7A13ABFE1C48EA1500007192 /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7A13ABFD1C48EA1500007192 /* CFNetwork.framework */; };
+		7A13AC001C48EA5100007192 /* libz.1.2.5.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 7A13ABFF1C48EA5100007192 /* libz.1.2.5.tbd */; };
+		7A13AC021C48EA6E00007192 /* libicucore.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 7A13AC011C48EA6E00007192 /* libicucore.tbd */; };
+		7A13AC041C48EA8800007192 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7A13AC031C48EA8800007192 /* AVFoundation.framework */; };
+		7A13AC061C48EA9800007192 /* MediaPlayer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7A13AC051C48EA9800007192 /* MediaPlayer.framework */; };
+		7A13AC0A1C48ED5A00007192 /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A13AC091C48ED5A00007192 /* LoginViewController.m */; };
+		7A13AC0F1C48FA4900007192 /* DengLuViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A13AC0E1C48FA4900007192 /* DengLuViewController.m */; };
+		7A13AC111C48FC1E00007192 /* denglu.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7A13AC101C48FC1E00007192 /* denglu.storyboard */; };
 		7A2B02831C45FD7E006F3239 /* RegisterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A2B02821C45FD7E006F3239 /* RegisterViewController.m */; };
 		7A3835AD1C3CBD9D000CA4C9 /* SearchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A3835AC1C3CBD9D000CA4C9 /* SearchViewController.m */; };
 		7A3835B01C3CBE29000CA4C9 /* SelectViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A3835AF1C3CBE29000CA4C9 /* SelectViewController.m */; };
@@ -174,7 +185,6 @@
 		7ACB5D211C43C72E0050058E /* HotTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7ACB5D1F1C43C72E0050058E /* HotTableViewCell.xib */; };
 		7ACB5D231C43CB6C0050058E /* hotModel(1).plist in Resources */ = {isa = PBXBuildFile; fileRef = 7ACB5D221C43CB6C0050058E /* hotModel(1).plist */; };
 		7AF21DED1C462BE200F4ED1E /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7AF21DEC1C462BE200F4ED1E /* MessageUI.framework */; };
-		7AF21DF01C463D8B00F4ED1E /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7AF21DEF1C463D8B00F4ED1E /* LoginViewController.m */; };
 		7AF21DF21C464D0F00F4ED1E /* Login.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7AF21DF11C464D0E00F4ED1E /* Login.storyboard */; };
 		7AF21E0F1C464F9800F4ED1E /* libWeiboSDK.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 7AF21E031C464F9800F4ED1E /* libWeiboSDK.a */; };
 		7AF21E101C464F9800F4ED1E /* WeiboSDK.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 7AF21E0C1C464F9800F4ED1E /* WeiboSDK.bundle */; };
@@ -203,6 +213,19 @@
 /* Begin PBXFileReference section */
 		1AD7D1BC365A27242FDBD7C4 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		7A13ABF51C48CE3300007192 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		7A13ABF71C48E93E00007192 /* BmobSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = BmobSDK.framework; sourceTree = "<group>"; };
+		7A13ABF91C48E9B400007192 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
+		7A13ABFB1C48EA0200007192 /* MobileCoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileCoreServices.framework; path = System/Library/Frameworks/MobileCoreServices.framework; sourceTree = SDKROOT; };
+		7A13ABFD1C48EA1500007192 /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
+		7A13ABFF1C48EA5100007192 /* libz.1.2.5.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libz.1.2.5.tbd; path = usr/lib/libz.1.2.5.tbd; sourceTree = SDKROOT; };
+		7A13AC011C48EA6E00007192 /* libicucore.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libicucore.tbd; path = usr/lib/libicucore.tbd; sourceTree = SDKROOT; };
+		7A13AC031C48EA8800007192 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
+		7A13AC051C48EA9800007192 /* MediaPlayer.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MediaPlayer.framework; path = System/Library/Frameworks/MediaPlayer.framework; sourceTree = SDKROOT; };
+		7A13AC081C48ED5A00007192 /* LoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginViewController.h; sourceTree = "<group>"; };
+		7A13AC091C48ED5A00007192 /* LoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginViewController.m; sourceTree = "<group>"; };
+		7A13AC0D1C48FA4900007192 /* DengLuViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DengLuViewController.h; sourceTree = "<group>"; };
+		7A13AC0E1C48FA4900007192 /* DengLuViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DengLuViewController.m; sourceTree = "<group>"; };
+		7A13AC101C48FC1E00007192 /* denglu.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = denglu.storyboard; sourceTree = "<group>"; };
 		7A2B02811C45FD7E006F3239 /* RegisterViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RegisterViewController.h; sourceTree = "<group>"; };
 		7A2B02821C45FD7E006F3239 /* RegisterViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RegisterViewController.m; sourceTree = "<group>"; };
 		7A3835AB1C3CBD9D000CA4C9 /* SearchViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SearchViewController.h; sourceTree = "<group>"; };
@@ -403,8 +426,6 @@
 		7ACB5D1F1C43C72E0050058E /* HotTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HotTableViewCell.xib; sourceTree = "<group>"; };
 		7ACB5D221C43CB6C0050058E /* hotModel(1).plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = "hotModel(1).plist"; sourceTree = "<group>"; };
 		7AF21DEC1C462BE200F4ED1E /* MessageUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MessageUI.framework; path = System/Library/Frameworks/MessageUI.framework; sourceTree = SDKROOT; };
-		7AF21DEE1C463D8B00F4ED1E /* LoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginViewController.h; sourceTree = "<group>"; };
-		7AF21DEF1C463D8B00F4ED1E /* LoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginViewController.m; sourceTree = "<group>"; };
 		7AF21DF11C464D0E00F4ED1E /* Login.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Login.storyboard; sourceTree = "<group>"; };
 		7AF21E031C464F9800F4ED1E /* libWeiboSDK.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libWeiboSDK.a; sourceTree = "<group>"; };
 		7AF21E041C464F9800F4ED1E /* WBHttpRequest+WeiboGame.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "WBHttpRequest+WeiboGame.h"; sourceTree = "<group>"; };
@@ -451,10 +472,18 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7A13ABFE1C48EA1500007192 /* CFNetwork.framework in Frameworks */,
+				7A13AC061C48EA9800007192 /* MediaPlayer.framework in Frameworks */,
+				7A13AC041C48EA8800007192 /* AVFoundation.framework in Frameworks */,
+				7A13AC021C48EA6E00007192 /* libicucore.tbd in Frameworks */,
+				7A13AC001C48EA5100007192 /* libz.1.2.5.tbd in Frameworks */,
+				7AF21E161C46507400F4ED1E /* SystemConfiguration.framework in Frameworks */,
+				7A13ABFC1C48EA0200007192 /* MobileCoreServices.framework in Frameworks */,
+				7A13ABFA1C48E9B400007192 /* CoreLocation.framework in Frameworks */,
 				7AF21E351C467AFE00F4ED1E /* libc++.tbd in Frameworks */,
+				7A13ABF81C48E93E00007192 /* BmobSDK.framework in Frameworks */,
 				7AF21E331C467AE900F4ED1E /* libsqlite3.0.tbd in Frameworks */,
 				7AF21E241C4650E500F4ED1E /* libz.tbd in Frameworks */,
-				7AF21E161C46507400F4ED1E /* SystemConfiguration.framework in Frameworks */,
 				7AF21E261C4650F400F4ED1E /* libsqlite3.tbd in Frameworks */,
 				7AF21E221C4650D500F4ED1E /* Foundation.framework in Frameworks */,
 				7AF21E201C4650C900F4ED1E /* UIKit.framework in Frameworks */,
@@ -481,6 +510,18 @@
 				C2F6D665C4B406B8CB1CD818 /* Pods.release.xcconfig */,
 			);
 			name = Pods;
+			sourceTree = "<group>";
+		};
+		7A13AC071C48ED3900007192 /* Login */ = {
+			isa = PBXGroup;
+			children = (
+				7A13AC081C48ED5A00007192 /* LoginViewController.h */,
+				7A13AC091C48ED5A00007192 /* LoginViewController.m */,
+				7A13AC0D1C48FA4900007192 /* DengLuViewController.h */,
+				7A13AC0E1C48FA4900007192 /* DengLuViewController.m */,
+				7A13AC101C48FC1E00007192 /* denglu.storyboard */,
+			);
+			path = Login;
 			sourceTree = "<group>";
 		};
 		7A450AD31C3A238E00DDDA0F = {
@@ -586,6 +627,7 @@
 		7A995E761C3A4E4700B5809C /* Class */ = {
 			isa = PBXGroup;
 			children = (
+				7A13AC071C48ED3900007192 /* Login */,
 				7A995E771C3A4E4700B5809C /* Discover */,
 				7A995E7D1C3A4E4700B5809C /* Main */,
 				7A995E831C3A4E4700B5809C /* Mine */,
@@ -728,8 +770,6 @@
 				7A995E861C3A4E4700B5809C /* MineViewController.m */,
 				7AFCC71D1C474DF700D496BC /* ShareViewController.h */,
 				7AFCC71E1C474DF700D496BC /* ShareViewController.m */,
-				7AF21DEE1C463D8B00F4ED1E /* LoginViewController.h */,
-				7AF21DEF1C463D8B00F4ED1E /* LoginViewController.m */,
 				7A2B02811C45FD7E006F3239 /* RegisterViewController.h */,
 				7A2B02821C45FD7E006F3239 /* RegisterViewController.m */,
 			);
@@ -921,6 +961,14 @@
 		B4F9690085B0BECFC7D249CD /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				7A13AC051C48EA9800007192 /* MediaPlayer.framework */,
+				7A13AC031C48EA8800007192 /* AVFoundation.framework */,
+				7A13AC011C48EA6E00007192 /* libicucore.tbd */,
+				7A13ABFF1C48EA5100007192 /* libz.1.2.5.tbd */,
+				7A13ABFD1C48EA1500007192 /* CFNetwork.framework */,
+				7A13ABFB1C48EA0200007192 /* MobileCoreServices.framework */,
+				7A13ABF91C48E9B400007192 /* CoreLocation.framework */,
+				7A13ABF71C48E93E00007192 /* BmobSDK.framework */,
 				7AF21E341C467AFE00F4ED1E /* libc++.tbd */,
 				7AF21E321C467AE900F4ED1E /* libsqlite3.0.tbd */,
 				7AF21E251C4650F400F4ED1E /* libsqlite3.tbd */,
@@ -1052,6 +1100,7 @@
 				7AF21E101C464F9800F4ED1E /* WeiboSDK.bundle in Resources */,
 				7A995F681C3A5A3600B5809C /* 92-testtube.png in Resources */,
 				7A995E8F1C3A506A00B5809C /* Main.storyboard in Resources */,
+				7A13AC111C48FC1E00007192 /* denglu.storyboard in Resources */,
 				7A13ABF61C48CE3300007192 /* Images.xcassets in Resources */,
 				7A995F611C3A5A3600B5809C /* 85-trophy.png in Resources */,
 				7ACB5D211C43C72E0050058E /* HotTableViewCell.xib in Resources */,
@@ -1220,16 +1269,17 @@
 				7A3835B61C3CBF44000CA4C9 /* ThemViewController.m in Sources */,
 				7A3835BC1C3CC062000CA4C9 /* GoodViewController.m in Sources */,
 				7A3835AD1C3CBD9D000CA4C9 /* SearchViewController.m in Sources */,
-				7AF21DF01C463D8B00F4ED1E /* LoginViewController.m in Sources */,
 				7A5D01AD1C43997C00900A39 /* VOSegment.m in Sources */,
 				7A450AE11C3A238E00DDDA0F /* main.m in Sources */,
 				7A995E8B1C3A4E4700B5809C /* MineViewController.m in Sources */,
 				7A2B02831C45FD7E006F3239 /* RegisterViewController.m in Sources */,
 				7AB819321C449F1A00EF1500 /* ProgressHUD.m in Sources */,
+				7A13AC0F1C48FA4900007192 /* DengLuViewController.m in Sources */,
 				7A984D881C3FA0E7000F830E /* PullingRefreshTableView.m in Sources */,
 				7AFDAA8F1C3E10E100821630 /* ActivityDetailView.m in Sources */,
 				7A3835B01C3CBE29000CA4C9 /* SelectViewController.m in Sources */,
 				7A3835B91C3CBFE4000CA4C9 /* ClassityViewController.m in Sources */,
+				7A13AC0A1C48ED5A00007192 /* LoginViewController.m in Sources */,
 				7A3835B31C3CBE72000CA4C9 /* ActivityDetailViewController.m in Sources */,
 				7A984D7D1C3F9F43000F830E /* UIViewController+Common.m in Sources */,
 				7A98C70E1C3BA0740079DEB9 /* MainModel.m in Sources */,
@@ -1337,7 +1387,11 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				ENABLE_BITCODE = YES;
+				ENABLE_BITCODE = NO;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "$(SRCROOT)/WaitingWeekend/Library/toos/wenkd.pch";
 				INFOPLIST_FILE = WaitingWeekend/Info.plist;
@@ -1363,7 +1417,11 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				ENABLE_BITCODE = YES;
+				ENABLE_BITCODE = NO;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "$(SRCROOT)/WaitingWeekend/Library/toos/wenkd.pch";
 				INFOPLIST_FILE = WaitingWeekend/Info.plist;

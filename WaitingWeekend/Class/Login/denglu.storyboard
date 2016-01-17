@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9531" systemVersion="14F27" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="L6Q-rc-jc6">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9529"/>
+    </dependencies>
+    <scenes>
+        <!--denglu-->
+        <scene sceneID="oLW-Wt-J9n">
+            <objects>
+                <viewController id="TNN-sR-M6h" customClass="DengLuViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="jJO-tp-tzq"/>
+                        <viewControllerLayoutGuide type="bottom" id="vYg-sG-30U"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="Qep-Pr-2mG">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="z7L-OC-XtV">
+                                <rect key="frame" x="115" y="131" width="106" height="44"/>
+                                <color key="backgroundColor" red="1" green="0.53341969722775684" blue="0.44378430946863168" alpha="1" colorSpace="calibratedRGB"/>
+                                <state key="normal" title="曾"/>
+                                <connections>
+                                    <action selector="addButton:" destination="TNN-sR-M6h" eventType="touchUpInside" id="tu9-Gq-tAH"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SJz-0w-epW">
+                                <rect key="frame" x="122" y="282" width="106" height="44"/>
+                                <color key="backgroundColor" red="1" green="0.53341969720000004" blue="0.44378430949999997" alpha="1" colorSpace="calibratedRGB"/>
+                                <state key="normal" title="改"/>
+                                <connections>
+                                    <action selector="updataButton:" destination="TNN-sR-M6h" eventType="touchUpInside" id="Uls-Ie-TQz"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iI9-hS-Inr">
+                                <rect key="frame" x="123" y="344" width="106" height="44"/>
+                                <color key="backgroundColor" red="1" green="0.53341969720000004" blue="0.44378430949999997" alpha="1" colorSpace="calibratedRGB"/>
+                                <state key="normal" title="查"/>
+                                <connections>
+                                    <action selector="selectButton:" destination="TNN-sR-M6h" eventType="touchUpInside" id="7TL-GZ-BkV"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QhN-n1-9qC">
+                                <rect key="frame" x="123" y="209" width="106" height="44"/>
+                                <color key="backgroundColor" red="1" green="0.53341969720000004" blue="0.44378430949999997" alpha="1" colorSpace="calibratedRGB"/>
+                                <state key="normal" title="删"/>
+                                <connections>
+                                    <action selector="delegateButton:" destination="TNN-sR-M6h" eventType="touchUpInside" id="kXO-ZL-8L6"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="denglu" id="dpg-f0-uVf"/>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="W4I-jw-tdC" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1447.5" y="366.5"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="PxF-6h-XuR">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="L6Q-rc-jc6" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="iHN-FC-jJe">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="TNN-sR-M6h" kind="relationship" relationship="rootViewController" id="DmQ-dA-XI2"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Grc-AT-JjR" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="636" y="367"/>
+        </scene>
+    </scenes>
+</document>
