@@ -8,6 +8,7 @@
 
 #import "DengLuViewController.h"
 #import <BmobSDK/BmobObject.h>
+#import <BmobSDK/BmobQuery.h>
 @interface DengLuViewController ()
 - (IBAction)addButton:(UIButton *)sender;
 - (IBAction)delegateButton:(UIButton *)sender;
@@ -29,15 +30,7 @@
     // Dispose of any resources that can be recreated.
 }
 
-/*
-#pragma mark - Navigation
 
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
 
 - (IBAction)addButton:(UIButton *)sender {
     
@@ -55,11 +48,43 @@
         
     }];
 }
-
+//删
 - (IBAction)delegateButton:(UIButton *)sender {
+    
+    BmobQuery *bquery = [BmobQuery queryWithClassName:@"Memberuser"];
+    [bquery getObjectInBackgroundWithId:@"ba62e8ad7d" block:^(BmobObject *object, NSError *error){
+        if (error) {
+            //进行错误处理
+        }
+        else{
+            if (object) {
+                //异步删除object
+                [object deleteInBackground];
+                NSLog(@"删除成功");
+            }
+        }
+    }];
 }
-
+//改
 - (IBAction)updataButton:(UIButton *)sender {
+    //查找GameScore表
+    BmobQuery   *bquery = [BmobQuery queryWithClassName:@"Memberuser"];
+    //查找GameScore表里面id为0c6db13c的数据
+    [bquery getObjectInBackgroundWithId:@"567d9c300a" block:^(BmobObject *object,NSError *error){
+        //没有返回错误
+        if (!error) {
+            //对象存在
+            if (object) {
+                BmobObject *obj1 = [BmobObject objectWithoutDatatWithClassName:object.className objectId:object.objectId];
+                //设置cheatMode为YES
+                [obj1 setObject:[NSNumber numberWithBool:YES] forKey:@"cheatMode"];
+                //异步更新数据
+                [obj1 updateInBackground];
+            }
+        }else{
+            //进行错误处理
+        }
+    }];
 }
 
 - (IBAction)selectButton:(UIButton *)sender {
