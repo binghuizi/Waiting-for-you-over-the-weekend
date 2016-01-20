@@ -292,7 +292,8 @@
     [removeButton setTitle:@"取消" forState:UIControlStateNormal];
     [removeButton setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
     [removeButton addTarget:self action:@selector(cancelAction) forControlEvents:UIControlEventTouchUpInside];
-    removeButton.backgroundColor = mainColor;
+    removeButton.backgroundColor = [UIColor colorWithRed:227/255.0f green:218/255.0f blue:183/255.0f alpha:1.0];
+    
     [self.shareView addSubview:removeButton];
     
     
