@@ -9,5 +9,11 @@
 #import <UIKit/UIKit.h>
 
 @interface DengLuViewController : UIViewController
+@property (strong, nonatomic) IBOutlet UIView *userText;
+
+@property (strong, nonatomic) IBOutlet UIView *passwordText;
+- (IBAction)touchDengLu:(id)sender;
+
+- (IBAction)reginButton:(id)sender;
 
 @end

@@ -444,6 +444,7 @@
        
 // 点击之前颜色
         self.segctrl1.textColor=[UIColor grayColor];
+       // self.segctrl1.selectedBackgroundColor = [UIColor magentaColor];
         self.segctrl1.selectedTextColor=[UIColor colorWithRed:0 green:185/255.0f blue:189/255.0f alpha:1.0];
         self.segctrl1.selectedIndicatorColor=[UIColor colorWithRed:0 green:185/255.0f blue:189/255.0f alpha:1.0];
         self.segctrl1.contentStyle = VOContentStyleTextAlone;
@@ -451,6 +452,7 @@
         self.segctrl1.backgroundColor = [UIColor whiteColor];
         self.segctrl1.indicatorColor=[UIColor colorWithRed:0 green:185/255.0f blue:189/255.0f alpha:1.0];
         self.segctrl1.allowNoSelection = NO;
+ //位置
         self.segctrl1.frame = CGRectMake(0 , 0, kWideth,44);
         
         

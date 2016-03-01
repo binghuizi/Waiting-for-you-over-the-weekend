@@ -132,7 +132,6 @@
                 GoodActivityModel *goodModel = [[GoodActivityModel alloc]initWithDictionary:dic];
                 [self.activityArray addObject:goodModel];
             
-            
             }
            
             

@@ -10,7 +10,13 @@
 #import "MainViewController.h"
 #import "WeiboSDK.h"
 #import <BmobSDK/Bmob.h>
-@interface AppDelegate ()<WeiboSDKDelegate>
+#import <CoreLocation/CoreLocation.h>
+@interface AppDelegate ()<WeiboSDKDelegate,CLLocationManagerDelegate>{
+    //1.引入框架CoreLocation 2.导入头文件
+    CLLocationManager *_locationManger;//3.创建对象 定位
+//CLGeocoder地理编码 1.创建地理编码对象
+    CLGeocoder *_geocoder;
+}
 
 @end
 
@@ -20,6 +26,38 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     // Override point for customization after application launch.
+
+//初始化定位对象
+    _locationManger = [[CLLocationManager alloc]init];
+    
+//判断定位是否可用
+    if (![CLLocationManager locationServicesEnabled]) {
+        ZJHLog(@"定位服务当前尚未打开");
+    }
+ //如果没有授权 请求用户授权
+    if ([CLLocationManager authorizationStatus] == kCLAuthorizationStatusNotDetermined) {
+        [_locationManger requestAlwaysAuthorization];//请求同意
+    }else if ([CLLocationManager authorizationStatus] == kCLAuthorizationStatusAuthorizedWhenInUse){
+        //设置代理
+        _locationManger.delegate = self;
+        //设置定位的精度 精度越高 越耗电
+        _locationManger.desiredAccuracy = kCLLocationAccuracyBest;
+        //定位频率，每隔多少米定位
+        CLLocationDistance distance = 10.0;
+        _locationManger.distanceFilter = distance;
+        //启动跟踪定位
+        [_locationManger startUpdatingLocation];
+        
+        
+    }
+    
+    //2.CLGeocoder地理编码     初始化
+    _geocoder = [[CLGeocoder alloc]init];
+    
+    
+    
+    
+    
 //微博
     [WeiboSDK enableDebugMode:YES];
     [WeiboSDK registerApp:kAppKey];
@@ -28,6 +66,7 @@
     
     [Bmob registerWithAppKey:kBmobAppk];
    
+ 
     
     
     
@@ -147,6 +186,40 @@
   
     
 }
+#pragma mark ---- 定位代理方法
+//(CLLocationManager *)manager 当前使用定位对象
+//locations返回定位的数据，是一个数组对象
+//定位代理方法
+-(void)locationManager:(CLLocationManager *)manager didChangeAuthorizationStatus:(CLAuthorizationStatus)status{
+    NSLog(@"定位 %f %f",manager.location.coordinate.longitude,manager.location.coordinate.latitude);
+
+}
+-(void)locationManager:(CLLocationManager *)manager didUpdateLocations:(NSArray<CLLocation *> *)locations{
+    //从数组中 取出第一个位置
+    CLLocation *location = [locations firstObject];
+   //获取坐标 坐标系包含经度维度
+    CLLocationCoordinate2D coordinate = location.coordinate;//经纬度
+    ZJHLog(@"经度：%f,维度:%f,海拔：%f,航向：%f,行走速度：%f",coordinate.longitude,coordinate.latitude,location.altitude,location.course,location.speed);
+    
+    
+  NSLog(@"%@",location);
+    
+    
+    
+    [_geocoder reverseGeocodeLocation:location completionHandler:^(NSArray<CLPlacemark *> * _Nullable placemarks, NSError * _Nullable error) {
+        CLPlacemark *placeMark = [placemarks firstObject];
+        NSLog(@"%@",placeMark.addressDictionary);
+    }];
+    
+    
+    //如果不需要实时定位，使用完即关闭定位服务
+    [_locationManger stopUpdatingLocation];
+    
+    
+}
+
+
+
 
 - (void)applicationWillResignActive:(UIApplication *)application {
     // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.

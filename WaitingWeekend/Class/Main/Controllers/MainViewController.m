@@ -226,11 +226,6 @@
 }
 
 
-
-
-
-
-
 #pragma marks 实现代理方法
 //行
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
@@ -287,8 +282,13 @@
 -(void)selectCityAction:(UIBarButtonItem *)bar{
     SelectViewController *selectCity = [[SelectViewController alloc]init];
     
+    UINavigationController *nav = [[UINavigationController alloc]initWithRootViewController:selectCity];
     
-    [self.navigationController presentViewController:selectCity animated:YES completion:nil];
+    
+    [self.navigationController presentViewController:nav animated:YES completion:nil];
+    
+    
+    
     
 }
 //右按钮查找
@@ -353,9 +353,6 @@
         }else{
             
         }
-        
-        
-        
         
     } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
         ZJHLog(@"%@",error);

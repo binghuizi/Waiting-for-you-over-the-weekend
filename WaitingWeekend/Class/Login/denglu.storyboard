@@ -18,7 +18,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="z7L-OC-XtV">
-                                <rect key="frame" x="115" y="131" width="106" height="44"/>
+                                <rect key="frame" x="20" y="92" width="106" height="44"/>
                                 <color key="backgroundColor" red="1" green="0.53341969722775684" blue="0.44378430946863168" alpha="1" colorSpace="calibratedRGB"/>
                                 <state key="normal" title="曾"/>
                                 <connections>
@@ -26,27 +26,66 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SJz-0w-epW">
-                                <rect key="frame" x="122" y="282" width="106" height="44"/>
+                                <rect key="frame" x="20" y="172" width="106" height="44"/>
                                 <color key="backgroundColor" red="1" green="0.53341969720000004" blue="0.44378430949999997" alpha="1" colorSpace="calibratedRGB"/>
                                 <state key="normal" title="改"/>
                                 <connections>
                                     <action selector="updataButton:" destination="TNN-sR-M6h" eventType="touchUpInside" id="Uls-Ie-TQz"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QhN-n1-9qC">
+                                <rect key="frame" x="167" y="92" width="106" height="44"/>
+                                <color key="backgroundColor" red="1" green="0.53341969720000004" blue="0.44378430949999997" alpha="1" colorSpace="calibratedRGB"/>
+                                <state key="normal" title="删"/>
+                                <connections>
+                                    <action selector="delegateButton:" destination="TNN-sR-M6h" eventType="touchUpInside" id="kXO-ZL-8L6"/>
+                                </connections>
+                            </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iI9-hS-Inr">
-                                <rect key="frame" x="123" y="344" width="106" height="44"/>
+                                <rect key="frame" x="167" y="172" width="106" height="44"/>
                                 <color key="backgroundColor" red="1" green="0.53341969720000004" blue="0.44378430949999997" alpha="1" colorSpace="calibratedRGB"/>
                                 <state key="normal" title="查"/>
                                 <connections>
                                     <action selector="selectButton:" destination="TNN-sR-M6h" eventType="touchUpInside" id="7TL-GZ-BkV"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QhN-n1-9qC">
-                                <rect key="frame" x="123" y="209" width="106" height="44"/>
-                                <color key="backgroundColor" red="1" green="0.53341969720000004" blue="0.44378430949999997" alpha="1" colorSpace="calibratedRGB"/>
-                                <state key="normal" title="删"/>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="xUC-fq-thr">
+                                <rect key="frame" x="134" y="251" width="172" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="用户名" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nzs-bB-dHm">
+                                <rect key="frame" x="50" y="254" width="74" height="26"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="密码" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tKZ-ND-hAK">
+                                <rect key="frame" x="50" y="310" width="57" height="24"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="0ZY-UH-2MR">
+                                <rect key="frame" x="134" y="302" width="172" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3ZA-cD-nSD">
+                                <rect key="frame" x="20" y="379" width="156" height="34"/>
+                                <color key="backgroundColor" red="1" green="0.61509414070191526" blue="0.33767020956030769" alpha="1" colorSpace="calibratedRGB"/>
+                                <state key="normal" title="登录"/>
                                 <connections>
-                                    <action selector="delegateButton:" destination="TNN-sR-M6h" eventType="touchUpInside" id="kXO-ZL-8L6"/>
+                                    <action selector="touchDengLu:" destination="TNN-sR-M6h" eventType="touchUpInside" id="Iht-71-p7o"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RG8-xG-HXV">
+                                <rect key="frame" x="193" y="379" width="156" height="34"/>
+                                <color key="backgroundColor" red="1" green="0.61509414070000001" blue="0.33767020959999999" alpha="1" colorSpace="calibratedRGB"/>
+                                <state key="normal" title="注册"/>
+                                <connections>
+                                    <action selector="reginButton:" destination="TNN-sR-M6h" eventType="touchUpInside" id="eNS-l6-KWu"/>
+                                    <action selector="touchDengLu:" destination="TNN-sR-M6h" eventType="touchUpInside" id="klr-bk-y6C"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -54,6 +93,10 @@
                     </view>
                     <navigationItem key="navigationItem" title="denglu" id="dpg-f0-uVf"/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
+                    <connections>
+                        <outlet property="passwordText" destination="Qep-Pr-2mG" id="xUf-3t-fMu"/>
+                        <outlet property="userText" destination="Qep-Pr-2mG" id="L84-oL-Oyh"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="W4I-jw-tdC" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

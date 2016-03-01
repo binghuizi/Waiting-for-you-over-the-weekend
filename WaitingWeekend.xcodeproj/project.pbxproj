@@ -472,6 +472,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7A13ABFA1C48E9B400007192 /* CoreLocation.framework in Frameworks */,
 				7A13ABFE1C48EA1500007192 /* CFNetwork.framework in Frameworks */,
 				7A13AC061C48EA9800007192 /* MediaPlayer.framework in Frameworks */,
 				7A13AC041C48EA8800007192 /* AVFoundation.framework in Frameworks */,
@@ -479,7 +480,6 @@
 				7A13AC001C48EA5100007192 /* libz.1.2.5.tbd in Frameworks */,
 				7AF21E161C46507400F4ED1E /* SystemConfiguration.framework in Frameworks */,
 				7A13ABFC1C48EA0200007192 /* MobileCoreServices.framework in Frameworks */,
-				7A13ABFA1C48E9B400007192 /* CoreLocation.framework in Frameworks */,
 				7AF21E351C467AFE00F4ED1E /* libc++.tbd in Frameworks */,
 				7A13ABF81C48E93E00007192 /* BmobSDK.framework in Frameworks */,
 				7AF21E331C467AE900F4ED1E /* libsqlite3.0.tbd in Frameworks */,

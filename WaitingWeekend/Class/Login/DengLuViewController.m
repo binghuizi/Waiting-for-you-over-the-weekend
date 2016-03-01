@@ -23,6 +23,10 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     [self showBackButton];
+    self.navigationController.navigationBar.barTintColor = mainColor;
+}
+- (void)backAction:(UIButton *)btn{
+    [self.navigationController dismissViewControllerAnimated:YES completion:nil];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -105,6 +109,24 @@
             }
         }
     }];
+    
+    
+    
+}
+
+- (IBAction)touchDengLu:(id)sender {
+    
+    
+  
+}
+
+- (IBAction)reginButton:(id)sender {
+    
+    BmobUser *bUser = [[BmobUser alloc] init];
+    
+    
+    
+    
     
     
     
