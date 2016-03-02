@@ -28,7 +28,7 @@
     // Do any additional setup after loading the view.
     self.navigationItem.title = @"热门专题";
     
-    [self showBackButton];
+    [self showBackButton:@"back"];
     
     [self loadData];
     

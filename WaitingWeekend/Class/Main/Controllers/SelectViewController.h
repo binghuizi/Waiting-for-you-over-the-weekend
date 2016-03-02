@@ -9,5 +9,11 @@
 #import <UIKit/UIKit.h>
 
 @interface SelectViewController : UIViewController
+@property (weak, nonatomic) IBOutlet UILabel *cityNameLabel;
+- (IBAction)dingweiButton:(id)sender;
+@property (weak, nonatomic) IBOutlet UIScrollView *scrollView;
+
+
+
 
 @end

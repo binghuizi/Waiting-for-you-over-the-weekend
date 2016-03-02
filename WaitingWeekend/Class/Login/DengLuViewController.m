@@ -22,7 +22,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-    [self showBackButton];
+    [self showBackButton:@"back"];
     self.navigationController.navigationBar.barTintColor = mainColor;
 }
 - (void)backAction:(UIButton *)btn{
@@ -122,7 +122,7 @@
 
 - (IBAction)reginButton:(id)sender {
     
-    BmobUser *bUser = [[BmobUser alloc] init];
+    
     
     
     

@@ -38,7 +38,7 @@
   
     
     
-    [self showBackButton];
+    [self showBackButton:@"back"];
     [self getModel];
 }
 #pragma mark ---数据

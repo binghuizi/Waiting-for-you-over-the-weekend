@@ -35,7 +35,7 @@
     // Do any additional setup after loading the view.
     //分裂列表
     
-    [self showBackButton];
+    [self showBackButton:@"back"];
     //四个请求
     
 //    [self getShowRequest];

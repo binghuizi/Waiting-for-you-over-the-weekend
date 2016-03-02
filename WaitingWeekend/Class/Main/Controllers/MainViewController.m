@@ -18,21 +18,28 @@
 #import "ClassityViewController.h"
 #import "GoodViewController.h"
 #import "HotActivityViewController.h"
-
-@interface MainViewController ()<UITableViewDataSource,UITableViewDelegate,UIScrollViewDelegate>
+#import "SelectCityViewController.h"
+@interface MainViewController ()<UITableViewDataSource,UITableViewDelegate,UIScrollViewDelegate,SelectCityDelegate>
+{
+    BOOL b;
+}
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 @property(nonatomic,strong) NSMutableArray *listArray;//全部列表数据
+@property(nonatomic,strong) NSMutableArray *allListArray;
 //推荐活动数组
 @property(nonatomic,strong) NSMutableArray *activityArray;
+@property(nonatomic,strong) NSMutableArray *allActivityArray;
 //推荐专题数组
 @property(nonatomic,strong) NSMutableArray *specialArray;
-//广告
+@property(nonatomic,strong) NSMutableArray *allSpecialArray;
+//轮番广告
 @property(nonatomic,strong) NSMutableArray *adArray;
+@property(nonatomic,strong) NSMutableArray *allAdArray;
 @property(nonatomic,strong) UIScrollView *scrollView;
 @property(nonatomic,strong) UIPageControl *pageControl;
 @property(nonatomic,strong) NSTimer *timer;//定时器用于图片滚动
-@property(nonatomic,strong)UIView *tableHeaderView;
-
+@property(nonatomic,strong) UIView *tableHeaderView;
+@property(nonatomic,retain) UIButton *leftbtn;
 
 
 
@@ -43,6 +50,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    self.cityId = @"1";
 //导航栏上按钮和文字颜色
     self.navigationController.navigationBar.tintColor = [UIColor whiteColor];
 //导航栏颜色
@@ -54,12 +62,28 @@
     self.navigationItem.rightBarButtonItem = rightBarButton;
 
     
+    b = 1;
+    self.leftbtn=[UIButton buttonWithType:UIButtonTypeCustom];
+    self.leftbtn.frame=CGRectMake(0, 0, 60, 44);
+    [self.leftbtn setTitle:@"北京" forState:UIControlStateNormal];
     
+    [self.leftbtn setImage:[UIImage imageNamed:@"btn_chengshi"] forState:UIControlStateNormal];
+    [self.leftbtn  addTarget:self action:@selector(selectCityAction:) forControlEvents:UIControlEventTouchUpInside];
+    //调整btn图片的位置，top, left, bottom, right;
+    [self.leftbtn setImageEdgeInsets:UIEdgeInsetsMake(0, self.leftbtn.frame.size.width-25, 0, 0)];
+    [self.leftbtn setTitleEdgeInsets:UIEdgeInsetsMake(0, -30, 0, 10)];
     
 //左按钮
-    UIBarButtonItem *leftBarButton = [[UIBarButtonItem alloc]initWithTitle:@"杭州≡" style:UIBarButtonItemStylePlain target:self action:@selector(selectCityAction:)];
+//    UIBarButtonItem *leftBarButton = [[UIBarButtonItem alloc]initWithTitle:@"杭州≡" style:UIBarButtonItemStylePlain target:self action:@selector(selectCityAction:)];
     
+    UIBarButtonItem *leftBarButton = [[UIBarButtonItem alloc]initWithCustomView:self.leftbtn];
     self.navigationItem.leftBarButtonItem = leftBarButton;
+    
+    //调整btn的位置
+    
+    
+    
+    
 //设置按钮的透明度
    // self.automaticallyAdjustsScrollViewInsets = NO;
 //注册cell
@@ -71,8 +95,37 @@
 //请求网络数据
    [self requestModel];
     [self startTimer];
+    
+    
    
 }
+#pragma mark --- 自定义代理实现方法
+//代理方法
+-(void)getCityName:(NSString *)cityName cityId:(NSString *)cityId{
+   
+    
+    [self.leftbtn setTitle:cityName forState:UIControlStateNormal];
+    self.cityId = cityId;
+    
+    NSInteger edge = -20;
+    if (cityName.length > 2) {
+        edge = -10;
+        
+    }
+    [self.leftbtn setImageEdgeInsets:UIEdgeInsetsMake(0, self.leftbtn.frame.size.width + edge, 0, 0)];
+    
+    if (self.allAdArray.count > 0) {
+        [self.allAdArray removeAllObjects];
+        [self.allListArray removeAllObjects];
+        [self.allActivityArray removeAllObjects];
+        [self.allSpecialArray removeAllObjects];
+    }
+    
+    
+    [self requestModel];
+    
+}
+
 -(void)viewWillDisappear:(BOOL)animated{
     [super viewWillAppear:animated];
     self.tabBarController.tabBar.hidden = NO;
@@ -80,20 +133,28 @@
 #pragma mark -----自定义TableView头部
 //自定义头部
 - (void)configTableView{
+    
+    
+       self.allAdArray       = self.adArray;
+       self.allActivityArray = self.activityArray;
+       self.allSpecialArray  = self.specialArray;
+       self.allListArray     = self.listArray;
+    
+   
         self.tableHeaderView = [[UIView alloc]init];
         self.tableHeaderView.frame = CGRectMake(0, 0, kWideth, 343);
     
     [self.tableHeaderView addSubview:self.scrollView];
 //圆点个数
-    self.pageControl.numberOfPages = self.adArray.count;
+    self.pageControl.numberOfPages = self.allAdArray.count;
     [self.tableHeaderView addSubview:self.pageControl];
 #pragma mark --------给ScrollView添加图片
     
-    for (int i = 0; i < self.adArray.count; i++) {
+    for (int i = 0; i < self.allAdArray.count; i++) {
         UIImageView *imageView = [[UIImageView alloc]initWithFrame:CGRectMake(kWideth * i, 0, kWideth, 186)];
         
         imageView.userInteractionEnabled = YES;
-        [imageView sd_setImageWithURL:[NSURL URLWithString:self.adArray[i][@"url"]] placeholderImage:nil];
+        [imageView sd_setImageWithURL:[NSURL URLWithString:self.self.allAdArray[i][@"url"]] placeholderImage:nil];
         [self.scrollView addSubview:imageView];
         
         
@@ -138,7 +199,7 @@
         self.scrollView = [[UIScrollView alloc]initWithFrame:CGRectMake(0, 0, kWideth, 186)];
         self.scrollView.delegate = self;
         //控制滑动属性 可以添加5张图片
-        self.scrollView.contentSize = CGSizeMake(self.adArray.count*kWideth, 186);
+        self.scrollView.contentSize = CGSizeMake(self.self.allAdArray.count*kWideth, 186);
         //整屏滑动；
         self.scrollView.pagingEnabled = YES;
         //垂直方向是否显示滚动条NO 不显示
@@ -198,13 +259,13 @@
 //每两秒执行该方法
 - (void)updateTimer{
     //当self.adArray.count数据组元素个数为0当对0取于时候没有意义
-    if (self.adArray.count > 0) {
+    if (self.allAdArray.count > 0) {
        
     
     //当前页数加1
     NSInteger page = self.pageControl.currentPage + 1;
    // CGFloat offSex = page *kWideth;
-    CGFloat offSex = page %self.adArray.count;
+    CGFloat offSex = page %self.allAdArray.count;
     //NSLog(@"%f",offSex);
     self.pageControl.currentPage = offSex;
    // [self.scrollView setContentOffset:CGPointMake(offSex, 0) animated:YES];
@@ -230,13 +291,13 @@
 //行
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
     if (section == 0) {
-        return self.activityArray.count;
+        return self.allActivityArray.count;
     }
-    return  self.specialArray.count;
+    return  self.allSpecialArray.count;
 }
 //分区
 -(NSInteger)numberOfSectionsInTableView:(UITableView *)tableView{
-    return self.listArray.count;
+    return self.allListArray.count;
 }
 //cell
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
@@ -244,7 +305,7 @@
     
     MainTableViewCell *mainCell = [tableView dequeueReusableCellWithIdentifier:@"cell" forIndexPath:indexPath];
    
-    NSMutableArray *array = self.listArray[indexPath.section];
+    NSMutableArray *array = self.allListArray[indexPath.section];
     mainCell.mainModel = array[indexPath.row];
     
     
@@ -280,12 +341,31 @@
 }
 //左按钮选择城市
 -(void)selectCityAction:(UIBarButtonItem *)bar{
-    SelectViewController *selectCity = [[SelectViewController alloc]init];
+    if (b == 0) {
+        SelectViewController *selectCity = [[SelectViewController alloc]initWithNibName:@"SelectCity" bundle:nil];
+        UINavigationController *nav = [[UINavigationController alloc]initWithRootViewController:selectCity];
+        
     
-    UINavigationController *nav = [[UINavigationController alloc]initWithRootViewController:selectCity];
+        
+        [self.navigationController presentViewController:nav animated:YES completion:nil];
+        b = 1;
+    }else if (b == 1){
+        SelectCityViewController *select = [[SelectCityViewController alloc]init];
+        
+        UINavigationController *nav = [[UINavigationController alloc]initWithRootViewController:select];
+       
+        select.delegateSelect=self;
+        select.cityName = [NSString stringWithFormat:@"%@",self.leftbtn.titleLabel.text];
+        
+        [self.navigationController presentViewController:nav animated:YES completion:nil];
+       // b = 0;
+    }
     
     
-    [self.navigationController presentViewController:nav animated:YES completion:nil];
+    
+   
+    
+    
     
     
     
@@ -294,6 +374,9 @@
 //右按钮查找
 - (void)rightBarAction{
     SearchViewController *search = [[SearchViewController alloc]init];
+    
+
+    
     [self.navigationController pushViewController:search animated:YES];
 }
 #pragma mark ------网络请求解析 获得数据
@@ -303,9 +386,12 @@
     AFHTTPSessionManager *sessionManager = [AFHTTPSessionManager manager];
    
     sessionManager.responseSerializer.acceptableContentTypes = [NSSet setWithObject:@"text/html"];
+   //经度纬度
+    NSNumber *lat = [[NSUserDefaults standardUserDefaults]valueForKey:@"lat"];
+    NSNumber *lng = [[NSUserDefaults standardUserDefaults]valueForKey:@"lng"];
     
-    
-    [sessionManager GET:str parameters:nil progress:^(NSProgress * _Nonnull downloadProgress) {
+    //lat 34.62172291944134  lng112.4149512442411
+    [sessionManager GET:[NSString stringWithFormat:@"%@&cityid=%@&lat=%@&lng=%@",str,self.cityId,lat,lng] parameters:nil progress:^(NSProgress * _Nonnull downloadProgress) {
         ZJHLog(@"%@",downloadProgress);
     } success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
       //  ZJHLog(@"%@",responseObject);//json数据
@@ -337,7 +423,7 @@
 //刷新数据
             [self.tableView reloadData];
             
-//广告
+//轮番广告
             NSArray *adDataArray = dic[@"adData"];
             for (NSDictionary *dic in adDataArray) {
                 NSDictionary *dict = @{@"url":dic[@"url"],@"type":dic[@"type"],@"id":dic[@"id"]};
@@ -455,27 +541,49 @@
     }
     return _listArray;
 }
+-(NSMutableArray *)allListArray{
+    if (_allListArray == nil) {
+        self.allListArray = [NSMutableArray new];
+    }
+    return _allListArray;
+}
+
 -(NSMutableArray *)activityArray{
     if (_activityArray == nil) {
         self.activityArray = [NSMutableArray new];
     }
     return _activityArray;
 }
-
+-(NSMutableArray *)allActivityArray{
+    if (_allActivityArray == nil) {
+        self.allActivityArray = [NSMutableArray new];
+    }
+    return _allActivityArray;
+}
 -(NSMutableArray *)specialArray{
     if (_specialArray == nil) {
         self.specialArray = [NSMutableArray new];
     }
     return _specialArray;
 }
-
+-(NSMutableArray *)allSpecialArray{
+    if (_allSpecialArray == nil) {
+        self.allSpecialArray = [NSMutableArray new];
+    }
+    return _allSpecialArray;
+}
 -(NSMutableArray *)adArray{
     if (_adArray == nil) {
         self.adArray = [NSMutableArray new];
     }
     return _adArray;
 }
-
+-(NSMutableArray *)allAdArray{
+    if (_allAdArray == nil) {
+        self.allAdArray = [NSMutableArray new];
+    }
+    return _allAdArray;
+}
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.

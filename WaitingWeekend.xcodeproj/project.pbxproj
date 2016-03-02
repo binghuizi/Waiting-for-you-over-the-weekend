@@ -27,6 +27,9 @@
 		7A3835B91C3CBFE4000CA4C9 /* ClassityViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A3835B81C3CBFE4000CA4C9 /* ClassityViewController.m */; };
 		7A3835BC1C3CC062000CA4C9 /* GoodViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A3835BB1C3CC062000CA4C9 /* GoodViewController.m */; };
 		7A3835BF1C3CC076000CA4C9 /* HotActivityViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A3835BE1C3CC076000CA4C9 /* HotActivityViewController.m */; };
+		7A445F981C85241C007B3123 /* cityplace.plist in Resources */ = {isa = PBXBuildFile; fileRef = 7A445F971C85241C007B3123 /* cityplace.plist */; };
+		7A445F9E1C8526C6007B3123 /* CityPlaceModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A445F9D1C8526C6007B3123 /* CityPlaceModel.m */; };
+		7A445FAA1C8538CB007B3123 /* SelectCity.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7A445FA91C8538CB007B3123 /* SelectCity.xib */; };
 		7A450AE11C3A238E00DDDA0F /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A450AE01C3A238E00DDDA0F /* main.m */; };
 		7A450AE41C3A238E00DDDA0F /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A450AE31C3A238E00DDDA0F /* AppDelegate.m */; };
 		7A450AE61C3A238E00DDDA0F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7A450AE51C3A238E00DDDA0F /* Assets.xcassets */; };
@@ -45,6 +48,9 @@
 		7A95C4641C44FA67002997E6 /* DiscoverTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7A95C4621C44FA67002997E6 /* DiscoverTableViewCell.xib */; };
 		7A95C4801C4510EF002997E6 /* discover.plist in Resources */ = {isa = PBXBuildFile; fileRef = 7A95C47F1C4510EF002997E6 /* discover.plist */; };
 		7A95C4831C4511EE002997E6 /* DiscoverModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A95C4821C4511EE002997E6 /* DiscoverModel.m */; };
+		7A963A771C856F170022C79D /* SelectCityViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A963A761C856F170022C79D /* SelectCityViewController.m */; };
+		7A963A7A1C8588B20022C79D /* HeaderCollectionReusableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A963A791C8588B20022C79D /* HeaderCollectionReusableView.m */; };
+		7A963A7C1C8593EE0022C79D /* HeaderCollectionReusableView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7A963A7B1C8593EE0022C79D /* HeaderCollectionReusableView.xib */; };
 		7A971AF81C47ADAA00A66330 /* res6.gif in Resources */ = {isa = PBXBuildFile; fileRef = 7A971AF61C47ADAA00A66330 /* res6.gif */; };
 		7A971AF91C47ADAA00A66330 /* res6thumb.png in Resources */ = {isa = PBXBuildFile; fileRef = 7A971AF71C47ADAA00A66330 /* res6thumb.png */; };
 		7A984D7B1C3F9F43000F830E /* HWTools.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A984D681C3F9F43000F830E /* HWTools.m */; };
@@ -179,6 +185,7 @@
 		7AA7BE3E1C3FD27000C3DCAD /* good.plist in Resources */ = {isa = PBXBuildFile; fileRef = 7AA7BE3D1C3FD27000C3DCAD /* good.plist */; };
 		7AAE40A41C3F57DF00022CB0 /* Them.plist in Resources */ = {isa = PBXBuildFile; fileRef = 7AAE40A31C3F57DF00022CB0 /* Them.plist */; };
 		7AAE40A71C3F5EE100022CB0 /* ActivityThemView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7AAE40A61C3F5EE100022CB0 /* ActivityThemView.m */; };
+		7AAE90A61C868BCA0028AF60 /* searchActivity.plist in Resources */ = {isa = PBXBuildFile; fileRef = 7AAE90A51C868BCA0028AF60 /* searchActivity.plist */; };
 		7AB819311C449F1A00EF1500 /* ProgressHUD.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 7AB8192E1C449F1A00EF1500 /* ProgressHUD.bundle */; };
 		7AB819321C449F1A00EF1500 /* ProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = 7AB819301C449F1A00EF1500 /* ProgressHUD.m */; };
 		7ACB5D201C43C72E0050058E /* HotTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 7ACB5D1E1C43C72E0050058E /* HotTableViewCell.m */; };
@@ -242,6 +249,10 @@
 		7A3835BB1C3CC062000CA4C9 /* GoodViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GoodViewController.m; sourceTree = "<group>"; };
 		7A3835BD1C3CC076000CA4C9 /* HotActivityViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HotActivityViewController.h; sourceTree = "<group>"; };
 		7A3835BE1C3CC076000CA4C9 /* HotActivityViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HotActivityViewController.m; sourceTree = "<group>"; };
+		7A445F971C85241C007B3123 /* cityplace.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist; path = cityplace.plist; sourceTree = "<group>"; };
+		7A445F9C1C8526C6007B3123 /* CityPlaceModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CityPlaceModel.h; sourceTree = "<group>"; };
+		7A445F9D1C8526C6007B3123 /* CityPlaceModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CityPlaceModel.m; sourceTree = "<group>"; };
+		7A445FA91C8538CB007B3123 /* SelectCity.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SelectCity.xib; sourceTree = "<group>"; };
 		7A450ADC1C3A238E00DDDA0F /* WaitingWeekend.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WaitingWeekend.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7A450AE01C3A238E00DDDA0F /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		7A450AE21C3A238E00DDDA0F /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -270,6 +281,11 @@
 		7A95C47F1C4510EF002997E6 /* discover.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist; path = discover.plist; sourceTree = "<group>"; };
 		7A95C4811C4511EE002997E6 /* DiscoverModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DiscoverModel.h; sourceTree = "<group>"; };
 		7A95C4821C4511EE002997E6 /* DiscoverModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DiscoverModel.m; sourceTree = "<group>"; };
+		7A963A751C856F170022C79D /* SelectCityViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SelectCityViewController.h; sourceTree = "<group>"; };
+		7A963A761C856F170022C79D /* SelectCityViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SelectCityViewController.m; sourceTree = "<group>"; };
+		7A963A781C8588B20022C79D /* HeaderCollectionReusableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HeaderCollectionReusableView.h; sourceTree = "<group>"; };
+		7A963A791C8588B20022C79D /* HeaderCollectionReusableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HeaderCollectionReusableView.m; sourceTree = "<group>"; };
+		7A963A7B1C8593EE0022C79D /* HeaderCollectionReusableView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HeaderCollectionReusableView.xib; sourceTree = "<group>"; };
 		7A971AF61C47ADAA00A66330 /* res6.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = res6.gif; sourceTree = "<group>"; };
 		7A971AF71C47ADAA00A66330 /* res6thumb.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = res6thumb.png; sourceTree = "<group>"; };
 		7A984D661C3F9F43000F830E /* HWDefine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HWDefine.h; sourceTree = "<group>"; };
@@ -418,6 +434,7 @@
 		7AAE40A31C3F57DF00022CB0 /* Them.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist; path = Them.plist; sourceTree = "<group>"; };
 		7AAE40A51C3F5EE100022CB0 /* ActivityThemView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ActivityThemView.h; sourceTree = "<group>"; };
 		7AAE40A61C3F5EE100022CB0 /* ActivityThemView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ActivityThemView.m; sourceTree = "<group>"; };
+		7AAE90A51C868BCA0028AF60 /* searchActivity.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist; path = searchActivity.plist; sourceTree = "<group>"; };
 		7AB8192E1C449F1A00EF1500 /* ProgressHUD.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = ProgressHUD.bundle; sourceTree = "<group>"; };
 		7AB8192F1C449F1A00EF1500 /* ProgressHUD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProgressHUD.h; sourceTree = "<group>"; };
 		7AB819301C449F1A00EF1500 /* ProgressHUD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProgressHUD.m; sourceTree = "<group>"; };
@@ -692,6 +709,9 @@
 				7A995E801C3A4E4700B5809C /* MainViewController.m */,
 				7A3835AE1C3CBE29000CA4C9 /* SelectViewController.h */,
 				7A3835AF1C3CBE29000CA4C9 /* SelectViewController.m */,
+				7A445FA91C8538CB007B3123 /* SelectCity.xib */,
+				7A963A751C856F170022C79D /* SelectCityViewController.h */,
+				7A963A761C856F170022C79D /* SelectCityViewController.m */,
 				7A3835AB1C3CBD9D000CA4C9 /* SearchViewController.h */,
 				7A3835AC1C3CBD9D000CA4C9 /* SearchViewController.m */,
 				7A3835B11C3CBE72000CA4C9 /* ActivityDetailViewController.h */,
@@ -727,6 +747,10 @@
 				7A5D01BB1C43A80D00900A39 /* typeud21.plist */,
 				7A5D01B91C43A80100900A39 /* typeid22.plist */,
 				7A5D01BD1C43A81900900A39 /* typeid23.plist */,
+				7A445F971C85241C007B3123 /* cityplace.plist */,
+				7A445F9C1C8526C6007B3123 /* CityPlaceModel.h */,
+				7A445F9D1C8526C6007B3123 /* CityPlaceModel.m */,
+				7AAE90A51C868BCA0028AF60 /* searchActivity.plist */,
 			);
 			path = Modes;
 			sourceTree = "<group>";
@@ -749,6 +773,9 @@
 				7ACB5D1D1C43C72E0050058E /* HotTableViewCell.h */,
 				7ACB5D1E1C43C72E0050058E /* HotTableViewCell.m */,
 				7ACB5D1F1C43C72E0050058E /* HotTableViewCell.xib */,
+				7A963A781C8588B20022C79D /* HeaderCollectionReusableView.h */,
+				7A963A791C8588B20022C79D /* HeaderCollectionReusableView.m */,
+				7A963A7B1C8593EE0022C79D /* HeaderCollectionReusableView.xib */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -1092,6 +1119,7 @@
 				7A995F631C3A5A3600B5809C /* 87-wineglass.png in Resources */,
 				7A995F151C3A5A3600B5809C /* 108-badge.png in Resources */,
 				7A995F521C3A5A3600B5809C /* 70-tv.png in Resources */,
+				7A963A7C1C8593EE0022C79D /* HeaderCollectionReusableView.xib in Resources */,
 				7A995F2B1C3A5A3600B5809C /* 30-key.png in Resources */,
 				7A995F361C3A5A3600B5809C /* 42-photos.png in Resources */,
 				7AFDAA911C3E14E900821630 /* XiangQing.plist in Resources */,
@@ -1162,6 +1190,7 @@
 				7A971AF81C47ADAA00A66330 /* res6.gif in Resources */,
 				7A995F471C3A5A3600B5809C /* 59-flag.png in Resources */,
 				7A995F051C3A5A3600B5809C /* 03-loopback.png in Resources */,
+				7A445FAA1C8538CB007B3123 /* SelectCity.xib in Resources */,
 				7A995F511C3A5A3600B5809C /* 69-display.png in Resources */,
 				7A450AE61C3A238E00DDDA0F /* Assets.xcassets in Resources */,
 				7A995F0A1C3A5A3600B5809C /* 08-chat.png in Resources */,
@@ -1176,6 +1205,7 @@
 				7A5D01B81C43A7EF00900A39 /* typeid6.plist in Resources */,
 				7A995F381C3A5A3600B5809C /* 44-shoebox.png in Resources */,
 				7A995F3B1C3A5A3600B5809C /* 47-fuel.png in Resources */,
+				7AAE90A61C868BCA0028AF60 /* searchActivity.plist in Resources */,
 				7A995F221C3A5A3600B5809C /* 21-skull.png in Resources */,
 				7A995F641C3A5A3600B5809C /* 88-beermug.png in Resources */,
 				7AFDAA8C1C3DFE4F00821630 /* ActivityDetail.storyboard in Resources */,
@@ -1187,6 +1217,7 @@
 				7A995F391C3A5A3600B5809C /* 45-movie1.png in Resources */,
 				7A98C7101C3BB7CC0079DEB9 /* ShouYe.plist in Resources */,
 				7A995F4E1C3A5A3600B5809C /* 66-microphone.png in Resources */,
+				7A445F981C85241C007B3123 /* cityplace.plist in Resources */,
 				7AA7BE3E1C3FD27000C3DCAD /* good.plist in Resources */,
 				7A995F3E1C3A5A3600B5809C /* 50-beaker.png in Resources */,
 			);
@@ -1247,6 +1278,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7A963A7A1C8588B20022C79D /* HeaderCollectionReusableView.m in Sources */,
 				7AAE40A71C3F5EE100022CB0 /* ActivityThemView.m in Sources */,
 				7A984D7C1C3F9F43000F830E /* UIView+Extension.m in Sources */,
 				7A984D7B1C3F9F43000F830E /* HWTools.m in Sources */,
@@ -1256,6 +1288,7 @@
 				7A95C4631C44FA67002997E6 /* DiscoverTableViewCell.m in Sources */,
 				7A995F741C3A766C00B5809C /* MainTableViewCell.m in Sources */,
 				7A450AE41C3A238E00DDDA0F /* AppDelegate.m in Sources */,
+				7A963A771C856F170022C79D /* SelectCityViewController.m in Sources */,
 				7A5D01B61C439C3800900A39 /* HotThemModel.m in Sources */,
 				7AFCC71C1C47388E00D496BC /* ShareView.m in Sources */,
 				7A5D01AB1C43997C00900A39 /* VOContentLayer.m in Sources */,
@@ -1275,6 +1308,7 @@
 				7A2B02831C45FD7E006F3239 /* RegisterViewController.m in Sources */,
 				7AB819321C449F1A00EF1500 /* ProgressHUD.m in Sources */,
 				7A13AC0F1C48FA4900007192 /* DengLuViewController.m in Sources */,
+				7A445F9E1C8526C6007B3123 /* CityPlaceModel.m in Sources */,
 				7A984D881C3FA0E7000F830E /* PullingRefreshTableView.m in Sources */,
 				7AFDAA8F1C3E10E100821630 /* ActivityDetailView.m in Sources */,
 				7A3835B01C3CBE29000CA4C9 /* SelectViewController.m in Sources */,

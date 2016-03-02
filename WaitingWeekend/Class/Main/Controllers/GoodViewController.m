@@ -27,7 +27,7 @@
     // Do any additional setup after loading the view.
     self.navigationItem.title = @"精选活动";
     
-    [self showBackButton];
+    [self showBackButton:@"back"];
     
      [self loadData];
     

@@ -10,11 +10,11 @@
 
 @implementation UIViewController (Common)
 //导航栏
-- (void)showBackButton{
+- (void)showBackButton:(NSString *)imageName{
     UIButton *button = [UIButton buttonWithType:UIButtonTypeCustom];
     button.frame = CGRectMake(0, 0, 44, 44);
     [button addTarget:self action:@selector(backAction:) forControlEvents:UIControlEventTouchUpInside];
-    [button setImage:[UIImage imageNamed:@"back"] forState:UIControlStateNormal];
+    [button setImage:[UIImage imageNamed:imageName] forState:UIControlStateNormal];
     UIBarButtonItem *leftBar = [[UIBarButtonItem alloc]initWithCustomView:button];
     self.navigationItem.leftBarButtonItem = leftBar;
 }

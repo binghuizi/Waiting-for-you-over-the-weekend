@@ -31,7 +31,7 @@
     // Do any additional setup after loading the view.
     self.navigationItem.title = @"推荐专题";
     
-    [self showBackButton];
+    [self showBackButton:@"back"];
     
 }
 #pragma mark --- model

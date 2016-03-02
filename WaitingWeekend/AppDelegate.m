@@ -200,15 +200,21 @@
    //获取坐标 坐标系包含经度维度
     CLLocationCoordinate2D coordinate = location.coordinate;//经纬度
     ZJHLog(@"经度：%f,维度:%f,海拔：%f,航向：%f,行走速度：%f",coordinate.longitude,coordinate.latitude,location.altitude,location.course,location.speed);
-    
-    
   NSLog(@"%@",location);
-    
-    
+ //经度纬度
+    NSUserDefaults *userDefults = [NSUserDefaults standardUserDefaults];
+    [userDefults setValue:[NSNumber numberWithDouble:coordinate.latitude] forKey:@"lat"];
+    [userDefults setValue:[NSNumber numberWithDouble:coordinate.longitude] forKey:@"lng"];
     
     [_geocoder reverseGeocodeLocation:location completionHandler:^(NSArray<CLPlacemark *> * _Nullable placemarks, NSError * _Nullable error) {
         CLPlacemark *placeMark = [placemarks firstObject];
         NSLog(@"%@",placeMark.addressDictionary);
+        
+        [[NSUserDefaults standardUserDefaults]setValue:placeMark.addressDictionary[@"city"] forKey:@"city"];
+        //保存
+        [userDefults synchronize];
+        
+        
     }];
     
     

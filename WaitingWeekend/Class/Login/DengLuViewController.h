@@ -16,4 +16,9 @@
 
 - (IBAction)reginButton:(id)sender;
 
+
+@property (weak, nonatomic) IBOutlet UITextField *userName;
+@property (weak, nonatomic) IBOutlet UITextField *passWord;
+
+
 @end
